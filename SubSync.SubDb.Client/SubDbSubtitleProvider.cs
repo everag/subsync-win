@@ -89,7 +89,7 @@ namespace SubSync.SubDb.Client
         {
             get
             {
-                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", "SubSync", "0.1", "http://noogenese.com.br");
+                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", "SubSync", "0.1", "https://subsync.codeplex.com");
             }
         }
 
