@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,13 +11,15 @@ namespace SubSync.Lib
 {
     public interface ISubtitleProvider
     {
-        List<CultureInfo> GetAvailableLanguages(FileStream file);
+        ISet<CultureInfo> GetSupportedLanguages();
 
-        Stream GetSubtitle(FileStream file, CultureInfo language);
+        ISet<CultureInfo> GetAvailableLanguages(FileStream file);
 
-        Stream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages);
+        SubtitleStream GetSubtitle(FileStream file, CultureInfo language);
 
-        // Dictionary<CultureInfo, Stream> GetSubtitle(FileStream file, List<CultureInfo> languages);
+        SubtitleStream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages);
+
+        IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages);
 
         Stream SendRequest(string url);
 

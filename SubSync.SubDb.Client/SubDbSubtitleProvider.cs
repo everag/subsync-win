@@ -16,43 +16,62 @@ namespace SubSync.SubDb.Client
     {
         private WebClient client = new WebClient();
 
-        public List<CultureInfo> GetAvailableLanguages(FileStream file)
+        public ISet<CultureInfo> GetSupportedLanguages()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ISet<CultureInfo> GetAvailableLanguages(FileStream file)
         {
             string hash = file.CalculateSubDbHash();
             string url = String.Format("{0}/?action=search&hash={1}", ApiUrl, hash);
 
             var responseStream = SendRequest(url);
+            var languages = new HashSet<CultureInfo>();
 
             if (responseStream != null)
             {
                 using (responseStream)
                 {
-                    var languages = new StreamReader(responseStream).ReadToEnd();
-                    return languages.Split(',').Select(lan => CultureInfo.GetCultureInfo(lan)).ToList();
+                    var languageCodes = new StreamReader(responseStream).ReadToEnd();
+                    languages.Concat(languageCodes.Split(',').Select(lan => CultureInfo.GetCultureInfo(lan)));
                 }
             }
-            else
-            {
-                return new List<CultureInfo>();
-            }
+
+            return languages;
         }
 
-        public Stream GetSubtitle(FileStream file, CultureInfo language)
+        public SubtitleStream GetSubtitle(FileStream file, CultureInfo language)
         {
             return GetSubtitle(file, language.TwoLetterISOLanguageName);
         }
 
-        public Stream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages)
+        public SubtitleStream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages)
         {
             return GetSubtitle(file, string.Join(",", languages.Select(lan => lan.TwoLetterISOLanguageName)));
         }
 
-        private Stream GetSubtitle(FileStream file, string languageCodes)
+        public IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages)
+        {
+            throw new NotImplementedException();
+        }
+
+        private SubtitleStream GetSubtitle(FileStream file, string languageCodes)
         {
             string hash = file.CalculateSubDbHash();
             string url = String.Format("{0}/?action=download&hash={1}&language={2}", ApiUrl, hash, languageCodes);
 
-            return SendRequest(url);
+            var subData = SendRequestForSubtitle(url);
+
+            if (subData != null)
+                return new SubtitleStream()
+                {
+                    Stream = subData.Item1,
+                    Language = subData.Item2,
+                    Hash = hash
+                };
+            else
+                return null;
         }
 
         public Stream SendRequest(string url)
@@ -61,6 +80,41 @@ namespace SubSync.SubDb.Client
             {
                 client.Headers.Add("user-agent", UserAgent);
                 return client.OpenRead(url);
+            }
+            catch (WebException e)
+            {
+                var httpStatusCode = (e.Response as HttpWebResponse).StatusCode;
+
+                var defaultException = new ApiRequestException(string.Format("An error occurred when trying to make a request to URL: {0} - Error: {1}", url), httpStatusCode, e);
+
+                if (e.Status == WebExceptionStatus.ProtocolError)
+                {
+                    switch (httpStatusCode)
+                    {
+                        case HttpStatusCode.NotFound:
+                            return null;
+                        case HttpStatusCode.BadRequest:
+                            throw new ApiRequestException(string.Format("Malformed URL: {0}", url), httpStatusCode, e);
+                        default:
+                            throw defaultException;
+                    }
+                }
+                else
+                    throw defaultException;
+            }
+        }
+
+        public Tuple<Stream, CultureInfo> SendRequestForSubtitle(string url)
+        {
+            try
+            {
+                client.Headers.Add("user-agent", UserAgent);
+                
+                var stream = client.OpenRead(url);
+                var languageCode = client.ResponseHeaders.Get("Content-Language");
+                var language = languageCode != null ? new CultureInfo(languageCode) : null;
+
+                return new Tuple<Stream, CultureInfo>(stream, language);
             }
             catch (WebException e)
             {
