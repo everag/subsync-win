@@ -28,77 +28,276 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PnWelcome = new System.Windows.Forms.Panel();
-            this.BtStart = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
             this.LbWelcomeMessage = new System.Windows.Forms.Label();
             this.LbWelcomeTitle = new System.Windows.Forms.Label();
-            this.PnWelcome.SuspendLayout();
+            this.GpbSelectDirectories = new System.Windows.Forms.GroupBox();
+            this.LstDirectories = new System.Windows.Forms.ListBox();
+            this.BtnRemoveDirectory = new System.Windows.Forms.Button();
+            this.BtnAddDirectory = new System.Windows.Forms.Button();
+            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.LbLanguages = new System.Windows.Forms.Label();
+            this.LstLanguagePreferences = new System.Windows.Forms.ListBox();
+            this.LbLanguagePreferences = new System.Windows.Forms.Label();
+            this.LstLanguages = new System.Windows.Forms.ListBox();
+            this.BtnLanguageAdd = new System.Windows.Forms.Button();
+            this.BtnLanguageRemove = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnLanguageDown = new System.Windows.Forms.Button();
+            this.BtnLanguageUp = new System.Windows.Forms.Button();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnStartStop = new System.Windows.Forms.Button();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.GpbSelectDirectories.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PnWelcome
-            // 
-            this.PnWelcome.Controls.Add(this.BtStart);
-            this.PnWelcome.Controls.Add(this.LbWelcomeMessage);
-            this.PnWelcome.Controls.Add(this.LbWelcomeTitle);
-            this.PnWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnWelcome.Location = new System.Drawing.Point(0, 0);
-            this.PnWelcome.Name = "PnWelcome";
-            this.PnWelcome.Size = new System.Drawing.Size(346, 293);
-            this.PnWelcome.TabIndex = 0;
-            // 
-            // BtStart
-            // 
-            this.BtStart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtStart.Location = new System.Drawing.Point(108, 183);
-            this.BtStart.Name = "BtStart";
-            this.BtStart.Size = new System.Drawing.Size(118, 36);
-            this.BtStart.TabIndex = 5;
-            this.BtStart.Text = "Start the tutorial";
-            this.BtStart.UseVisualStyleBackColor = true;
-            this.BtStart.Click += new System.EventHandler(this.BtStart_Click);
             // 
             // LbWelcomeMessage
             // 
             this.LbWelcomeMessage.AutoEllipsis = true;
             this.LbWelcomeMessage.AutoSize = true;
             this.LbWelcomeMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbWelcomeMessage.Location = new System.Drawing.Point(50, 126);
+            this.LbWelcomeMessage.Location = new System.Drawing.Point(42, 72);
             this.LbWelcomeMessage.Name = "LbWelcomeMessage";
-            this.LbWelcomeMessage.Size = new System.Drawing.Size(251, 17);
-            this.LbWelcomeMessage.TabIndex = 4;
-            this.LbWelcomeMessage.Text = "This tutorial will help you setup SubSync ;)";
+            this.LbWelcomeMessage.Size = new System.Drawing.Size(359, 17);
+            this.LbWelcomeMessage.TabIndex = 7;
+            this.LbWelcomeMessage.Text = "This simple setup will make SubSync up and running in a bit!";
             // 
             // LbWelcomeTitle
             // 
             this.LbWelcomeTitle.AutoSize = true;
-            this.LbWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbWelcomeTitle.Location = new System.Drawing.Point(71, 73);
+            this.LbWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbWelcomeTitle.Location = new System.Drawing.Point(83, 24);
             this.LbWelcomeTitle.Name = "LbWelcomeTitle";
-            this.LbWelcomeTitle.Size = new System.Drawing.Size(194, 25);
-            this.LbWelcomeTitle.TabIndex = 3;
-            this.LbWelcomeTitle.Text = "Welcome to SubSync!";
+            this.LbWelcomeTitle.Size = new System.Drawing.Size(275, 30);
+            this.LbWelcomeTitle.TabIndex = 6;
+            this.LbWelcomeTitle.Text = "Welcome to SubSync Alpha!";
+            // 
+            // GpbSelectDirectories
+            // 
+            this.GpbSelectDirectories.Controls.Add(this.LstDirectories);
+            this.GpbSelectDirectories.Controls.Add(this.BtnRemoveDirectory);
+            this.GpbSelectDirectories.Controls.Add(this.BtnAddDirectory);
+            this.GpbSelectDirectories.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GpbSelectDirectories.Location = new System.Drawing.Point(29, 116);
+            this.GpbSelectDirectories.Name = "GpbSelectDirectories";
+            this.GpbSelectDirectories.Size = new System.Drawing.Size(385, 118);
+            this.GpbSelectDirectories.TabIndex = 8;
+            this.GpbSelectDirectories.TabStop = false;
+            this.GpbSelectDirectories.Text = "Step 1 - Choose your media folders";
+            // 
+            // LstDirectories
+            // 
+            this.LstDirectories.AllowDrop = true;
+            this.LstDirectories.FormattingEnabled = true;
+            this.LstDirectories.HorizontalScrollbar = true;
+            this.LstDirectories.ItemHeight = 15;
+            this.LstDirectories.Location = new System.Drawing.Point(16, 26);
+            this.LstDirectories.Name = "LstDirectories";
+            this.LstDirectories.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.LstDirectories.Size = new System.Drawing.Size(276, 79);
+            this.LstDirectories.Sorted = true;
+            this.LstDirectories.TabIndex = 3;
+            this.LstDirectories.SelectedIndexChanged += new System.EventHandler(this.LstDirectories_SelectedIndexChanged);
+            this.LstDirectories.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LstDirectories_KeyDown);
+            // 
+            // BtnRemoveDirectory
+            // 
+            this.BtnRemoveDirectory.Enabled = false;
+            this.BtnRemoveDirectory.Location = new System.Drawing.Point(298, 70);
+            this.BtnRemoveDirectory.Name = "BtnRemoveDirectory";
+            this.BtnRemoveDirectory.Size = new System.Drawing.Size(75, 35);
+            this.BtnRemoveDirectory.TabIndex = 2;
+            this.BtnRemoveDirectory.Text = "Remove";
+            this.ToolTip.SetToolTip(this.BtnRemoveDirectory, "Remove the selected media folders");
+            this.BtnRemoveDirectory.UseVisualStyleBackColor = true;
+            this.BtnRemoveDirectory.Click += new System.EventHandler(this.BtnRemoveDirectory_Click);
+            // 
+            // BtnAddDirectory
+            // 
+            this.BtnAddDirectory.Location = new System.Drawing.Point(298, 26);
+            this.BtnAddDirectory.Name = "BtnAddDirectory";
+            this.BtnAddDirectory.Size = new System.Drawing.Size(75, 35);
+            this.BtnAddDirectory.TabIndex = 1;
+            this.BtnAddDirectory.Text = "Add";
+            this.ToolTip.SetToolTip(this.BtnAddDirectory, "Add a new media folder");
+            this.BtnAddDirectory.UseVisualStyleBackColor = true;
+            this.BtnAddDirectory.Click += new System.EventHandler(this.BtnAddDirectory_Click);
+            // 
+            // FolderBrowserDialog
+            // 
+            this.FolderBrowserDialog.Description = "Select your media folder";
+            // 
+            // LbLanguages
+            // 
+            this.LbLanguages.AutoSize = true;
+            this.LbLanguages.Location = new System.Drawing.Point(20, 29);
+            this.LbLanguages.Name = "LbLanguages";
+            this.LbLanguages.Size = new System.Drawing.Size(119, 15);
+            this.LbLanguages.TabIndex = 1;
+            this.LbLanguages.Text = "Supported languages";
+            // 
+            // LstLanguagePreferences
+            // 
+            this.LstLanguagePreferences.FormattingEnabled = true;
+            this.LstLanguagePreferences.HorizontalScrollbar = true;
+            this.LstLanguagePreferences.ItemHeight = 15;
+            this.LstLanguagePreferences.Location = new System.Drawing.Point(199, 48);
+            this.LstLanguagePreferences.Name = "LstLanguagePreferences";
+            this.LstLanguagePreferences.Size = new System.Drawing.Size(136, 94);
+            this.LstLanguagePreferences.TabIndex = 2;
+            this.LstLanguagePreferences.SelectedIndexChanged += new System.EventHandler(this.LstLanguagePreferences_SelectedIndexChanged);
+            // 
+            // LbLanguagePreferences
+            // 
+            this.LbLanguagePreferences.AutoSize = true;
+            this.LbLanguagePreferences.Location = new System.Drawing.Point(199, 29);
+            this.LbLanguagePreferences.Name = "LbLanguagePreferences";
+            this.LbLanguagePreferences.Size = new System.Drawing.Size(136, 15);
+            this.LbLanguagePreferences.TabIndex = 3;
+            this.LbLanguagePreferences.Text = "Your order of preference";
+            // 
+            // LstLanguages
+            // 
+            this.LstLanguages.FormattingEnabled = true;
+            this.LstLanguages.HorizontalScrollbar = true;
+            this.LstLanguages.ItemHeight = 15;
+            this.LstLanguages.Location = new System.Drawing.Point(19, 48);
+            this.LstLanguages.Name = "LstLanguages";
+            this.LstLanguages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.LstLanguages.Size = new System.Drawing.Size(136, 94);
+            this.LstLanguages.Sorted = true;
+            this.LstLanguages.TabIndex = 4;
+            this.LstLanguages.SelectedIndexChanged += new System.EventHandler(this.LstLanguages_SelectedIndexChanged);
+            // 
+            // BtnLanguageAdd
+            // 
+            this.BtnLanguageAdd.Enabled = false;
+            this.BtnLanguageAdd.Location = new System.Drawing.Point(162, 63);
+            this.BtnLanguageAdd.Name = "BtnLanguageAdd";
+            this.BtnLanguageAdd.Size = new System.Drawing.Size(31, 29);
+            this.BtnLanguageAdd.TabIndex = 5;
+            this.BtnLanguageAdd.Text = ">>";
+            this.BtnLanguageAdd.UseVisualStyleBackColor = true;
+            this.BtnLanguageAdd.Click += new System.EventHandler(this.BtnLanguageAdd_Click);
+            // 
+            // BtnLanguageRemove
+            // 
+            this.BtnLanguageRemove.Enabled = false;
+            this.BtnLanguageRemove.Location = new System.Drawing.Point(162, 98);
+            this.BtnLanguageRemove.Name = "BtnLanguageRemove";
+            this.BtnLanguageRemove.Size = new System.Drawing.Size(31, 29);
+            this.BtnLanguageRemove.TabIndex = 6;
+            this.BtnLanguageRemove.Text = "<<";
+            this.BtnLanguageRemove.UseVisualStyleBackColor = true;
+            this.BtnLanguageRemove.Click += new System.EventHandler(this.BtnLanguageRemove_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BtnLanguageDown);
+            this.groupBox1.Controls.Add(this.BtnLanguageUp);
+            this.groupBox1.Controls.Add(this.BtnLanguageRemove);
+            this.groupBox1.Controls.Add(this.BtnLanguageAdd);
+            this.groupBox1.Controls.Add(this.LstLanguages);
+            this.groupBox1.Controls.Add(this.LbLanguagePreferences);
+            this.groupBox1.Controls.Add(this.LstLanguagePreferences);
+            this.groupBox1.Controls.Add(this.LbLanguages);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(29, 257);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(385, 158);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Step 2 - Choose the languages you are interested into";
+            // 
+            // BtnLanguageDown
+            // 
+            this.BtnLanguageDown.Enabled = false;
+            this.BtnLanguageDown.Location = new System.Drawing.Point(342, 98);
+            this.BtnLanguageDown.Name = "BtnLanguageDown";
+            this.BtnLanguageDown.Size = new System.Drawing.Size(31, 29);
+            this.BtnLanguageDown.TabIndex = 8;
+            this.BtnLanguageDown.Text = "-";
+            this.ToolTip.SetToolTip(this.BtnLanguageDown, "Move the selected language down on your preference list");
+            this.BtnLanguageDown.UseVisualStyleBackColor = true;
+            this.BtnLanguageDown.Click += new System.EventHandler(this.BtnLanguageDown_Click);
+            // 
+            // BtnLanguageUp
+            // 
+            this.BtnLanguageUp.Enabled = false;
+            this.BtnLanguageUp.Location = new System.Drawing.Point(342, 63);
+            this.BtnLanguageUp.Name = "BtnLanguageUp";
+            this.BtnLanguageUp.Size = new System.Drawing.Size(31, 29);
+            this.BtnLanguageUp.TabIndex = 7;
+            this.BtnLanguageUp.Text = "+";
+            this.ToolTip.SetToolTip(this.BtnLanguageUp, "Move the selected language up on your preference list");
+            this.BtnLanguageUp.UseVisualStyleBackColor = true;
+            this.BtnLanguageUp.Click += new System.EventHandler(this.BtnLanguageUp_Click);
+            // 
+            // BtnStartStop
+            // 
+            this.BtnStartStop.Enabled = false;
+            this.BtnStartStop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnStartStop.Location = new System.Drawing.Point(152, 440);
+            this.BtnStartStop.Name = "BtnStartStop";
+            this.BtnStartStop.Size = new System.Drawing.Size(132, 46);
+            this.BtnStartStop.TabIndex = 10;
+            this.BtnStartStop.Text = "Start SubSync";
+            this.BtnStartStop.UseVisualStyleBackColor = true;
+            this.BtnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
+            // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.Text = "SubSync Alpha";
+            this.NotifyIcon.Visible = true;
             // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 293);
-            this.Controls.Add(this.PnWelcome);
+            this.ClientSize = new System.Drawing.Size(439, 513);
+            this.Controls.Add(this.BtnStartStop);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GpbSelectDirectories);
+            this.Controls.Add(this.LbWelcomeMessage);
+            this.Controls.Add(this.LbWelcomeTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SetupForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SubSync Setup";
-            this.PnWelcome.ResumeLayout(false);
-            this.PnWelcome.PerformLayout();
+            this.Text = "SubSync Alpha";
+            this.Load += new System.EventHandler(this.SetupForm_Load);
+            this.GpbSelectDirectories.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel PnWelcome;
-        private System.Windows.Forms.Button BtStart;
         private System.Windows.Forms.Label LbWelcomeMessage;
         private System.Windows.Forms.Label LbWelcomeTitle;
+        private System.Windows.Forms.GroupBox GpbSelectDirectories;
+        private System.Windows.Forms.Button BtnAddDirectory;
+        private System.Windows.Forms.Button BtnRemoveDirectory;
+        private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+        private System.Windows.Forms.ListBox LstDirectories;
+        private System.Windows.Forms.Label LbLanguages;
+        private System.Windows.Forms.ListBox LstLanguagePreferences;
+        private System.Windows.Forms.Label LbLanguagePreferences;
+        private System.Windows.Forms.ListBox LstLanguages;
+        private System.Windows.Forms.Button BtnLanguageAdd;
+        private System.Windows.Forms.Button BtnLanguageRemove;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BtnLanguageDown;
+        private System.Windows.Forms.Button BtnLanguageUp;
+        private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.Button BtnStartStop;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
+
 
 
 

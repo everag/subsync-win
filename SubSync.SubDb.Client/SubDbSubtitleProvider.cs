@@ -18,7 +18,21 @@ namespace SubSync.SubDb.Client
 
         public ISet<CultureInfo> GetSupportedLanguages()
         {
-            throw new NotImplementedException();
+            string url = String.Format("{0}/?action=languages", ApiUrl);
+
+            var responseStream = SendRequest(url);
+            var languages = new HashSet<CultureInfo>();
+
+            if (responseStream != null)
+            {
+                using (responseStream)
+                {
+                    var languageCodes = new StreamReader(responseStream).ReadToEnd();
+                    languages = new HashSet<CultureInfo>(languages.Concat(languageCodes.Split(',').Select(lan => CultureInfo.GetCultureInfo(lan))));
+                }
+            }
+
+            return languages;
         }
 
         public ISet<CultureInfo> GetAvailableLanguages(FileStream file)
@@ -34,7 +48,7 @@ namespace SubSync.SubDb.Client
                 using (responseStream)
                 {
                     var languageCodes = new StreamReader(responseStream).ReadToEnd();
-                    languages.Concat(languageCodes.Split(',').Select(lan => CultureInfo.GetCultureInfo(lan)));
+                    languages = new HashSet<CultureInfo>(languages.Concat(languageCodes.Split(',').Select(lan => CultureInfo.GetCultureInfo(lan))));
                 }
             }
 
@@ -53,7 +67,17 @@ namespace SubSync.SubDb.Client
 
         public IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages)
         {
-            throw new NotImplementedException();
+            List<SubtitleStream> subtitles = new List<SubtitleStream>();
+
+            foreach (var lang in languages)
+            {
+                var subtitle = GetSubtitle(file, lang);
+
+                if (subtitle != null)
+                    subtitles.Add(subtitle);
+            }
+
+            return subtitles;
         }
 
         private SubtitleStream GetSubtitle(FileStream file, string languageCodes)
