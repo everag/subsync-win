@@ -16,9 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubSync.SubDb.Client", "Sub
 		{264CFC8C-B19F-4FAB-9CB7-5DEDCE0E6400} = {264CFC8C-B19F-4FAB-9CB7-5DEDCE0E6400}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubSync.Test", "SubSync.Test\SubSync.Test.csproj", "{83E3FE75-4FBD-41B3-ACBD-8C0F2ABB1EB4}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs37
 		SccLocalPath0 = .
@@ -31,6 +33,9 @@ Global
 		SccProjectUniqueName3 = SubSync\\SubSync.csproj
 		SccProjectName3 = SubSync
 		SccLocalPath3 = SubSync
+		SccProjectUniqueName4 = SubSync.Test\\SubSync.Test.csproj
+		SccProjectName4 = SubSync.Test
+		SccLocalPath4 = SubSync.Test
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +55,10 @@ Global
 		{6822EA3E-AB60-4490-A7F7-C88F1892245A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6822EA3E-AB60-4490-A7F7-C88F1892245A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6822EA3E-AB60-4490-A7F7-C88F1892245A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E3FE75-4FBD-41B3-ACBD-8C0F2ABB1EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E3FE75-4FBD-41B3-ACBD-8C0F2ABB1EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E3FE75-4FBD-41B3-ACBD-8C0F2ABB1EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E3FE75-4FBD-41B3-ACBD-8C0F2ABB1EB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

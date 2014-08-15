@@ -10,7 +10,7 @@ namespace SubSync.SubDb.Client
 {
     public static class Extensions
     {
-        public static string CalculateSubDbHash(this FileStream file)
+        public static string CalculateSubDbHash(this Stream file)
         {
             // MD5 hash generation
 
