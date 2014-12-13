@@ -97,7 +97,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\app.ico" />
+    <None Include="Resources\SubSync_Logo_16x16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubSync_Logo_24x24.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubSync_Logo_32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubSync_Logo_48x48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubSync_Logo_26x256.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

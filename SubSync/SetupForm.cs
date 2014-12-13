@@ -24,7 +24,6 @@ namespace SubSync
         }
 
         private ISubtitleProvider subDbProvider = new SubDbSubtitleProvider();
-        private Icon appIcon = Properties.Resources.appIcon;
         private SyncStatus status = SyncStatus.NOT_RUNNING;
 
         private void SetupForm_Load(object sender, EventArgs e)
@@ -39,8 +38,8 @@ namespace SubSync
                 LstLanguages.Items.Add(listItem);
             }
 
-            NotifyIcon.Icon = appIcon;
-            Icon = appIcon;
+            NotifyIcon.Icon = Properties.Resources.SubSync_Logo_16x16;
+            Icon = Properties.Resources.SubSync_Logo_32x32;
         }
 
         private void ShowTrayNotification(string message, NotificationPeriod period)

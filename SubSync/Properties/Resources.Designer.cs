@@ -63,9 +63,49 @@ namespace SubSync.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon appIcon {
+        internal static System.Drawing.Icon SubSync_Logo_16x16 {
             get {
-                object obj = ResourceManager.GetObject("appIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("SubSync_Logo_16x16", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SubSync_Logo_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("SubSync_Logo_24x24", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SubSync_Logo_256x256 {
+            get {
+                object obj = ResourceManager.GetObject("SubSync_Logo_256x256", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SubSync_Logo_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("SubSync_Logo_32x32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SubSync_Logo_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("SubSync_Logo_48x48", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
