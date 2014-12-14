@@ -147,6 +147,7 @@
             this.LstLanguagePreferences.Size = new System.Drawing.Size(136, 94);
             this.LstLanguagePreferences.TabIndex = 2;
             this.LstLanguagePreferences.SelectedIndexChanged += new System.EventHandler(this.LstLanguagePreferences_SelectedIndexChanged);
+            this.LstLanguagePreferences.DoubleClick += new System.EventHandler(this.LstLanguagePreferences_DoubleClick);
             // 
             // LbLanguagePreferences
             // 
@@ -169,6 +170,7 @@
             this.LstLanguages.Sorted = true;
             this.LstLanguages.TabIndex = 4;
             this.LstLanguages.SelectedIndexChanged += new System.EventHandler(this.LstLanguages_SelectedIndexChanged);
+            this.LstLanguages.DoubleClick += new System.EventHandler(this.LstLanguages_DoubleClick);
             // 
             // BtnLanguageAdd
             // 

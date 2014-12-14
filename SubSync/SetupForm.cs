@@ -125,6 +125,11 @@ namespace SubSync
             }
         }
 
+        private void LstLanguages_DoubleClick(object sender, EventArgs e)
+        {
+            BtnLanguageAdd_Click(sender, e);
+        }
+
         private void AddLanguage(string langDescription)
         {
             CultureInfo language = langDescriptionsToLanguages[langDescription];
@@ -140,6 +145,11 @@ namespace SubSync
         {
             string languageToRemove = LstLanguagePreferences.SelectedItem as string;
             RemoveLanguage(languageToRemove);
+        }
+
+        private void LstLanguagePreferences_DoubleClick(object sender, EventArgs e)
+        {
+            BtnLanguageRemove_Click(sender, e);
         }
 
         private void RemoveLanguage(string langDescription)
