@@ -23,7 +23,7 @@ namespace SubSync
             InitializeComponent();
         }
 
-        private ISubtitleProvider SubDbProvider = new SubDbSubtitleProvider();
+        private SyncManager SyncManager = SubSync.SyncManager.Instance;
         private SyncStatus Status = SyncStatus.NOT_RUNNING;
 
         private void SetupForm_Load(object sender, EventArgs e)
@@ -121,9 +121,7 @@ namespace SubSync
 
         private void LoadSupportedLanguages()
         {
-            var supportedLanguages = SubDbProvider.GetSupportedLanguages();
-
-            foreach (var lang in supportedLanguages)
+            foreach (var lang in SyncManager.SupportedLanguages)
             {
                 var listItem = lang.ToSubSyncDescription();
 
