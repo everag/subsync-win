@@ -28,23 +28,18 @@ namespace SubSync
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            var supportedLanguages = subDbProvider.GetSupportedLanguages();
-
-            foreach (var lang in supportedLanguages)
-            {
-                var listItem = String.Format("{0} ({1})", lang.TextInfo.ToTitleCase(lang.NativeName), lang.TwoLetterISOLanguageName.ToUpper());
-
-                langDescriptionsToLanguages[listItem] = lang;
-                LstLanguages.Items.Add(listItem);
-            }
-
             NotifyIcon.Icon = Properties.Resources.SubSync_Logo_16x16;
             Icon = Properties.Resources.SubSync_Logo_32x32;
+
+            LoadSupportedLanguages();
+
+            SetupDefaultFolders();
+            SetupDefaultLanguages();
         }
 
         private void ShowTrayNotification(string message, NotificationPeriod period)
         {
-            NotifyIcon.ShowBalloonTip((int) period, "SubSync Alpha", message, ToolTipIcon.Info);
+            NotifyIcon.ShowBalloonTip((int)period, "SubSync Alpha", message, ToolTipIcon.Info);
         }
 
         #region Media folders
@@ -102,12 +97,36 @@ namespace SubSync
             LstDirectories.Items.Remove(folderPath);
         }
 
+        private void SetupDefaultFolders()
+        {
+            var defaultVideoDirectories = new HashSet<DirectoryInfo>(MediaLibraries.VideosDirectories);
+            defaultVideoDirectories.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)));
+
+            foreach (var videoDirectory in defaultVideoDirectories)
+            {
+                AddFolder(videoDirectory.FullName);
+            }
+        }
+
         #endregion
 
         #region Languages
 
         private IDictionary<string, CultureInfo> langDescriptionsToLanguages = new Dictionary<string, CultureInfo>();
         private IList<CultureInfo> languagePreferences = new List<CultureInfo>();
+
+        private void LoadSupportedLanguages()
+        {
+            var supportedLanguages = subDbProvider.GetSupportedLanguages();
+
+            foreach (var lang in supportedLanguages)
+            {
+                var listItem = lang.ToSubSyncDescription();
+
+                langDescriptionsToLanguages[listItem] = lang;
+                LstLanguages.Items.Add(listItem);
+            }
+        }
 
         private void LstLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,13 +151,24 @@ namespace SubSync
 
         private void AddLanguage(string langDescription)
         {
-            CultureInfo language = langDescriptionsToLanguages[langDescription];
+            AddLanguage(langDescriptionsToLanguages[langDescription]);
+        }
 
-            languagePreferences.Add(language);
+        private void AddLanguage(CultureInfo language)
+        {
+            var description = language.ToSubSyncDescription();
 
-            LstLanguagePreferences.Items.Add(langDescription);
+            if (langDescriptionsToLanguages.ContainsKey(description))
+            {
+                languagePreferences.Add(language);
 
-            LstLanguages.Items.Remove(langDescription);
+                LstLanguagePreferences.Items.Add(description);
+
+                LstLanguages.Items.Remove(description);
+            }
+
+            if (language.Parent != CultureInfo.InvariantCulture)
+                AddLanguage(language.Parent);
         }
 
         private void BtnLanguageRemove_Click(object sender, EventArgs e)
@@ -155,9 +185,9 @@ namespace SubSync
         private void RemoveLanguage(string langDescription)
         {
             CultureInfo language = langDescriptionsToLanguages[langDescription];
-            
+
             languagePreferences.Remove(language);
-            
+
             LstLanguages.Items.Add(langDescription);
 
             LstLanguagePreferences.Items.Remove(langDescription);
@@ -203,8 +233,13 @@ namespace SubSync
 
             languagePreferences.Insert(currentIdx + 2, langDescriptionsToLanguages[languageToMove]);
             languagePreferences.RemoveAt(currentIdx);
+        }
 
-            
+        private void SetupDefaultLanguages()
+        {
+            var systemCulture = CultureInfo.InstalledUICulture;
+
+            AddLanguage(systemCulture);
         }
 
         #endregion
