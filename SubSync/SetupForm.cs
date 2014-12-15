@@ -23,8 +23,8 @@ namespace SubSync
             InitializeComponent();
         }
 
-        private ISubtitleProvider subDbProvider = new SubDbSubtitleProvider();
-        private SyncStatus status = SyncStatus.NOT_RUNNING;
+        private ISubtitleProvider SubDbProvider = new SubDbSubtitleProvider();
+        private SyncStatus Status = SyncStatus.NOT_RUNNING;
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
@@ -89,12 +89,16 @@ namespace SubSync
 
             mediaFolders.Add(folderPath);
             LstDirectories.Items.Add(folderPath);
+
+            CheckStartButton();
         }
 
         private void RemoveFolder(string folderPath)
         {
             mediaFolders.Remove(folderPath);
             LstDirectories.Items.Remove(folderPath);
+
+            CheckStartButton();
         }
 
         private void SetupDefaultFolders()
@@ -117,7 +121,7 @@ namespace SubSync
 
         private void LoadSupportedLanguages()
         {
-            var supportedLanguages = subDbProvider.GetSupportedLanguages();
+            var supportedLanguages = SubDbProvider.GetSupportedLanguages();
 
             foreach (var lang in supportedLanguages)
             {
@@ -130,7 +134,7 @@ namespace SubSync
 
         private void LstLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BtnLanguageAdd.Enabled = LstLanguages.SelectedIndices.Count > 0;
+            BtnAddLanguage.Enabled = LstLanguages.SelectedIndices.Count > 0;
         }
 
         private void BtnLanguageAdd_Click(object sender, EventArgs e)
@@ -165,6 +169,8 @@ namespace SubSync
                 LstLanguagePreferences.Items.Add(description);
 
                 LstLanguages.Items.Remove(description);
+
+                CheckStartButton();
             }
 
             if (language.Parent != CultureInfo.InvariantCulture)
@@ -191,19 +197,21 @@ namespace SubSync
             LstLanguages.Items.Add(langDescription);
 
             LstLanguagePreferences.Items.Remove(langDescription);
+
+            CheckStartButton();
         }
 
         private void LstLanguagePreferences_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LstLanguagePreferences.SelectedIndex != -1)
             {
-                BtnLanguageRemove.Enabled = true;
+                BtnRemoveLanguage.Enabled = true;
                 BtnLanguageUp.Enabled = LstLanguagePreferences.SelectedIndex > 0;
                 BtnLanguageDown.Enabled = LstLanguagePreferences.SelectedIndex < LstLanguagePreferences.Items.Count - 1;
             }
             else
             {
-                BtnLanguageRemove.Enabled = false;
+                BtnRemoveLanguage.Enabled = false;
                 BtnLanguageUp.Enabled = false;
                 BtnLanguageDown.Enabled = false;
             }
@@ -244,9 +252,55 @@ namespace SubSync
 
         #endregion
 
+        private void CheckStartButton()
+        {
+            bool enableStart = languagePreferences.Any() && mediaFolders.Any();
+
+            BtnStartStop.Enabled = enableStart;
+        }
+
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
-            ShowTrayNotification("We're almost there ;)", NotificationPeriod.NORMAL);
+            if (Status == SyncStatus.NOT_RUNNING)
+            {
+                bool enable = false;
+
+                LstLanguages.Enabled = enable;
+                LstLanguagePreferences.Enabled = enable;
+                LstDirectories.Enabled = enable;
+
+                BtnAddDirectory.Enabled = enable;
+                BtnRemoveDirectory.Enabled = enable;
+
+                BtnAddLanguage.Enabled = enable;
+                BtnRemoveLanguage.Enabled = enable;
+                BtnLanguageUp.Enabled = enable;
+                BtnLanguageDown.Enabled = enable;
+
+                BtnStartStop.Text = "Stop SubSync";
+
+                Status = SyncStatus.RUNNING;
+            }
+            else if (Status == SyncStatus.RUNNING)
+            {
+                bool enable = true;
+
+                LstLanguages.Enabled = enable;
+                LstLanguagePreferences.Enabled = enable;
+                LstDirectories.Enabled = enable;
+
+                BtnAddDirectory.Enabled = enable;
+                BtnRemoveDirectory.Enabled = enable;
+
+                BtnAddLanguage.Enabled = enable;
+                BtnRemoveLanguage.Enabled = enable;
+                BtnLanguageUp.Enabled = enable;
+                BtnLanguageDown.Enabled = enable;
+
+                BtnStartStop.Text = "Start SubSync";
+
+                Status = SyncStatus.NOT_RUNNING;
+            }
         }
     }
 }

@@ -40,8 +40,8 @@
             this.LstLanguagePreferences = new System.Windows.Forms.ListBox();
             this.LbLanguagePreferences = new System.Windows.Forms.Label();
             this.LstLanguages = new System.Windows.Forms.ListBox();
-            this.BtnLanguageAdd = new System.Windows.Forms.Button();
-            this.BtnLanguageRemove = new System.Windows.Forms.Button();
+            this.BtnAddLanguage = new System.Windows.Forms.Button();
+            this.BtnRemoveLanguage = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnLanguageDown = new System.Windows.Forms.Button();
             this.BtnLanguageUp = new System.Windows.Forms.Button();
@@ -172,34 +172,34 @@
             this.LstLanguages.SelectedIndexChanged += new System.EventHandler(this.LstLanguages_SelectedIndexChanged);
             this.LstLanguages.DoubleClick += new System.EventHandler(this.LstLanguages_DoubleClick);
             // 
-            // BtnLanguageAdd
+            // BtnAddLanguage
             // 
-            this.BtnLanguageAdd.Enabled = false;
-            this.BtnLanguageAdd.Location = new System.Drawing.Point(162, 63);
-            this.BtnLanguageAdd.Name = "BtnLanguageAdd";
-            this.BtnLanguageAdd.Size = new System.Drawing.Size(31, 29);
-            this.BtnLanguageAdd.TabIndex = 5;
-            this.BtnLanguageAdd.Text = ">>";
-            this.BtnLanguageAdd.UseVisualStyleBackColor = true;
-            this.BtnLanguageAdd.Click += new System.EventHandler(this.BtnLanguageAdd_Click);
+            this.BtnAddLanguage.Enabled = false;
+            this.BtnAddLanguage.Location = new System.Drawing.Point(162, 63);
+            this.BtnAddLanguage.Name = "BtnAddLanguage";
+            this.BtnAddLanguage.Size = new System.Drawing.Size(31, 29);
+            this.BtnAddLanguage.TabIndex = 5;
+            this.BtnAddLanguage.Text = ">>";
+            this.BtnAddLanguage.UseVisualStyleBackColor = true;
+            this.BtnAddLanguage.Click += new System.EventHandler(this.BtnLanguageAdd_Click);
             // 
-            // BtnLanguageRemove
+            // BtnRemoveLanguage
             // 
-            this.BtnLanguageRemove.Enabled = false;
-            this.BtnLanguageRemove.Location = new System.Drawing.Point(162, 98);
-            this.BtnLanguageRemove.Name = "BtnLanguageRemove";
-            this.BtnLanguageRemove.Size = new System.Drawing.Size(31, 29);
-            this.BtnLanguageRemove.TabIndex = 6;
-            this.BtnLanguageRemove.Text = "<<";
-            this.BtnLanguageRemove.UseVisualStyleBackColor = true;
-            this.BtnLanguageRemove.Click += new System.EventHandler(this.BtnLanguageRemove_Click);
+            this.BtnRemoveLanguage.Enabled = false;
+            this.BtnRemoveLanguage.Location = new System.Drawing.Point(162, 98);
+            this.BtnRemoveLanguage.Name = "BtnRemoveLanguage";
+            this.BtnRemoveLanguage.Size = new System.Drawing.Size(31, 29);
+            this.BtnRemoveLanguage.TabIndex = 6;
+            this.BtnRemoveLanguage.Text = "<<";
+            this.BtnRemoveLanguage.UseVisualStyleBackColor = true;
+            this.BtnRemoveLanguage.Click += new System.EventHandler(this.BtnLanguageRemove_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.BtnLanguageDown);
             this.groupBox1.Controls.Add(this.BtnLanguageUp);
-            this.groupBox1.Controls.Add(this.BtnLanguageRemove);
-            this.groupBox1.Controls.Add(this.BtnLanguageAdd);
+            this.groupBox1.Controls.Add(this.BtnRemoveLanguage);
+            this.groupBox1.Controls.Add(this.BtnAddLanguage);
             this.groupBox1.Controls.Add(this.LstLanguages);
             this.groupBox1.Controls.Add(this.LbLanguagePreferences);
             this.groupBox1.Controls.Add(this.LstLanguagePreferences);
@@ -291,8 +291,8 @@
         private System.Windows.Forms.ListBox LstLanguagePreferences;
         private System.Windows.Forms.Label LbLanguagePreferences;
         private System.Windows.Forms.ListBox LstLanguages;
-        private System.Windows.Forms.Button BtnLanguageAdd;
-        private System.Windows.Forms.Button BtnLanguageRemove;
+        private System.Windows.Forms.Button BtnAddLanguage;
+        private System.Windows.Forms.Button BtnRemoveLanguage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnLanguageDown;
         private System.Windows.Forms.Button BtnLanguageUp;
