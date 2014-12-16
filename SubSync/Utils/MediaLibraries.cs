@@ -15,7 +15,6 @@ namespace SubSync.Utils
         private static readonly string LibrariesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft\\Windows\\Libraries");
         private static readonly string VideosLibraryFileName = "Videos.library-ms";
         private static readonly Regex RegexExtractGuidFromKnownFolder = new Regex(@"^knownfolder\:\{([0-9a-z\-]+)\}$", RegexOptions.IgnoreCase);
-        private static readonly Regex RegexCheckExtractGuidFromKnownFolder = new Regex(@"^knownfolder\:\{([0-9a-z\-]+)\}$", RegexOptions.IgnoreCase);
 
         private static IEnumerable<DirectoryInfo> _videosDirectories;
 
