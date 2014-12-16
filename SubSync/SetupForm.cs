@@ -263,6 +263,10 @@ namespace SubSync
 
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
+            LstDirectories.ClearSelected();
+            LstLanguagePreferences.ClearSelected();
+            LstLanguages.ClearSelected();
+
             if (Status == SyncStatus.NOT_RUNNING)
             {
                 bool enable = false;
