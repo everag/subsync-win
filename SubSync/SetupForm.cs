@@ -1,5 +1,6 @@
 ﻿using SubSync.Lib;
 using SubSync.SubDb.Client;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -104,7 +105,10 @@ namespace SubSync
         private void SetupDefaultFolders()
         {
             var defaultVideoDirectories = new HashSet<DirectoryInfo>(MediaLibraries.VideosDirectories);
-            defaultVideoDirectories.Add(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)));
+            var myVideosDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
+
+            if (!defaultVideoDirectories.Any(vd => vd.FullName == myVideosDir.FullName))
+                defaultVideoDirectories.Add(myVideosDir);
 
             foreach (var videoDirectory in defaultVideoDirectories)
             {

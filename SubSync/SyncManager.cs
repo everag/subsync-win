@@ -27,6 +27,8 @@ namespace SubSync
 
         #endregion
 
+        #region Supported Languages
+
         private ISubtitleProvider SubDbProvider = new SubDbSubtitleProvider();
 
         private ISet<CultureInfo> _supportedLanguages;
@@ -38,5 +40,9 @@ namespace SubSync
                 return _supportedLanguages ?? (_supportedLanguages = SubDbProvider.GetSupportedLanguages());
             }
         }
+
+        #endregion
+
+        // TODO: Mover pra cá o controle de STATUS que está no SetupForm
     }
 }
