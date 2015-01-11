@@ -1,4 +1,5 @@
-﻿using SubSync.Lib;
+﻿using SubSync.Events;
+using SubSync.Lib;
 using SubSync.SubDb.Client;
 using SubSync.Utils;
 using System;
@@ -25,17 +26,27 @@ namespace SubSync
         }
 
         private SyncManager SyncManager = SubSync.SyncManager.Instance;
-        private SyncStatus Status = SyncStatus.NOT_RUNNING;
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
             NotifyIcon.Icon = Properties.Resources.SubSync_Logo_16x16;
             Icon = Properties.Resources.SubSync_Logo_32x32;
 
+            SetupSyncManager();
+
             LoadSupportedLanguages();
 
             SetupDefaultFolders();
             SetupDefaultLanguages();
+        }
+
+        private void SetupSyncManager()
+        {
+            SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
+            SyncManager.Stopped += (sender, e) => ShowTrayNotification("SubSync stopped!", NotificationPeriod.NORMAL);
+            SyncManager.VideoFound += (sender, e) => ShowTrayNotification("New video found!", NotificationPeriod.NORMAL);
+            SyncManager.VideoFound += (sender, e) => Console.WriteLine(String.Format("Video found: {0}", (e as VideoFoundEventArgs).VideoFile.FullName));
+            SyncManager.SubtitleDownloaded += (sender, e) => ShowTrayNotification("New subtitle downloaded!", NotificationPeriod.NORMAL);
         }
 
         private void ShowTrayNotification(string message, NotificationPeriod period)
@@ -45,7 +56,7 @@ namespace SubSync
 
         #region Media folders
 
-        private ISet<string> mediaFolders = new HashSet<string>();
+        private ISet<DirectoryInfo> mediaFolders = new HashSet<DirectoryInfo>();
 
         private void BtnAddDirectory_Click(object sender, EventArgs e)
         {
@@ -82,13 +93,13 @@ namespace SubSync
 
         private void AddFolder(string folderPath)
         {
-            if (mediaFolders.Contains(folderPath))
+            if (mediaFolders.Any(mf => mf.FullName.Equals(folderPath, StringComparison.InvariantCultureIgnoreCase)))
             {
                 MessageBox.Show("This folder was already selected");
                 return;
             }
 
-            mediaFolders.Add(folderPath);
+            mediaFolders.Add(new DirectoryInfo(folderPath));
             LstDirectories.Items.Add(folderPath);
 
             CheckStartButton();
@@ -96,7 +107,7 @@ namespace SubSync
 
         private void RemoveFolder(string folderPath)
         {
-            mediaFolders.Remove(folderPath);
+            mediaFolders.Remove(new DirectoryInfo(folderPath));
             LstDirectories.Items.Remove(folderPath);
 
             CheckStartButton();
@@ -267,7 +278,7 @@ namespace SubSync
             LstLanguagePreferences.ClearSelected();
             LstLanguages.ClearSelected();
 
-            if (Status == SyncStatus.NOT_RUNNING)
+            if (SyncManager.Status == SyncStatus.NOT_RUNNING)
             {
                 bool enable = false;
 
@@ -283,11 +294,11 @@ namespace SubSync
                 BtnLanguageUp.Enabled = enable;
                 BtnLanguageDown.Enabled = enable;
 
-                BtnStartStop.Text = "Stop SubSync";
+                SyncManager.Start(languagePreferences, mediaFolders);
 
-                Status = SyncStatus.RUNNING;
+                BtnStartStop.Text = "Stop SubSync";
             }
-            else if (Status == SyncStatus.RUNNING)
+            else if (SyncManager.Status == SyncStatus.RUNNING)
             {
                 bool enable = true;
 
@@ -303,9 +314,9 @@ namespace SubSync
                 BtnLanguageUp.Enabled = enable;
                 BtnLanguageDown.Enabled = enable;
 
-                BtnStartStop.Text = "Start SubSync";
+                SyncManager.Stop();
 
-                Status = SyncStatus.NOT_RUNNING;
+                BtnStartStop.Text = "Start SubSync";
             }
         }
     }

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
+    <Compile Include="Events\SyncManagerEvents.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="SetupForm.cs">
       <SubType>Form</SubType>

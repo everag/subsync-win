@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SubSync
 {
-    enum SyncStatus
+    public enum SyncStatus
     {
         NOT_RUNNING,
         RUNNING
     }
 
-    enum NotificationPeriod
+    public enum NotificationPeriod
     {
         NORMAL = 5 * 1000,
         LONG = 15 * 1000

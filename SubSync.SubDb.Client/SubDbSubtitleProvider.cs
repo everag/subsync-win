@@ -60,7 +60,7 @@ namespace SubSync.SubDb.Client
             return GetSubtitle(file, language.TwoLetterISOLanguageName);
         }
 
-        public SubtitleStream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages)
+        public SubtitleStream GetFirstSubtitleFound(FileStream file, IList<CultureInfo> languages)
         {
             return GetSubtitle(file, string.Join(",", languages.Select(lan => lan.TwoLetterISOLanguageName)));
         }
@@ -91,8 +91,7 @@ namespace SubSync.SubDb.Client
                 return new SubtitleStream()
                 {
                     Stream = subData.Item1,
-                    Language = subData.Item2,
-                    Hash = hash
+                    Language = subData.Item2
                 };
             else
                 return null;

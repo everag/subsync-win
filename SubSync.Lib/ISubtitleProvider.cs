@@ -17,7 +17,7 @@ namespace SubSync.Lib
 
         SubtitleStream GetSubtitle(FileStream file, CultureInfo language);
 
-        SubtitleStream GetFirstSubtitleFound(FileStream file, List<CultureInfo> languages);
+        SubtitleStream GetFirstSubtitleFound(FileStream file, IList<CultureInfo> languages);
 
         IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages);
 
