@@ -20,6 +20,8 @@ namespace SubSync
 {
     public partial class SetupForm : Form
     {
+        private string AppNameVersion { get { return string.Format("{0} {1}", Properties.Resources.AppName, Properties.Resources.AppVersion); } }
+
         public SetupForm()
         {
             InitializeComponent();
@@ -38,6 +40,24 @@ namespace SubSync
 
             SetupDefaultFolders();
             SetupDefaultLanguages();
+
+            VerifyPreReleaseStage();
+        }
+
+        private void VerifyPreReleaseStage()
+        {
+            if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
+            {
+                MessageBox.Show
+                (
+                    string.Format
+                    (
+                        "SubSync is currently in {0} stage development. Basic functionality is provided, but expect some bugs!\n\nPlease inform the developer (ton.agner@gmail.com) if anything weird happens!",
+                        Properties.Resources.AppCurrentStage
+                    ),
+                    AppNameVersion
+                );
+            }
         }
 
         private void SetupSyncManager()
@@ -50,7 +70,7 @@ namespace SubSync
 
         private void ShowTrayNotification(string message, NotificationPeriod period)
         {
-            NotifyIcon.ShowBalloonTip((int)period, "SubSync Alpha", message, ToolTipIcon.Info);
+            NotifyIcon.ShowBalloonTip((int)period, AppNameVersion, message, ToolTipIcon.Info);
         }
 
         #region Media folders
