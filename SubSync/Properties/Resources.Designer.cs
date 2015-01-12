@@ -79,7 +79,7 @@ namespace SubSync.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alpha 0.1.150112.
+        ///   Looks up a localized string similar to Alpha 0.2.150112.
         /// </summary>
         internal static string AppVersion {
             get {
