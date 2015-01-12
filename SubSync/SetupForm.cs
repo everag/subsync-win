@@ -44,7 +44,6 @@ namespace SubSync
         {
             SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
             SyncManager.Stopped += (sender, e) => ShowTrayNotification("SubSync stopped!", NotificationPeriod.NORMAL);
-            SyncManager.VideoFound += (sender, e) => ShowTrayNotification("New video found!", NotificationPeriod.NORMAL);
             SyncManager.VideoFound += (sender, e) => Console.WriteLine(String.Format("Video found: {0}", (e as VideoFoundEventArgs).VideoFile.FullName));
             SyncManager.SubtitleDownloaded += (sender, e) => ShowTrayNotification("New subtitle downloaded!", NotificationPeriod.NORMAL);
         }

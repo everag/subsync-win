@@ -14,7 +14,8 @@ namespace SubSync
 
     public enum NotificationPeriod
     {
-        NORMAL = 5 * 1000,
-        LONG = 15 * 1000
+        SHORT  = 2  * 1000,
+        NORMAL = 5  * 1000,
+        LONG   = 15 * 1000
     }
 }

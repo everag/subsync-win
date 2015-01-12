@@ -18,7 +18,7 @@ namespace SubSync
 
         private SyncManager()
         {
-            VideoFound += (sender, e) => VideoFilesFound++;
+            VideoFound += (sender, e) => VideoFilesFound.Add((e as VideoFoundEventArgs).VideoFile.FullName);
         }
 
         private static readonly SyncManager _instance = new SyncManager();
@@ -54,14 +54,10 @@ namespace SubSync
         public IList<CultureInfo> PreferredLanguages { get; private set; }
         public ISet<DirectoryInfo> MediaDirectories { get; private set; }
         public IDictionary<DirectoryInfo, FileSystemWatcher> DirectoriesWatchers { get; private set; }
-
-        // TODO: Events: OnStop/OnStart/OnVideoFound/OnSubDownloaded
+        
+        public ISet<string> VideoFilesFound { get; private set; }
 
         public event EventHandler Started, Stopped, VideoFound, SubtitleDownloaded;
-
-        public int VideoFilesFound;
-
-        private int Debug_WatcherFileHit;
 
         public SyncStatus Start(IList<CultureInfo> preferredLanguages, ISet<DirectoryInfo> mediaDirectories)
         {
@@ -86,8 +82,10 @@ namespace SubSync
 
             PreferredLanguages = preferredLanguages;
             MediaDirectories = mediaDirectories;
+            VideoFilesFound = new HashSet<string>();
 
-            SetupFileWatchers();
+            InitializeFileWatchers();
+            InitializeDirectoriesVerificationScheduler();
 
             if (Started != null)
                 Started(Started.Target, new StartedEventArgs(
@@ -107,20 +105,20 @@ namespace SubSync
             PreferredLanguages = null;
             MediaDirectories = null;
 
+            ShutdownFileWatchers();
+            ShutdownDirectoriesVerificationScheduler();
+
             if (Stopped != null)
                 Stopped(Started.Target, new StoppedEventArgs());
-
-            foreach (var watcher in DirectoriesWatchers.Values)
-                watcher.EnableRaisingEvents = false;
-
-            DirectoriesWatchers.Clear();
 
             Status = SyncStatus.NOT_RUNNING;
 
             return Status;
         }
 
-        private void SetupFileWatchers()
+        #region FileSystem Watchers
+
+        private void InitializeFileWatchers()
         {
             DirectoriesWatchers = new Dictionary<DirectoryInfo, FileSystemWatcher>();
 
@@ -133,8 +131,6 @@ namespace SubSync
                     NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName | NotifyFilters.DirectoryName,
                     Filter = "*.*"
                 };
-
-                watcher.Changed += (source, e) => Debug_WatcherFileHit++;
 
                 watcher.Changed += (source, e) =>
                 {
@@ -172,6 +168,30 @@ namespace SubSync
                 DirectoriesWatchers[dir] = watcher;
             }
         }
+
+        private void ShutdownFileWatchers()
+        {
+            foreach (var watcher in DirectoriesWatchers.Values)
+                watcher.EnableRaisingEvents = false;
+
+            DirectoriesWatchers.Clear();
+        }
+
+        #endregion
+
+        #region Directories Verification Scheduler
+
+        private void InitializeDirectoriesVerificationScheduler()
+        {
+            // To-do! To-do! To-do to-do to-do to-do to-dooooooo
+        }
+
+        private void ShutdownDirectoriesVerificationScheduler()
+        {
+            // To-do! To-do! To-do to-do to-do to-do to-dooooooo
+        }
+
+        #endregion
 
         private SubtitleStream DownloadSubtitle(FileStream videoStream)
         {
