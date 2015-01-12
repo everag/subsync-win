@@ -29,8 +29,8 @@ namespace SubSync
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            NotifyIcon.Icon = Properties.Resources.SubSync_Logo_16x16;
-            Icon = Properties.Resources.SubSync_Logo_32x32;
+            NotifyIcon.Icon = Properties.Resources.SubSync_Logo;
+            Icon = Properties.Resources.SubSync_Logo;
 
             SetupSyncManager();
 

@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\SubSync_Logo_48x48.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\SubSync_Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -105,19 +105,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SubSync_Logo_16x16.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SubSync_Logo_24x24.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SubSync_Logo_32x32.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SubSync_Logo_48x48.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SubSync_Logo_256x256.ico" />
+    <None Include="Resources\SubSync_Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
