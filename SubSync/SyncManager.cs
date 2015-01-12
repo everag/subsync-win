@@ -47,7 +47,7 @@ namespace SubSync
 
         #endregion
 
-        private ISubtitleProvider SubDbProvider = new SubDbSubtitleProvider();
+        private ISubtitleProvider SubDbProvider = new SubDbSubtitleProvider(Properties.Resources.AppName, Properties.Resources.AppVersion);
 
         public SyncStatus Status = SyncStatus.NOT_RUNNING;
 

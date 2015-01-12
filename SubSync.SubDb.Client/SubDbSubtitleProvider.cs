@@ -14,6 +14,12 @@ namespace SubSync.SubDb.Client
 {
     public class SubDbSubtitleProvider : ISubtitleProvider
     {
+        public SubDbSubtitleProvider(string clientAppName, string clientAppVersion)
+        {
+            ClientAppName = clientAppName;
+            ClientAppVersion = clientAppVersion;
+        }
+
         private WebClient client = new WebClient();
 
         public ISet<CultureInfo> GetSupportedLanguages()
@@ -162,11 +168,15 @@ namespace SubSync.SubDb.Client
             }
         }
 
+        public string ClientAppName { get; set; }
+
+        public string ClientAppVersion { get; set; }
+
         private string UserAgent
         {
             get
             {
-                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", "SubSync", "0.1", "https://subsync.codeplex.com");
+                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", ClientAppName, ClientAppVersion, "https://subsync.codeplex.com");
             }
         }
 
