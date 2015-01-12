@@ -129,40 +129,45 @@ namespace SubSync
                     Path = dir.FullName,
                     EnableRaisingEvents = true,
                     NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName | NotifyFilters.DirectoryName,
-                    Filter = "*.*"
+                    Filter = "*.*",
+                    IncludeSubdirectories = true,
+                    InternalBufferSize = 64 * 1024
                 };
 
                 watcher.Changed += (source, e) =>
                 {
-                    FileInfo videoFile = new FileInfo(e.FullPath);
+                    Task.Run(() => 
+                    { 
+                        FileInfo videoFile = new FileInfo(e.FullPath);
 
-                    if (!videoFile.IsVideoFile() || videoFile.HasExtensionAlongside() || !videoFile.HasMinimumSizeForSubtitleSearch())
-                        return;
+                        if (!videoFile.IsVideoFile() || videoFile.HasExtensionAlongside() || !videoFile.HasMinimumSizeForSubtitleSearch())
+                            return;
 
-                    while (!videoFile.IsReady())
-                        Thread.Sleep(100);
+                        while (!videoFile.IsReady())
+                            Thread.Sleep(100);
 
-                    try
-                    {
-                        using (FileStream videoStream = File.OpenRead(videoFile.FullName))
+                        try
                         {
-                            VideoFound(VideoFound.Target, new VideoFoundEventArgs(videoFile));
+                            using (FileStream videoStream = File.OpenRead(videoFile.FullName))
+                            {
+                                VideoFound(VideoFound.Target, new VideoFoundEventArgs(videoFile));
 
-                            SubtitleStream subtitleStream = DownloadSubtitle(videoStream);
+                                SubtitleStream subtitleStream = DownloadSubtitle(videoStream);
 
-                            if (subtitleStream == null)
-                                return;
+                                if (subtitleStream == null)
+                                    return;
 
-                            SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
+                                SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
 
-                            if (subtitleFile != null)
-                                SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
+                                if (subtitleFile != null)
+                                    SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-                        // File not ready (e.g.: still being downloaded/copied/etc)
-                    }
+                        catch (Exception)
+                        {
+                            // File not ready (e.g.: still being downloaded/copied/etc)
+                        }
+                    });
                 };
 
                 DirectoriesWatchers[dir] = watcher;
