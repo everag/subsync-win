@@ -41,11 +41,14 @@ namespace SubSync
             SetupDefaultFolders();
             SetupDefaultLanguages();
 
-            VerifyPreReleaseStage();
+            CheckNotStableRelease();
         }
 
-        private void VerifyPreReleaseStage()
+        private void CheckNotStableRelease()
         {
+            if (ConfigurationManager.AppSettings["App.Environment"] == "Debug")
+                return;
+
             if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
             {
                 MessageBox.Show
