@@ -33,6 +33,8 @@ namespace SubSync
         private void SetupForm_Load(object sender, EventArgs e)
         {
             NotifyIcon.Icon = Properties.Resources.SubSync_Logo;
+            NotifyIcon.Text = AppNameVersion;
+
             Icon = Properties.Resources.SubSync_Logo;
 
             SetupSyncManager();
@@ -45,25 +47,6 @@ namespace SubSync
             CheckNotStableRelease();
         }
 
-        private void CheckNotStableRelease()
-        {
-            if (ConfigurationManager.AppSettings["App.Environment"] == "Debug")
-                return;
-
-            if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
-            {
-                MessageBox.Show
-                (
-                    string.Format
-                    (
-                        "SubSync is currently in {0} stage development. Basic functionality is provided, but expect some bugs!\n\nPlease inform the developer (ton.agner@gmail.com) if anything weird happens!",
-                        Properties.Resources.AppCurrentStage
-                    ),
-                    AppNameVersion
-                );
-            }
-        }
-
         private void SetupSyncManager()
         {
             SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
@@ -71,12 +54,7 @@ namespace SubSync
             SyncManager.VideoFound += (sender, e) => Console.WriteLine(String.Format("Video found: {0}", (e as VideoFoundEventArgs).VideoFile.FullName));
             SyncManager.SubtitleDownloaded += (sender, e) => ShowTrayNotification("New subtitle downloaded!", NotificationPeriod.NORMAL);
         }
-
-        private void ShowTrayNotification(string message, NotificationPeriod period)
-        {
-            NotifyIcon.ShowBalloonTip((int)period, AppNameVersion, message, ToolTipIcon.Info);
-        }
-
+        
         #region Media folders
 
         private ISet<DirectoryInfo> mediaFolders = new HashSet<DirectoryInfo>();
@@ -288,6 +266,8 @@ namespace SubSync
 
         #endregion
 
+        #region Start/Stop
+
         private void CheckStartButton()
         {
             bool enableStart = languagePreferences.Any() && mediaFolders.Any();
@@ -376,6 +356,69 @@ namespace SubSync
                     ToggleControlsEnabled(true);
                     BtnStartStop.Enabled = true;
                     break;
+            }
+        }
+
+        #endregion
+
+        #region Hide to Tray
+
+        private void SetupForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+        
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!Visible)
+            {
+                Show();
+            }
+            else if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        #endregion
+
+        #region Tray Icon Context Menu
+
+        private void NotifyIconContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem == NotifyIconContextMenuItemExit)
+            {
+                Application.Exit();
+            }
+        }
+
+        #endregion
+
+        private void ShowTrayNotification(string message, NotificationPeriod period)
+        {
+            NotifyIcon.ShowBalloonTip((int)period, AppNameVersion, message, ToolTipIcon.Info);
+        }
+
+        private void CheckNotStableRelease()
+        {
+            if (ConfigurationManager.AppSettings["App.Environment"] == "Debug")
+                return;
+
+            if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
+            {
+                MessageBox.Show
+                (
+                    string.Format
+                    (
+                        "SubSync is currently in {0} stage development. Basic functionality is provided, but expect some bugs!\n\nPlease inform the developer (ton.agner@gmail.com) if anything weird happens!",
+                        Properties.Resources.AppCurrentStage
+                    ),
+                    AppNameVersion
+                );
             }
         }
     }

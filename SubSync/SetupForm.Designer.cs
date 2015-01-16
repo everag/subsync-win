@@ -49,8 +49,11 @@
             this.BtnStartStop = new System.Windows.Forms.Button();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
+            this.NotifyIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NotifyIconContextMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.GpbSelectDirectories.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.NotifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // LbWelcomeMessage
@@ -251,14 +254,30 @@
             // 
             // NotifyIcon
             // 
-            this.NotifyIcon.Text = "SubSync Alpha";
+            this.NotifyIcon.ContextMenuStrip = this.NotifyIconContextMenu;
+            this.NotifyIcon.Text = "SubSync";
             this.NotifyIcon.Visible = true;
+            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
             // BkgWorkerStartStopSync
             // 
             this.BkgWorkerStartStopSync.WorkerReportsProgress = true;
             this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
             this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
+            // 
+            // NotifyIconContextMenu
+            // 
+            this.NotifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NotifyIconContextMenuItemExit});
+            this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
+            this.NotifyIconContextMenu.Size = new System.Drawing.Size(93, 26);
+            this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
+            // 
+            // NotifyIconContextMenuItemExit
+            // 
+            this.NotifyIconContextMenuItemExit.Name = "NotifyIconContextMenuItemExit";
+            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(92, 22);
+            this.NotifyIconContextMenuItemExit.Text = "Exit";
             // 
             // SetupForm
             // 
@@ -276,10 +295,12 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SubSync Alpha";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);
             this.Load += new System.EventHandler(this.SetupForm_Load);
             this.GpbSelectDirectories.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.NotifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +328,8 @@
         private System.Windows.Forms.Button BtnStartStop;
         private System.Windows.Forms.NotifyIcon NotifyIcon;
         private System.ComponentModel.BackgroundWorker BkgWorkerStartStopSync;
+        private System.Windows.Forms.ContextMenuStrip NotifyIconContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemExit;
 
 
 
