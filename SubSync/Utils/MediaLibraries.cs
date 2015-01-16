@@ -47,18 +47,24 @@ namespace SubSync.Utils
 
                     foreach (var videoUrl in videoFoldersUrls)
                     {
+                        DirectoryInfo videoDir = null;
+
                         if (regex.IsMatch(videoUrl))
                         {
                             // Windows Known Folder
                             var guid = new Guid(regex.Match(videoUrl).Groups[1].Value);
-                            var dir = WindowsUtils.GetDirectoryForGuid(guid);
-                            (_videosDirectories as HashSet<DirectoryInfo>).Add(dir);
+                            videoDir = WindowsUtils.GetDirectoryForGuid(guid);
                         }
                         else
                         {
-                            // Regular Folder
-                            (_videosDirectories as HashSet<DirectoryInfo>).Add(new DirectoryInfo(videoUrl));
+                            videoDir = new DirectoryInfo(videoUrl);
                         }
+
+                        // If the directory path is a UNC path (e.g.: \\my-pc\Movies)
+                        if (videoDir.FullName.StartsWith(@"\\"))
+                            videoDir = new DirectoryInfo(WindowsUtils.GetDrivePathFromUNC(videoDir.FullName));
+
+                        (_videosDirectories as HashSet<DirectoryInfo>).Add(videoDir);
                     }
                 }
                 catch (Exception)
