@@ -12,6 +12,20 @@ namespace SubSync
         RUNNING
     }
 
+    public enum SyncAction
+    {
+        START,
+        STOP
+    }
+
+    public enum SyncStartStopProgress
+    {
+        STARTING,
+        STOPPING,
+        STARTED,
+        STOPPED
+    }
+
     public enum NotificationPeriod
     {
         SHORT  = 2  * 1000,

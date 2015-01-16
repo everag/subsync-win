@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -294,6 +295,21 @@ namespace SubSync
             BtnStartStop.Enabled = enableStart;
         }
 
+        private void ToggleControlsEnabled(bool enable)
+        {
+            LstLanguages.Enabled = enable;
+            LstLanguagePreferences.Enabled = enable;
+            LstDirectories.Enabled = enable;
+
+            BtnAddDirectory.Enabled = enable;
+            BtnRemoveDirectory.Enabled = enable;
+
+            BtnAddLanguage.Enabled = enable;
+            BtnRemoveLanguage.Enabled = enable;
+            BtnLanguageUp.Enabled = enable;
+            BtnLanguageDown.Enabled = enable;
+        }
+
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
             LstDirectories.ClearSelected();
@@ -302,43 +318,64 @@ namespace SubSync
 
             if (SyncManager.Status == SyncStatus.NOT_RUNNING)
             {
-                bool enable = false;
-
-                LstLanguages.Enabled = enable;
-                LstLanguagePreferences.Enabled = enable;
-                LstDirectories.Enabled = enable;
-
-                BtnAddDirectory.Enabled = enable;
-                BtnRemoveDirectory.Enabled = enable;
-
-                BtnAddLanguage.Enabled = enable;
-                BtnRemoveLanguage.Enabled = enable;
-                BtnLanguageUp.Enabled = enable;
-                BtnLanguageDown.Enabled = enable;
-
-                SyncManager.Start(languagePreferences, mediaFolders);
-
-                BtnStartStop.Text = "Stop SubSync";
+                BkgWorkerStartStopSync.RunWorkerAsync(SyncAction.START);
             }
             else if (SyncManager.Status == SyncStatus.RUNNING)
             {
-                bool enable = true;
+                BkgWorkerStartStopSync.RunWorkerAsync(SyncAction.STOP);
+            }
+        }
 
-                LstLanguages.Enabled = enable;
-                LstLanguagePreferences.Enabled = enable;
-                LstDirectories.Enabled = enable;
+        private void BkgWorkerStartStopSync_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var action = (SyncAction) e.Argument;
 
-                BtnAddDirectory.Enabled = enable;
-                BtnRemoveDirectory.Enabled = enable;
+            if (action == SyncAction.START)
+            {
+                BkgWorkerStartStopSync.ReportProgress(0, SyncStartStopProgress.STARTING);
 
-                BtnAddLanguage.Enabled = enable;
-                BtnRemoveLanguage.Enabled = enable;
-                BtnLanguageUp.Enabled = enable;
-                BtnLanguageDown.Enabled = enable;
+                SyncManager.Start(languagePreferences, mediaFolders);
+
+                BkgWorkerStartStopSync.ReportProgress(100, SyncStartStopProgress.STARTED);
+            }
+            else if (action == SyncAction.STOP)
+            {
+                BkgWorkerStartStopSync.ReportProgress(0, SyncStartStopProgress.STOPPING);
 
                 SyncManager.Stop();
 
-                BtnStartStop.Text = "Start SubSync";
+                BkgWorkerStartStopSync.ReportProgress(100, SyncStartStopProgress.STOPPED);
+            }
+        }
+
+        private void BkgWorkerStartStopSync_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var progress = (SyncStartStopProgress)e.UserState;
+
+            switch (progress)
+            {
+                case SyncStartStopProgress.STARTING:
+                    ToggleControlsEnabled(false);
+                    BtnStartStop.Enabled = false;
+                    BtnStartStop.Text = "Starting...";
+                    break;
+
+                case SyncStartStopProgress.STOPPING:
+                    ToggleControlsEnabled(false);
+                    BtnStartStop.Enabled = false;
+                    BtnStartStop.Text = "Stopping...";
+                    break;
+
+                case SyncStartStopProgress.STARTED:
+                    BtnStartStop.Text = "Stop SubSync";
+                    BtnStartStop.Enabled = true;
+                    break;
+
+                case SyncStartStopProgress.STOPPED:
+                    BtnStartStop.Text = "Start SubSync";
+                    ToggleControlsEnabled(true);
+                    BtnStartStop.Enabled = true;
+                    break;
             }
         }
     }

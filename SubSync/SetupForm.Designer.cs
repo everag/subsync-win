@@ -48,6 +48,7 @@
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BtnStartStop = new System.Windows.Forms.Button();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
             this.GpbSelectDirectories.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -253,6 +254,12 @@
             this.NotifyIcon.Text = "SubSync Alpha";
             this.NotifyIcon.Visible = true;
             // 
+            // BkgWorkerStartStopSync
+            // 
+            this.BkgWorkerStartStopSync.WorkerReportsProgress = true;
+            this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
+            this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
+            // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +306,7 @@
         private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Button BtnStartStop;
         private System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.ComponentModel.BackgroundWorker BkgWorkerStartStopSync;
 
 
 
