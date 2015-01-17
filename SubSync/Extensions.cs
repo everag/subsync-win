@@ -18,7 +18,7 @@ namespace SubSync
             return Array.IndexOf(VideoExtensions, file.Extension.ToLower()) != -1;
         }
 
-        public static bool HasExtensionAlongside(this FileInfo file)
+        public static bool HasSubtitleAlongside(this FileInfo file)
         {
             return File.Exists(Path.ChangeExtension(file.FullName, "srt"));
         }

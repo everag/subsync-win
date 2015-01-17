@@ -1,6 +1,7 @@
 ﻿using SubSync.Events;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,6 +19,7 @@ namespace SubSync
 
         private SyncManager()
         {
+            VideoFound += OnVideoFound;
             VideoFound += (sender, e) => VideoFilesFound.Add((e as VideoFoundEventArgs).VideoFile.FullName);
         }
 
@@ -56,6 +58,7 @@ namespace SubSync
         public IDictionary<DirectoryInfo, FileSystemWatcher> DirectoriesWatchers { get; private set; }
         
         public ISet<string> VideoFilesFound { get; private set; }
+        public ISet<string> CurrentJobs { get; private set; }
 
         public event EventHandler Started, Stopped, VideoFound, SubtitleDownloaded;
 
@@ -82,7 +85,9 @@ namespace SubSync
 
             PreferredLanguages = preferredLanguages;
             MediaDirectories = mediaDirectories;
+            
             VideoFilesFound = new HashSet<string>();
+            CurrentJobs = new HashSet<string>();
 
             InitializeFileWatchers();
             InitializeDirectoriesVerificationScheduler();
@@ -127,48 +132,15 @@ namespace SubSync
                 var watcher = new FileSystemWatcher()
                 {
                     Path = dir.FullName,
-                    EnableRaisingEvents = true,
-                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName | NotifyFilters.DirectoryName,
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName | NotifyFilters.DirectoryName | NotifyFilters.CreationTime,
                     Filter = "*.*",
                     IncludeSubdirectories = true,
-                    InternalBufferSize = 64 * 1024
+                    InternalBufferSize = 64 * 1024,
+                    EnableRaisingEvents = true,
                 };
 
-                watcher.Changed += (source, e) =>
-                {
-                    Task.Run(() => 
-                    { 
-                        FileInfo videoFile = new FileInfo(e.FullPath);
-
-                        if (!videoFile.IsVideoFile() || videoFile.HasExtensionAlongside() || !videoFile.HasMinimumSizeForSubtitleSearch())
-                            return;
-
-                        while (!videoFile.IsReady())
-                            Thread.Sleep(100);
-
-                        try
-                        {
-                            using (FileStream videoStream = File.OpenRead(videoFile.FullName))
-                            {
-                                VideoFound(VideoFound.Target, new VideoFoundEventArgs(videoFile));
-
-                                SubtitleStream subtitleStream = DownloadSubtitle(videoStream);
-
-                                if (subtitleStream == null)
-                                    return;
-
-                                SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
-
-                                if (subtitleFile != null)
-                                    SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            // File not ready (e.g.: still being downloaded/copied/etc)
-                        }
-                    });
-                };
+                watcher.Created += OnMediaFolderChanged;
+                watcher.Changed += OnMediaFolderChanged;
 
                 DirectoriesWatchers[dir] = watcher;
             }
@@ -180,6 +152,67 @@ namespace SubSync
                 watcher.EnableRaisingEvents = false;
 
             DirectoriesWatchers.Clear();
+        }
+
+        private void OnMediaFolderChanged(object sender, FileSystemEventArgs args)
+        {
+            if (CurrentJobs.Contains(args.FullPath))
+                return;
+
+            // Directory moving
+
+            if (args.ChangeType == WatcherChangeTypes.Created && WindowsUtils.IsDirectory(args.FullPath))
+            {
+                Task.Run(() =>
+                {
+                    foreach (var filePath in Directory.GetFiles(args.FullPath, "*.*", SearchOption.AllDirectories))
+                        OnMediaFolderChanged(sender, new FileSystemEventArgs(WatcherChangeTypes.Created, Path.GetDirectoryName(filePath), Path.GetFileName(filePath)));
+                });
+
+                return;
+            }
+
+            Task.Run(() =>
+            {
+                FileInfo file = new FileInfo(args.FullPath);
+
+                if (!file.IsVideoFile() || file.HasSubtitleAlongside() || !file.HasMinimumSizeForSubtitleSearch())
+                    return;
+
+                CurrentJobs.Add(args.FullPath);
+
+                while (!file.IsReady())
+                    Thread.Sleep(100);
+
+                VideoFound(VideoFound.Target, new VideoFoundEventArgs(file));
+            });
+        }
+
+        private void OnVideoFound(object sender, EventArgs args)
+        {
+            var videoFile = (args as VideoFoundEventArgs).VideoFile;
+
+            try
+            {
+                using (FileStream videoStream = File.OpenRead(videoFile.FullName))
+                {
+                    SubtitleStream subtitleStream = DownloadSubtitle(videoStream);
+
+                    if (subtitleStream == null)
+                        return;
+
+                    SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
+
+                    if (subtitleFile != null)
+                        SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
+                }
+            }
+            catch (Exception)
+            {
+                // File not ready (e.g.: still being downloaded/copied/etc)
+            }
+
+            CurrentJobs.Remove(videoFile.FullName);
         }
 
         #endregion

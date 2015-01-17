@@ -20,8 +20,6 @@ namespace SubSync.SubDb.Client
             ClientAppVersion = clientAppVersion;
         }
 
-        private WebClient client = new WebClient();
-
         public ISet<CultureInfo> GetSupportedLanguages()
         {
             string url = String.Format("{0}/?action=languages", ApiUrl);
@@ -107,8 +105,11 @@ namespace SubSync.SubDb.Client
         {
             try
             {
-                client.Headers.Add("user-agent", UserAgent);
-                return client.OpenRead(url);
+                using (var client = new WebClient())
+                {
+                    client.Headers.Add("user-agent", UserAgent);
+                    return client.OpenRead(url);
+                }
             }
             catch (WebException e)
             {
@@ -137,13 +138,16 @@ namespace SubSync.SubDb.Client
         {
             try
             {
-                client.Headers.Add("user-agent", UserAgent);
+                using (var client = new WebClient())
+                {
+                    client.Headers.Add("user-agent", UserAgent);
                 
-                var stream = client.OpenRead(url);
-                var languageCode = client.ResponseHeaders.Get("Content-Language");
-                var language = languageCode != null ? new CultureInfo(languageCode) : null;
+                    var stream = client.OpenRead(url);
+                    var languageCode = client.ResponseHeaders.Get("Content-Language");
+                    var language = languageCode != null ? new CultureInfo(languageCode) : null;
 
-                return new Tuple<Stream, CultureInfo>(stream, language);
+                    return new Tuple<Stream, CultureInfo>(stream, language);
+                }
             }
             catch (WebException e)
             {

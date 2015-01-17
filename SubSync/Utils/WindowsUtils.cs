@@ -74,5 +74,17 @@ namespace SubSync.Utils
                 return uncPath;
             }
         }
+
+        /// <summary>
+        /// Checks if a given Path is a Directory
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <returns>bool</returns>
+        public static bool IsDirectory(string path)
+        {
+            var fileAttrs = File.GetAttributes(path);
+            
+            return (fileAttrs & FileAttributes.Directory) != 0;
+        }
     }
 }
