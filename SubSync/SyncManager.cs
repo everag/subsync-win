@@ -60,6 +60,8 @@ namespace SubSync
         public ISet<string> VideoFilesFound { get; private set; }
         public ISet<string> CurrentJobs { get; private set; }
 
+        private object thisLock = new Object();
+
         public event EventHandler Started, Stopped, VideoFound, SubtitleDownloaded;
 
         public SyncStatus Start(IList<CultureInfo> preferredLanguages, ISet<DirectoryInfo> mediaDirectories)
@@ -156,36 +158,43 @@ namespace SubSync
 
         private void OnMediaFolderChanged(object sender, FileSystemEventArgs args)
         {
-            if (CurrentJobs.Contains(args.FullPath))
-                return;
-
-            // Directory moving
-
-            if (args.ChangeType == WatcherChangeTypes.Created && WindowsUtils.IsDirectory(args.FullPath))
+            if (WindowsUtils.IsDirectory(args.FullPath))
             {
+                if (args.ChangeType == WatcherChangeTypes.Created)
+                {
+                    Task.Run(() =>
+                    {
+                        foreach (var filePath in Directory.GetFiles(args.FullPath, "*.*", SearchOption.AllDirectories))
+                            OnMediaFolderChanged(sender, new FileSystemEventArgs(WatcherChangeTypes.Created, Path.GetDirectoryName(filePath), Path.GetFileName(filePath)));
+                    });
+                }
+            }
+            else
+            {
+                lock (thisLock)
+                {
+                    if (CurrentJobs.Contains(args.FullPath))
+                        return;
+
+                    CurrentJobs.Add(args.FullPath);
+                }
+
                 Task.Run(() =>
                 {
-                    foreach (var filePath in Directory.GetFiles(args.FullPath, "*.*", SearchOption.AllDirectories))
-                        OnMediaFolderChanged(sender, new FileSystemEventArgs(WatcherChangeTypes.Created, Path.GetDirectoryName(filePath), Path.GetFileName(filePath)));
+                    FileInfo file = new FileInfo(args.FullPath);
+
+                    if (!file.IsVideoFile() || file.HasSubtitleAlongside() || !file.HasMinimumSizeForSubtitleSearch())
+                    {
+                        CurrentJobs.Remove(args.FullPath);
+                        return;
+                    }
+
+                    while (!file.IsReady())
+                        Thread.Sleep(100);
+
+                    VideoFound(VideoFound.Target, new VideoFoundEventArgs(file));
                 });
-
-                return;
             }
-
-            Task.Run(() =>
-            {
-                FileInfo file = new FileInfo(args.FullPath);
-
-                if (!file.IsVideoFile() || file.HasSubtitleAlongside() || !file.HasMinimumSizeForSubtitleSearch())
-                    return;
-
-                CurrentJobs.Add(args.FullPath);
-
-                while (!file.IsReady())
-                    Thread.Sleep(100);
-
-                VideoFound(VideoFound.Target, new VideoFoundEventArgs(file));
-            });
         }
 
         private void OnVideoFound(object sender, EventArgs args)
@@ -198,13 +207,16 @@ namespace SubSync
                 {
                     SubtitleStream subtitleStream = DownloadSubtitle(videoStream);
 
-                    if (subtitleStream == null)
-                        return;
+                    if (subtitleStream != null)
+                    {
+                        using (var subFileStream = subtitleStream.Stream)
+                        {
+                            SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
 
-                    SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
-
-                    if (subtitleFile != null)
-                        SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
+                            if (subtitleFile != null)
+                                SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));
+                        }
+                    }
                 }
             }
             catch (Exception)

@@ -17,12 +17,13 @@ namespace SubSync.SubDb.Client
             int sliceSize = 64 * 1024;
             byte[] bytes = new byte[sliceSize * 2];
 
-            using (file)
-            {
-                file.Read(bytes, 0, sliceSize);
-                file.Seek(-sliceSize, SeekOrigin.End);
-                file.Read(bytes, sliceSize, sliceSize);
-            }
+            if (!file.CanRead)
+                throw new IOException(string.Format("Stream is not opened for Read"));
+
+            file.Position = 0;
+            file.Read(bytes, 0, sliceSize);
+            file.Seek(-sliceSize, SeekOrigin.End);
+            file.Read(bytes, sliceSize, sliceSize);
 
             MD5 md5 = MD5.Create();
 

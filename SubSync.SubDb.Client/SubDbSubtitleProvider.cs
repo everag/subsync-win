@@ -66,7 +66,12 @@ namespace SubSync.SubDb.Client
 
         public SubtitleStream GetFirstSubtitleFound(FileStream file, IList<CultureInfo> languages)
         {
-            return GetSubtitle(file, string.Join(",", languages.Select(lan => lan.TwoLetterISOLanguageName)));
+            // Temporary solution until we find out why SubDB is not returning the second choice subtitle
+
+            var availableLanguages = GetAvailableLanguages(file);
+            var language = languages.First(l => availableLanguages.Contains(l));
+
+            return language != null ? GetSubtitle(file, language.TwoLetterISOLanguageName) : null;
         }
 
         public IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages)
@@ -115,7 +120,7 @@ namespace SubSync.SubDb.Client
             {
                 var httpStatusCode = (e.Response as HttpWebResponse).StatusCode;
 
-                var defaultException = new ApiRequestException(string.Format("An error occurred when trying to make a request to URL: {0} - Error: {1}", url), httpStatusCode, e);
+                var defaultException = new ApiRequestException(string.Format("An error occurred when trying to make a request to URL {0} - Error: {1}", url, e.Message), httpStatusCode, e); ;
 
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
@@ -153,7 +158,7 @@ namespace SubSync.SubDb.Client
             {
                 var httpStatusCode = (e.Response as HttpWebResponse).StatusCode;
 
-                var defaultException = new ApiRequestException(string.Format("An error occurred when trying to make a request to URL: {0} - Error: {1}", url), httpStatusCode, e);
+                var defaultException = new ApiRequestException(string.Format("An error occurred when trying to make a request to URL {0} - Error: {1}", url, e.Message), httpStatusCode, e); ;
 
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
