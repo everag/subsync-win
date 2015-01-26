@@ -211,7 +211,7 @@ namespace SubSync
                     {
                         using (var subFileStream = subtitleStream.Stream)
                         {
-                            SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, "srt")));
+                            SubtitleInfo subtitleFile = subtitleStream.WriteToFile(new FileInfo(Path.ChangeExtension(videoFile.FullName, subtitleStream.Format.Extension)));
 
                             if (subtitleFile != null)
                                 SubtitleDownloaded(SubtitleDownloaded.Target, new SubtitleDownloadedEventArgs(videoFile, subtitleFile));

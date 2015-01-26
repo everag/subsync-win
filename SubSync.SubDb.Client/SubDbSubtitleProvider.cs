@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SubSync.SubDb.Client
@@ -15,6 +16,7 @@ namespace SubSync.SubDb.Client
     public class SubDbSubtitleProvider : ISubtitleProvider
     {
         private static readonly string IDENTIFIER = "SubDB";
+        private static readonly Regex REGEX_GET_EXTENSION = new Regex(@".*filename=[a-zA-Z0-9]+\.([a-z]+)$");
 
         public SubDbSubtitleProvider(string clientAppName, string clientAppVersion)
         {
@@ -112,7 +114,13 @@ namespace SubSync.SubDb.Client
                 var languageCode = responseData.Item2.Get("Content-Language");
                 var language = languageCode != null ? new CultureInfo(languageCode) : null;
 
-                return new SubtitleStream(responseData.Item1, new FileInfo(file.Name), language, IDENTIFIER);
+                var cd = responseData.Item2.Get("Content-Disposition");
+                string extension = null;
+
+                if (REGEX_GET_EXTENSION.IsMatch(cd))
+                    extension = REGEX_GET_EXTENSION.Match(cd).Groups[1].Value;
+
+                return new SubtitleStream(responseData.Item1, new FileInfo(file.Name), language, SubtitleFormat.ForExtension(extension), IDENTIFIER);
             }
             else
                 return null;

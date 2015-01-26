@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SubSync.Lib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace SubSync
 
         public static bool HasSubtitleAlongside(this FileInfo file)
         {
-            return File.Exists(Path.ChangeExtension(file.FullName, "srt"));
+            return SubtitleFormat.Extensions.Any(ext => File.Exists(Path.ChangeExtension(file.FullName, ext)));
         }
 
         public static bool HasMinimumSizeForSubtitleSearch(this FileInfo file)
