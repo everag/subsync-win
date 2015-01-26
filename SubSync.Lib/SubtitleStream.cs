@@ -10,8 +10,22 @@ namespace SubSync.Lib
 {
     public class SubtitleStream
     {
+        public SubtitleStream(Stream stream, FileInfo videoFile, CultureInfo language)
+        {
+            Stream = stream;
+            VideoFile = videoFile;
+            Language = language;
+        }
+
+        public SubtitleStream(Stream stream, FileInfo videoFile, CultureInfo language, string provider) : this(stream, videoFile, language)
+        {
+            Provider = provider;
+        }
+
         public Stream Stream { get; set; }
+        public FileInfo VideoFile { get; set; }
         public CultureInfo Language { get; set; }
+        public string Provider { get; set; }
 
         public SubtitleInfo WriteToFile(FileInfo destinationFile)
         {
@@ -20,11 +34,10 @@ namespace SubSync.Lib
                 Stream.CopyTo(fileStream);
             }
 
-            return new SubtitleInfo()
-            {
-                File = destinationFile,
-                Language = Language
-            };
+            if (Provider != null)
+                return new SubtitleInfo(VideoFile, destinationFile, Language, Provider);
+            else
+                return new SubtitleInfo(VideoFile, destinationFile, Language);
         }
     }
 }

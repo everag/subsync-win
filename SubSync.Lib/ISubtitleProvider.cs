@@ -13,15 +13,15 @@ namespace SubSync.Lib
     {
         ISet<CultureInfo> GetSupportedLanguages();
 
-        ISet<CultureInfo> GetAvailableLanguages(FileStream file);
+        ISet<CultureInfo> GetAvailableLanguagesForVideo(FileStream videoFile);
 
-        SubtitleStream GetSubtitle(FileStream file, CultureInfo language);
+        SubtitleStream GetSubtitle(FileStream videoFile, CultureInfo language);
 
-        SubtitleStream GetFirstSubtitleFound(FileStream file, IList<CultureInfo> languages);
+        SubtitleStream GetFirstSubtitleFound(FileStream videoFile, IList<CultureInfo> languages);
 
-        IList<SubtitleStream> GetAllSubtitles(FileStream file, ISet<CultureInfo> languages);
+        IList<SubtitleStream> GetAllSubtitles(FileStream videoFile, ISet<CultureInfo> languages);
 
-        Stream SendRequest(string url);
+        Tuple<Stream, WebHeaderCollection> SendRequest(Uri uri);
 
         string ApiUrl { get; }
     }

@@ -10,15 +10,21 @@ namespace SubSync.Lib
 {
     public class SubtitleInfo
     {
-        public SubtitleInfo() {}
-
-        public SubtitleInfo(FileInfo subtitleFile, CultureInfo subtitleLanguage)
+        public SubtitleInfo(FileInfo videoFile, FileInfo subtitleFile, CultureInfo subtitleLanguage)
         {
-            File = subtitleFile;
+            SubtitleFile = subtitleFile;
+            VideoFile = videoFile;
             Language = subtitleLanguage;
         }
 
-        public FileInfo File { get; set; }
+        public SubtitleInfo(FileInfo videoFile, FileInfo subtitleFile, CultureInfo subtitleLanguage, string provider) : this(videoFile, subtitleFile, subtitleLanguage)
+        {
+            Provider = provider;
+        }
+
+        public FileInfo VideoFile { get; set; }
+        public FileInfo SubtitleFile { get; set; }
         public CultureInfo Language { get; set; }
+        public string Provider { get; set; }
     }
 }
