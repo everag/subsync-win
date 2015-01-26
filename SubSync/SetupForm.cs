@@ -52,7 +52,13 @@ namespace SubSync
             SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
             SyncManager.Stopped += (sender, e) => ShowTrayNotification("SubSync stopped!", NotificationPeriod.NORMAL);
             SyncManager.VideoFound += (sender, e) => Console.WriteLine(String.Format("Video found: {0}", (e as VideoFoundEventArgs).VideoFile.FullName));
-            SyncManager.SubtitleDownloaded += (sender, e) => ShowTrayNotification("New subtitle downloaded!", NotificationPeriod.NORMAL);
+            
+            SyncManager.SubtitleDownloaded += (sender, e) => 
+            {
+                var subtitleInfo = (e as SubtitleDownloadedEventArgs).SubtitleFile;
+
+                ShowTrayNotification(String.Format("Subtitle downloaded for {0}", subtitleInfo.VideoFile.Name), NotificationPeriod.NORMAL);
+            };
         }
         
         #region Media folders
