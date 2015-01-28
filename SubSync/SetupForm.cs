@@ -114,7 +114,7 @@ namespace SubSync
 
         private void RemoveFolder(string folderPath)
         {
-            mediaFolders.Remove(new DirectoryInfo(folderPath));
+            (mediaFolders as HashSet<DirectoryInfo>).RemoveWhere(mf => WindowsUtils.NormalizePath(mf.FullName) == WindowsUtils.NormalizePath(folderPath));
             LstDirectories.Items.Remove(folderPath);
 
             CheckStartButton();

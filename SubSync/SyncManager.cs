@@ -1,6 +1,9 @@
-﻿using SubSync.Events;
+﻿using Quartz;
+using Quartz.Impl;
+using SubSync.Events;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
+using SubSync.Tasks;
 using SubSync.Utils;
 using System;
 using System.Collections.Generic;
@@ -21,6 +24,10 @@ namespace SubSync
         {
             VideoFound += OnVideoFound;
             VideoFound += (sender, e) => VideoFilesFound.Add((e as VideoFoundEventArgs).VideoFile.FullName);
+
+            schedulerFactory = new StdSchedulerFactory();
+            scheduler = schedulerFactory.GetScheduler();
+            scheduler.Start();
         }
 
         private static readonly SyncManager _instance = new SyncManager();
@@ -59,6 +66,9 @@ namespace SubSync
         
         public ISet<string> VideoFilesFound { get; private set; }
         public ISet<string> CurrentJobs { get; private set; }
+
+        private ISchedulerFactory schedulerFactory;
+        private IScheduler scheduler;
 
         private object thisLock = new Object();
 
@@ -233,12 +243,33 @@ namespace SubSync
 
         private void InitializeDirectoriesVerificationScheduler()
         {
-            // To-do! To-do! To-do to-do to-do to-do to-dooooooo
+            foreach (var dir in MediaDirectories)
+            {
+                var trigger = TriggerBuilder.Create()
+                    .WithIdentity(string.Format("Trigger.CheckDir [{0}]", dir.FullName), "Tasks")
+                    .StartNow()
+                    .WithSimpleSchedule(t => t
+                        .WithIntervalInMinutes(1)
+                        .RepeatForever())
+                    .Build();
+                
+                var job = JobBuilder.Create<CheckForVideosJob>()
+                    .WithIdentity(string.Format("Job.CheckDir [{0}]", dir.FullName), "Tasks")
+                    .UsingJobData(CheckForVideosJob.KEY_DIR_PATH, dir.FullName)
+                    .Build();
+
+                scheduler.ScheduleJob(job, trigger);
+            }
         }
 
         private void ShutdownDirectoriesVerificationScheduler()
         {
-            // To-do! To-do! To-do to-do to-do to-do to-dooooooo
+            scheduler.Clear();
+        }
+
+        public void CheckFile(FileInfo file)
+        {
+            OnMediaFolderChanged(this, new FileSystemEventArgs(WatcherChangeTypes.Created, file.DirectoryName, file.Name));
         }
 
         #endregion
