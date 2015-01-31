@@ -14,7 +14,12 @@ namespace SubSync.Utils
         [DllImport("shell32.dll")]
         private static extern Int32 SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, UInt32 dwFlags, IntPtr hToken, ref IntPtr ppszPath);
 
-        public static DirectoryInfo GetDirectoryForGuid(Guid knownFolderGuid)
+        /// <summary>
+        /// Returns the DirectoryInfo information based on a given Known Folder GUID
+        /// </summary>
+        /// <param name="knownFolderGuid">Known Folder GUID</param>
+        /// <returns>DirectoryInfo</returns>
+        public static DirectoryInfo GetDirectoryForKnownFolderGuid(Guid knownFolderGuid)
         {
             IntPtr dirPtr = default(IntPtr);
 
@@ -87,6 +92,11 @@ namespace SubSync.Utils
             return (fileAttrs & FileAttributes.Directory) != 0;
         }
 
+        /// <summary>
+        /// Normalizes a given Path
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <returns>string</returns>
         public static string NormalizePath(string path)
         {
             return Path.GetFullPath(new Uri(path).LocalPath)

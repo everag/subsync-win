@@ -53,7 +53,7 @@ namespace SubSync.Utils
                         {
                             // Windows Known Folder
                             var guid = new Guid(regex.Match(videoUrl).Groups[1].Value);
-                            videoDir = WindowsUtils.GetDirectoryForGuid(guid);
+                            videoDir = WindowsUtils.GetDirectoryForKnownFolderGuid(guid);
                         }
                         else
                         {
@@ -64,7 +64,9 @@ namespace SubSync.Utils
                         if (videoDir.FullName.StartsWith(@"\\"))
                             videoDir = new DirectoryInfo(WindowsUtils.GetDrivePathFromUNC(videoDir.FullName));
 
-                        (_videosDirectories as HashSet<DirectoryInfo>).Add(videoDir);
+                        // Just to be safe
+                        if (!_videosDirectories.Any(vd => vd.IsSame(videoDir)))
+                            (_videosDirectories as HashSet<DirectoryInfo>).Add(videoDir);
                     }
                 }
                 catch (Exception)

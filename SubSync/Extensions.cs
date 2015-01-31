@@ -1,4 +1,5 @@
 ﻿using SubSync.Lib;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,6 +46,16 @@ namespace SubSync
             {
                 return false;
             }
+        }
+
+        public static string GetNormalizedFullName(this DirectoryInfo dir)
+        {
+            return WindowsUtils.NormalizePath(dir.FullName);
+        }
+
+        public static bool IsSame(this DirectoryInfo dir, DirectoryInfo anotherDir)
+        {
+            return dir.GetNormalizedFullName() == anotherDir.GetNormalizedFullName();
         }
     }
 }

@@ -51,7 +51,6 @@ namespace SubSync
         {
             SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
             SyncManager.Stopped += (sender, e) => ShowTrayNotification("SubSync stopped!", NotificationPeriod.NORMAL);
-            SyncManager.VideoFound += (sender, e) => Console.WriteLine(String.Format("Video found: {0}", (e as VideoFoundEventArgs).VideoFile.FullName));
             
             SyncManager.SubtitleDownloaded += (sender, e) => 
             {
@@ -100,13 +99,15 @@ namespace SubSync
 
         private void AddFolder(string folderPath)
         {
-            if (mediaFolders.Any(mf => mf.FullName.Equals(folderPath, StringComparison.InvariantCultureIgnoreCase)))
+            DirectoryInfo folderToAdd = new DirectoryInfo(folderPath);
+
+            if (mediaFolders.Any(mf => mf.IsSame(folderToAdd)))
             {
                 MessageBox.Show("This folder was already selected");
                 return;
             }
 
-            mediaFolders.Add(new DirectoryInfo(folderPath));
+            mediaFolders.Add(folderToAdd);
             LstDirectories.Items.Add(folderPath);
 
             CheckStartButton();
@@ -114,8 +115,12 @@ namespace SubSync
 
         private void RemoveFolder(string folderPath)
         {
-            (mediaFolders as HashSet<DirectoryInfo>).RemoveWhere(mf => WindowsUtils.NormalizePath(mf.FullName) == WindowsUtils.NormalizePath(folderPath));
-            LstDirectories.Items.Remove(folderPath);
+            var folderToRemove = new DirectoryInfo(folderPath);
+
+            int removed = (mediaFolders as HashSet<DirectoryInfo>).RemoveWhere(mf => mf.IsSame(folderToRemove));
+            
+            if (removed > 0)
+                LstDirectories.Items.Remove(folderPath);
 
             CheckStartButton();
         }
@@ -125,7 +130,7 @@ namespace SubSync
             var defaultVideoDirectories = new HashSet<DirectoryInfo>(MediaLibraries.VideosDirectories);
             var myVideosDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
 
-            if (!defaultVideoDirectories.Any(vd => vd.FullName == myVideosDir.FullName))
+            if (!defaultVideoDirectories.Any(vd => vd.IsSame(myVideosDir)))
                 defaultVideoDirectories.Add(myVideosDir);
 
             foreach (var videoDirectory in defaultVideoDirectories)

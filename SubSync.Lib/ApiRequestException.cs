@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SubSync.Lib
 {
+    [Serializable]
     public class ApiRequestException : Exception
     {
         public ApiRequestException(string message, Exception e) : base(message, e)
