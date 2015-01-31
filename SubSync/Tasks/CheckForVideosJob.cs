@@ -22,7 +22,8 @@ namespace SubSync.Tasks
             var directoryPath = dataMap.GetString(KEY_DIR_PATH);
             var directory = new DirectoryInfo(directoryPath);
 
-            Console.WriteLine(string.Format("[{0}] Execution: {1}", me, directory.FullName));
+            // TODO: Move to a Log message
+            // Console.WriteLine(string.Format("[{0}] Execution: {1}", me, directory.FullName));
 
             foreach (var filePath in Directory.GetFiles(directoryPath, "*.*", SearchOption.AllDirectories))
             {
