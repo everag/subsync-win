@@ -5,7 +5,6 @@ using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -416,7 +415,7 @@ namespace SubSync
 
         private void CheckNotStableRelease()
         {
-            if (ConfigurationManager.AppSettings["App.Environment"] == "Debug")
+            if (Configuration.RunningEnvironment == "Debug")
                 return;
 
             if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")

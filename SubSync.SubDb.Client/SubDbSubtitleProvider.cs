@@ -1,7 +1,6 @@
 ﻿using SubSync.Lib;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -175,7 +174,7 @@ namespace SubSync.SubDb.Client
         {
             get
             {
-                return ConfigurationManager.AppSettings["SubDb.Api.Url"];
+                return Configuration.SubDbApiUrl;
             }
         }
     }

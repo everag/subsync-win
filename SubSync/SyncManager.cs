@@ -249,7 +249,7 @@ namespace SubSync
                     .WithIdentity(string.Format("Trigger.CheckDir [{0}]", dir.FullName), "Tasks")
                     .StartNow()
                     .WithSimpleSchedule(t => t
-                        .WithIntervalInMinutes(1)
+                        .WithIntervalInMinutes(Configuration.ScheduledFoldersCheckingDelay)
                         .RepeatForever())
                     .Build();
                 
