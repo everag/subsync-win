@@ -284,6 +284,7 @@ namespace SubSync
             bool enableStart = languagePreferences.Any() && mediaFolders.Any();
 
             BtnStartStop.Enabled = enableStart;
+            NotifyIconContextMenuItemStartStop.Enabled = enableStart;
         }
 
         private void ToggleControlsEnabled(bool enable)
