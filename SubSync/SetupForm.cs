@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -403,6 +404,9 @@ namespace SubSync
             if (e.ClickedItem == NotifyIconContextMenuItemExit)
             {
                 Application.Exit();
+                // Included due to application threads still running after the Application Exit
+                // TODO: Validate if this the right way to do this
+                Process.GetCurrentProcess().Kill();
             }
         }
 
