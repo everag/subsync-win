@@ -305,6 +305,11 @@ namespace SubSync
 
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
+            StartStopSync();
+        }
+
+        private void StartStopSync()
+        {
             LstDirectories.ClearSelected();
             LstLanguagePreferences.ClearSelected();
             LstLanguages.ClearSelected();
@@ -349,25 +354,44 @@ namespace SubSync
             {
                 case SyncStartStopProgress.STARTING:
                     ToggleControlsEnabled(false);
+                    
                     BtnStartStop.Enabled = false;
                     BtnStartStop.Text = "Starting...";
+
+                    NotifyIconContextMenuItemStartStop.Enabled = false;
+                    NotifyIconContextMenuItemStartStop.Text = "Starting...";
+                    
                     break;
 
                 case SyncStartStopProgress.STOPPING:
                     ToggleControlsEnabled(false);
+                    
                     BtnStartStop.Enabled = false;
                     BtnStartStop.Text = "Stopping...";
+                    
+                    NotifyIconContextMenuItemStartStop.Enabled = false;
+                    NotifyIconContextMenuItemStartStop.Text = "Stopping...";
+                    
                     break;
 
                 case SyncStartStopProgress.STARTED:
-                    BtnStartStop.Text = "Stop SubSync";
                     BtnStartStop.Enabled = true;
+                    BtnStartStop.Text = "Stop SubSync";
+                    
+                    NotifyIconContextMenuItemStartStop.Enabled = true;
+                    NotifyIconContextMenuItemStartStop.Text = "Stop SubSync";
+                    
                     break;
 
                 case SyncStartStopProgress.STOPPED:
-                    BtnStartStop.Text = "Start SubSync";
                     ToggleControlsEnabled(true);
+
                     BtnStartStop.Enabled = true;
+                    BtnStartStop.Text = "Start SubSync";
+                    
+                    NotifyIconContextMenuItemStartStop.Enabled = true;
+                    NotifyIconContextMenuItemStartStop.Text = "Start SubSync";
+
                     break;
             }
         }
@@ -387,14 +411,7 @@ namespace SubSync
         
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (!Visible)
-            {
-                Show();
-            }
-            else if (WindowState == FormWindowState.Minimized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
+            ShowWindow();
         }
 
         #endregion
@@ -403,16 +420,35 @@ namespace SubSync
 
         private void NotifyIconContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            // Open SubSync
+
+            if (e.ClickedItem == NotifyIconContextMenuItemOpenGUI)
+            {
+                ShowWindow();
+            }
+
+            // Start/Stop SubSync
+            
+            if (e.ClickedItem == NotifyIconContextMenuItemStartStop)
+            {
+                StartStopSync();
+            }
+
+            // Check for subtitles now
+
+            if (e.ClickedItem == NotifyIconContextMenuItemCheckNow)
+            {
+                SyncManager.CheckForSubtitlesNow();
+            }
+
+            // Exit
+
             if (e.ClickedItem == NotifyIconContextMenuItemExit)
             {
                 Application.Exit();
                 // Included due to application threads still running after the Application Exit
                 // TODO: Validate if this the right way to do this
                 Process.GetCurrentProcess().Kill();
-            }
-            else if (e.ClickedItem == NotifyIconContextMenuItemCheckNow)
-            {
-                SyncManager.CheckForSubtitlesNow();
             }
         }
 
@@ -421,6 +457,18 @@ namespace SubSync
         private void ShowTrayNotification(string message, NotificationPeriod period)
         {
             NotifyIcon.ShowBalloonTip((int)period, AppNameVersion, message, ToolTipIcon.Info);
+        }
+
+        private void ShowWindow()
+        {
+            if (!Visible)
+            {
+                Show();
+            }
+            else if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
         }
 
         private void CheckNotStableRelease()
