@@ -48,9 +48,11 @@
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BtnStartStop = new System.Windows.Forms.Button();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
             this.NotifyIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NotifyIconContextMenuItemCheckNow = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuItemExitSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
             this.GpbSelectDirectories.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.NotifyIconContextMenu.SuspendLayout();
@@ -259,25 +261,41 @@
             this.NotifyIcon.Visible = true;
             this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
+            // NotifyIconContextMenu
+            // 
+            this.NotifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NotifyIconContextMenuItemCheckNow,
+            this.NotifyIconContextMenuItemExitSeparator,
+            this.NotifyIconContextMenuItemExit});
+            this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
+            this.NotifyIconContextMenu.Size = new System.Drawing.Size(199, 76);
+            this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
+            // 
+            // NotifyIconContextMenuItemCheckNow
+            // 
+            this.NotifyIconContextMenuItemCheckNow.Enabled = false;
+            this.NotifyIconContextMenuItemCheckNow.Name = "NotifyIconContextMenuItemCheckNow";
+            this.NotifyIconContextMenuItemCheckNow.Size = new System.Drawing.Size(198, 22);
+            this.NotifyIconContextMenuItemCheckNow.Text = "&Check for subtitles now";
+            this.NotifyIconContextMenuItemCheckNow.ToolTipText = "Check for missing subtitles for your videos now!";
+            // 
+            // NotifyIconContextMenuItemExitSeparator
+            // 
+            this.NotifyIconContextMenuItemExitSeparator.Name = "NotifyIconContextMenuItemExitSeparator";
+            this.NotifyIconContextMenuItemExitSeparator.Size = new System.Drawing.Size(195, 6);
+            // 
+            // NotifyIconContextMenuItemExit
+            // 
+            this.NotifyIconContextMenuItemExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.NotifyIconContextMenuItemExit.Name = "NotifyIconContextMenuItemExit";
+            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(198, 22);
+            this.NotifyIconContextMenuItemExit.Text = "&Exit";
+            // 
             // BkgWorkerStartStopSync
             // 
             this.BkgWorkerStartStopSync.WorkerReportsProgress = true;
             this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
             this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
-            // 
-            // NotifyIconContextMenu
-            // 
-            this.NotifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NotifyIconContextMenuItemExit});
-            this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
-            this.NotifyIconContextMenu.Size = new System.Drawing.Size(93, 26);
-            this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
-            // 
-            // NotifyIconContextMenuItemExit
-            // 
-            this.NotifyIconContextMenuItemExit.Name = "NotifyIconContextMenuItemExit";
-            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(92, 22);
-            this.NotifyIconContextMenuItemExit.Text = "Exit";
             // 
             // SetupForm
             // 
@@ -330,6 +348,8 @@
         private System.ComponentModel.BackgroundWorker BkgWorkerStartStopSync;
         private System.Windows.Forms.ContextMenuStrip NotifyIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemCheckNow;
+        private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuItemExitSeparator;
 
 
 

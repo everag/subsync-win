@@ -64,6 +64,8 @@ namespace SubSync
         public ISet<DirectoryInfo> MediaDirectories { get; private set; }
         public IDictionary<DirectoryInfo, FileSystemWatcher> DirectoriesWatchers { get; private set; }
         
+        private IDictionary<DirectoryInfo, ITrigger> DirectoryScheduledCheckTrigger { get; set; }
+        
         public ISet<string> VideoFilesFound { get; private set; }
         public ISet<string> CurrentJobs { get; private set; }
 
@@ -243,6 +245,8 @@ namespace SubSync
 
         private void InitializeDirectoriesVerificationScheduler()
         {
+            DirectoryScheduledCheckTrigger = new Dictionary<DirectoryInfo, ITrigger>();
+
             foreach (var dir in MediaDirectories)
             {
                 var trigger = TriggerBuilder.Create()
@@ -252,7 +256,9 @@ namespace SubSync
                         .WithIntervalInMinutes(Configuration.ScheduledFoldersCheckingDelay)
                         .RepeatForever())
                     .Build();
-                
+
+                DirectoryScheduledCheckTrigger[dir] = trigger;
+
                 var job = JobBuilder.Create<CheckForVideosJob>()
                     .WithIdentity(string.Format("Job.CheckDir [{0}]", dir.FullName), "Tasks")
                     .UsingJobData(CheckForVideosJob.KEY_DIR_PATH, dir.FullName)
@@ -265,6 +271,19 @@ namespace SubSync
         private void ShutdownDirectoriesVerificationScheduler()
         {
             scheduler.Clear();
+        }
+
+        public void CheckForSubtitlesNow()
+        {
+            foreach (var dir in DirectoryScheduledCheckTrigger.Keys.ToArray())
+            {
+                var trigger = DirectoryScheduledCheckTrigger[dir];
+
+                var updatedTrigger = trigger.GetTriggerBuilder().Build();
+                scheduler.RescheduleJob(trigger.Key, updatedTrigger);
+
+                DirectoryScheduledCheckTrigger[dir] = updatedTrigger;
+            }
         }
 
         public void CheckFile(FileInfo file)

@@ -299,6 +299,8 @@ namespace SubSync
             BtnRemoveLanguage.Enabled = enable;
             BtnLanguageUp.Enabled = enable;
             BtnLanguageDown.Enabled = enable;
+
+            NotifyIconContextMenuItemCheckNow.Enabled = !enable;
         }
 
         private void BtnStartStop_Click(object sender, EventArgs e)
@@ -407,6 +409,10 @@ namespace SubSync
                 // Included due to application threads still running after the Application Exit
                 // TODO: Validate if this the right way to do this
                 Process.GetCurrentProcess().Kill();
+            }
+            else if (e.ClickedItem == NotifyIconContextMenuItemCheckNow)
+            {
+                SyncManager.CheckForSubtitlesNow();
             }
         }
 
