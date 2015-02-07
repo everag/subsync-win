@@ -52,5 +52,19 @@ namespace SubSync
                 this["SubtitleLanguagesPreference"] = (IList<CultureInfo>)value;
             }
         }
+
+        [UserScopedSetting()]
+        [DefaultSettingValue("false")]
+        public bool RunAtStartup
+        {
+            get
+            {
+                return ((bool) this["RunAtStartup"]);
+            }
+            set
+            {
+                this["RunAtStartup"] = (bool) value;
+            }
+        }
     }
 }

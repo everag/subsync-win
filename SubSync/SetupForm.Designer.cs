@@ -49,13 +49,15 @@
             this.BtnStartStop = new System.Windows.Forms.Button();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotifyIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NotifyIconContextMenuItemOpenGUI = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuItemStartStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemCheckNow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
-            this.NotifyIconContextMenuItemOpenGUI = new System.Windows.Forms.ToolStripMenuItem();
-            this.NotifyIconContextMenuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.NotifyIconContextMenuItemStartStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.NotifyIconContextMenuItemRunAtLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.GpbSelectDirectories.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.NotifyIconContextMenu.SuspendLayout();
@@ -270,31 +272,51 @@
             this.NotifyIconContextMenuItemOpenGUI,
             this.NotifyIconContextMenuItemStartStop,
             this.NotifyIconContextMenuSeparator1,
-            this.NotifyIconContextMenuItemCheckNow,
+            this.NotifyIconContextMenuItemRunAtLogin,
             this.NotifyIconContextMenuSeparator2,
+            this.NotifyIconContextMenuItemCheckNow,
+            this.NotifyIconContextMenuSeparator3,
             this.NotifyIconContextMenuItemExit});
             this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
-            this.NotifyIconContextMenu.Size = new System.Drawing.Size(199, 126);
+            this.NotifyIconContextMenu.Size = new System.Drawing.Size(242, 154);
             this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
+            // 
+            // NotifyIconContextMenuItemOpenGUI
+            // 
+            this.NotifyIconContextMenuItemOpenGUI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.NotifyIconContextMenuItemOpenGUI.Name = "NotifyIconContextMenuItemOpenGUI";
+            this.NotifyIconContextMenuItemOpenGUI.Size = new System.Drawing.Size(241, 22);
+            this.NotifyIconContextMenuItemOpenGUI.Text = "&Open SubSync";
+            // 
+            // NotifyIconContextMenuItemStartStop
+            // 
+            this.NotifyIconContextMenuItemStartStop.Name = "NotifyIconContextMenuItemStartStop";
+            this.NotifyIconContextMenuItemStartStop.Size = new System.Drawing.Size(241, 22);
+            this.NotifyIconContextMenuItemStartStop.Text = "&Start SubSync...";
+            // 
+            // NotifyIconContextMenuSeparator1
+            // 
+            this.NotifyIconContextMenuSeparator1.Name = "NotifyIconContextMenuSeparator1";
+            this.NotifyIconContextMenuSeparator1.Size = new System.Drawing.Size(238, 6);
             // 
             // NotifyIconContextMenuItemCheckNow
             // 
             this.NotifyIconContextMenuItemCheckNow.Enabled = false;
             this.NotifyIconContextMenuItemCheckNow.Name = "NotifyIconContextMenuItemCheckNow";
-            this.NotifyIconContextMenuItemCheckNow.Size = new System.Drawing.Size(198, 22);
+            this.NotifyIconContextMenuItemCheckNow.Size = new System.Drawing.Size(241, 22);
             this.NotifyIconContextMenuItemCheckNow.Text = "&Check for subtitles now";
             this.NotifyIconContextMenuItemCheckNow.ToolTipText = "Check for missing subtitles for your videos now!";
             // 
             // NotifyIconContextMenuSeparator2
             // 
             this.NotifyIconContextMenuSeparator2.Name = "NotifyIconContextMenuSeparator2";
-            this.NotifyIconContextMenuSeparator2.Size = new System.Drawing.Size(195, 6);
+            this.NotifyIconContextMenuSeparator2.Size = new System.Drawing.Size(238, 6);
             // 
             // NotifyIconContextMenuItemExit
             // 
             this.NotifyIconContextMenuItemExit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NotifyIconContextMenuItemExit.Name = "NotifyIconContextMenuItemExit";
-            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(198, 22);
+            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(241, 22);
             this.NotifyIconContextMenuItemExit.Text = "&Exit";
             // 
             // BkgWorkerStartStopSync
@@ -303,23 +325,18 @@
             this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
             this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
             // 
-            // NotifyIconContextMenuItemOpenGUI
+            // NotifyIconContextMenuSeparator3
             // 
-            this.NotifyIconContextMenuItemOpenGUI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.NotifyIconContextMenuItemOpenGUI.Name = "NotifyIconContextMenuItemOpenGUI";
-            this.NotifyIconContextMenuItemOpenGUI.Size = new System.Drawing.Size(198, 22);
-            this.NotifyIconContextMenuItemOpenGUI.Text = "&Open SubSync";
+            this.NotifyIconContextMenuSeparator3.Name = "NotifyIconContextMenuSeparator3";
+            this.NotifyIconContextMenuSeparator3.Size = new System.Drawing.Size(238, 6);
             // 
-            // NotifyIconContextMenuSeparator1
+            // NotifyIconContextMenuItemRunAtLogin
             // 
-            this.NotifyIconContextMenuSeparator1.Name = "NotifyIconContextMenuSeparator1";
-            this.NotifyIconContextMenuSeparator1.Size = new System.Drawing.Size(195, 6);
-            // 
-            // NotifyIconContextMenuItemStartStop
-            // 
-            this.NotifyIconContextMenuItemStartStop.Name = "NotifyIconContextMenuItemStartStop";
-            this.NotifyIconContextMenuItemStartStop.Size = new System.Drawing.Size(198, 22);
-            this.NotifyIconContextMenuItemStartStop.Text = "&Start SubSync...";
+            this.NotifyIconContextMenuItemRunAtLogin.CheckOnClick = true;
+            this.NotifyIconContextMenuItemRunAtLogin.Name = "NotifyIconContextMenuItemRunAtLogin";
+            this.NotifyIconContextMenuItemRunAtLogin.Size = new System.Drawing.Size(241, 22);
+            this.NotifyIconContextMenuItemRunAtLogin.Text = "Run SubSync at Windows &Login";
+            this.NotifyIconContextMenuItemRunAtLogin.CheckedChanged += new System.EventHandler(this.NotifyIconContextMenuItemRunAtLogin_CheckedChanged);
             // 
             // SetupForm
             // 
@@ -377,6 +394,8 @@
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemOpenGUI;
         private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuSeparator1;
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemStartStop;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemRunAtLogin;
+        private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuSeparator3;
 
 
 

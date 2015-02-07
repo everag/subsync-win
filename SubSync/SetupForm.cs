@@ -89,6 +89,8 @@ namespace SubSync
                     i--;
                 }
             }
+
+            NotifyIconContextMenuItemRunAtLogin.Checked = Settings.RunAtStartup;
         }
 
         private void SetupSyncManager()
@@ -499,6 +501,16 @@ namespace SubSync
                 // TODO: Validate if this the right way to do this
                 Process.GetCurrentProcess().Kill();
             }
+        }
+
+        private void NotifyIconContextMenuItemRunAtLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            var itemChecked = NotifyIconContextMenuItemRunAtLogin.Checked;
+
+            Settings.RunAtStartup = itemChecked;
+            Settings.Save();
+
+            WindowsUtils.SetApplicationStartupAtLogin(itemChecked);
         }
 
         #endregion

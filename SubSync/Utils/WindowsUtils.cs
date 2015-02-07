@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,11 +7,30 @@ using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SubSync.Utils
 {
     public class WindowsUtils
     {
+        public static bool IsRunningFromIDE
+        {
+            get
+            {
+                bool inIDE = false;
+                
+                string[] args = System.Environment.GetCommandLineArgs();
+                
+                if (args != null && args.Length > 0)
+                {
+                    string prgName = args[0].ToUpper();
+                    inIDE = prgName.EndsWith("VSHOST.EXE");
+                }
+
+                return inIDE && System.Diagnostics.Debugger.IsAttached;
+            }
+        }
+
         [DllImport("shell32.dll")]
         private static extern Int32 SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid, UInt32 dwFlags, IntPtr hToken, ref IntPtr ppszPath);
 
@@ -102,6 +122,20 @@ namespace SubSync.Utils
             return Path.GetFullPath(new Uri(path).LocalPath)
                .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
                .ToUpperInvariant();
+        }
+
+        public static void SetApplicationStartupAtLogin(bool include)
+        {
+            if (IsRunningFromIDE)
+                return;
+
+            var path = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true);
+
+            if (include)
+                key.SetValue(Properties.Resources.AppName, Application.ExecutablePath.ToString());
+            else
+                key.DeleteValue(Properties.Resources.AppName, false);
         }
     }
 }
