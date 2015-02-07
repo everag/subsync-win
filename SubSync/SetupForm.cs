@@ -5,6 +5,7 @@ using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -23,6 +24,8 @@ namespace SubSync
     {
         private string AppNameVersion { get { return string.Format("{0} {1}", Properties.Resources.AppName, Properties.Resources.AppVersion); } }
 
+        private UserSettings Settings;
+
         public SetupForm()
         {
             InitializeComponent();
@@ -37,14 +40,55 @@ namespace SubSync
 
             Icon = Properties.Resources.SubSync_Logo;
 
+            Settings = new UserSettings();
+
+            if (Settings.FirstRun)
+            {
+                Settings.MediaFolders = GetDefaultFolders();
+                Settings.SubtitleLanguagesPreference = GetDefaultLanguages();
+
+                Settings.FirstRun = false;
+
+                Settings.Save();
+            }
+
             SetupSyncManager();
 
             LoadSupportedLanguages();
 
-            SetupDefaultFolders();
-            SetupDefaultLanguages();
+            FillSettingsInfo();
 
             CheckNotStableRelease();
+
+            CheckStartButton();
+        }
+
+        private void FillSettingsInfo()
+        {
+            foreach (var videoDirectory in Settings.MediaFolders)
+            {
+                LstDirectories.Items.Add(videoDirectory.FullName);
+            }
+
+            var languagesToRemoveFromSettings = new HashSet<CultureInfo>();
+
+            for (int i = 0; i < Settings.SubtitleLanguagesPreference.Count; i++)
+            {
+                var language = Settings.SubtitleLanguagesPreference[i];
+                var description = language.ToSubSyncDescription();
+
+                if (langDescriptionsToLanguages.ContainsKey(description))
+                {
+                    LstLanguagePreferences.Items.Add(description);
+                    LstLanguages.Items.Remove(description);
+                }
+                else if (language.Parent != CultureInfo.InvariantCulture && !Settings.SubtitleLanguagesPreference.Contains(language.Parent))
+                {
+                    Settings.SubtitleLanguagesPreference[i] = language.Parent;
+                    Settings.Save();
+                    i--;
+                }
+            }
         }
 
         private void SetupSyncManager()
@@ -62,7 +106,16 @@ namespace SubSync
         
         #region Media folders
 
-        private ISet<DirectoryInfo> mediaFolders = new HashSet<DirectoryInfo>();
+        private ISet<DirectoryInfo> GetDefaultFolders()
+        {
+            var defaultVideoDirectories = new HashSet<DirectoryInfo>(MediaLibraries.VideosDirectories);
+            var myVideosDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
+
+            if (!defaultVideoDirectories.Any(vd => vd.IsSame(myVideosDir)))
+                defaultVideoDirectories.Add(myVideosDir);
+
+            return defaultVideoDirectories;
+        }
 
         private void BtnAddDirectory_Click(object sender, EventArgs e)
         {
@@ -101,14 +154,16 @@ namespace SubSync
         {
             DirectoryInfo folderToAdd = new DirectoryInfo(folderPath);
 
-            if (mediaFolders.Any(mf => mf.IsSame(folderToAdd)))
+            if (Settings.MediaFolders.Any(mf => mf.IsSame(folderToAdd)))
             {
                 MessageBox.Show("This folder was already selected");
                 return;
             }
 
-            mediaFolders.Add(folderToAdd);
+            Settings.MediaFolders.Add(folderToAdd);
             LstDirectories.Items.Add(folderPath);
+
+            Settings.Save();
 
             CheckStartButton();
         }
@@ -117,26 +172,15 @@ namespace SubSync
         {
             var folderToRemove = new DirectoryInfo(folderPath);
 
-            int removed = (mediaFolders as HashSet<DirectoryInfo>).RemoveWhere(mf => mf.IsSame(folderToRemove));
+            int removed = (Settings.MediaFolders as HashSet<DirectoryInfo>).RemoveWhere(mf => mf.IsSame(folderToRemove));
             
             if (removed > 0)
+            {
                 LstDirectories.Items.Remove(folderPath);
+                Settings.Save();
+            }
 
             CheckStartButton();
-        }
-
-        private void SetupDefaultFolders()
-        {
-            var defaultVideoDirectories = new HashSet<DirectoryInfo>(MediaLibraries.VideosDirectories);
-            var myVideosDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
-
-            if (!defaultVideoDirectories.Any(vd => vd.IsSame(myVideosDir)))
-                defaultVideoDirectories.Add(myVideosDir);
-
-            foreach (var videoDirectory in defaultVideoDirectories)
-            {
-                AddFolder(videoDirectory.FullName);
-            }
         }
 
         #endregion
@@ -144,7 +188,6 @@ namespace SubSync
         #region Languages
 
         private IDictionary<string, CultureInfo> langDescriptionsToLanguages = new Dictionary<string, CultureInfo>();
-        private IList<CultureInfo> languagePreferences = new List<CultureInfo>();
 
         private void LoadSupportedLanguages()
         {
@@ -155,6 +198,11 @@ namespace SubSync
                 langDescriptionsToLanguages[listItem] = lang;
                 LstLanguages.Items.Add(listItem);
             }
+        }
+
+        private IList<CultureInfo> GetDefaultLanguages()
+        {
+            return new List<CultureInfo>() { CultureInfo.InstalledUICulture };
         }
 
         private void LstLanguages_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,11 +237,12 @@ namespace SubSync
 
             if (langDescriptionsToLanguages.ContainsKey(description))
             {
-                languagePreferences.Add(language);
+                Settings.SubtitleLanguagesPreference.Add(language);
 
                 LstLanguagePreferences.Items.Add(description);
-
                 LstLanguages.Items.Remove(description);
+
+                Settings.Save();
 
                 CheckStartButton();
             }
@@ -217,11 +266,13 @@ namespace SubSync
         {
             CultureInfo language = langDescriptionsToLanguages[langDescription];
 
-            languagePreferences.Remove(language);
+            Settings.SubtitleLanguagesPreference.Remove(language);
 
             LstLanguages.Items.Add(langDescription);
 
             LstLanguagePreferences.Items.Remove(langDescription);
+
+            Settings.Save();
 
             CheckStartButton();
         }
@@ -251,8 +302,10 @@ namespace SubSync
             LstLanguagePreferences.SelectedIndex = currentIdx - 1;
             LstLanguagePreferences.Items.RemoveAt(currentIdx + 1);
 
-            languagePreferences.Insert(currentIdx - 1, langDescriptionsToLanguages[languageToMove]);
-            languagePreferences.RemoveAt(currentIdx + 1);
+            Settings.SubtitleLanguagesPreference.Insert(currentIdx - 1, langDescriptionsToLanguages[languageToMove]);
+            Settings.SubtitleLanguagesPreference.RemoveAt(currentIdx + 1);
+
+            Settings.Save();
         }
 
         private void BtnLanguageDown_Click(object sender, EventArgs e)
@@ -264,15 +317,10 @@ namespace SubSync
             LstLanguagePreferences.SelectedIndex = currentIdx + 2;
             LstLanguagePreferences.Items.RemoveAt(currentIdx);
 
-            languagePreferences.Insert(currentIdx + 2, langDescriptionsToLanguages[languageToMove]);
-            languagePreferences.RemoveAt(currentIdx);
-        }
+            Settings.SubtitleLanguagesPreference.Insert(currentIdx + 2, langDescriptionsToLanguages[languageToMove]);
+            Settings.SubtitleLanguagesPreference.RemoveAt(currentIdx);
 
-        private void SetupDefaultLanguages()
-        {
-            var systemCulture = CultureInfo.InstalledUICulture;
-
-            AddLanguage(systemCulture);
+            Settings.Save();
         }
 
         #endregion
@@ -281,7 +329,7 @@ namespace SubSync
 
         private void CheckStartButton()
         {
-            bool enableStart = languagePreferences.Any() && mediaFolders.Any();
+            bool enableStart = Settings.SubtitleLanguagesPreference.Any() && Settings.MediaFolders.Any();
 
             BtnStartStop.Enabled = enableStart;
             NotifyIconContextMenuItemStartStop.Enabled = enableStart;
@@ -333,7 +381,7 @@ namespace SubSync
             {
                 BkgWorkerStartStopSync.ReportProgress(0, SyncStartStopProgress.STARTING);
 
-                SyncManager.Start(languagePreferences, mediaFolders);
+                SyncManager.Start(Settings.SubtitleLanguagesPreference, Settings.MediaFolders);
 
                 BkgWorkerStartStopSync.ReportProgress(100, SyncStartStopProgress.STARTED);
             }
@@ -474,7 +522,7 @@ namespace SubSync
 
         private void CheckNotStableRelease()
         {
-            if (Configuration.RunningEnvironment == "Debug")
+            if (SubSync.Lib.Configuration.RunningEnvironment == "Debug")
                 return;
 
             if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
