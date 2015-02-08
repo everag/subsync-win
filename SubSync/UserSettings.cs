@@ -11,6 +11,8 @@ namespace SubSync
 {
     public class UserSettings : ApplicationSettingsBase
     {
+        #region User Scoped Settings
+
         [UserScopedSetting()]
         [DefaultSettingValue("true")]
         public bool FirstRun
@@ -66,5 +68,7 @@ namespace SubSync
                 this["RunAtStartup"] = (bool) value;
             }
         }
+
+        #endregion
     }
 }

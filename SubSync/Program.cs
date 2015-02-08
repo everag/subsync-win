@@ -9,8 +9,10 @@ namespace SubSync
     static class Program
     {
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            StartupArgs.SetArgs(args);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SetupForm());

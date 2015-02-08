@@ -133,7 +133,7 @@ namespace SubSync.Utils
             RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true);
 
             if (include)
-                key.SetValue(Properties.Resources.AppName, Application.ExecutablePath.ToString());
+                key.SetValue(Properties.Resources.AppName, string.Format("\"{0} /startsync\"", Application.ExecutablePath.ToString()));
             else
                 key.DeleteValue(Properties.Resources.AppName, false);
         }

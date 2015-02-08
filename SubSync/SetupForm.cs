@@ -61,6 +61,11 @@ namespace SubSync
             CheckNotStableRelease();
 
             CheckStartButton();
+
+            if (StartupArgs.InitializeInStartState && IsConfigurationOk())
+            {
+                StartStopSync();
+            }
         }
 
         private void FillSettingsInfo()
@@ -331,10 +336,15 @@ namespace SubSync
 
         private void CheckStartButton()
         {
-            bool enableStart = Settings.SubtitleLanguagesPreference.Any() && Settings.MediaFolders.Any();
+            bool enableStart = IsConfigurationOk();
 
             BtnStartStop.Enabled = enableStart;
             NotifyIconContextMenuItemStartStop.Enabled = enableStart;
+        }
+
+        private bool IsConfigurationOk()
+        {
+            return Settings.SubtitleLanguagesPreference.Any() && Settings.MediaFolders.Any();
         }
 
         private void ToggleControlsEnabled(bool enable)

@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartupArgs.cs" />
     <Compile Include="Tasks\CheckForVideosJob.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="Utils\MediaLibraries.cs" />
