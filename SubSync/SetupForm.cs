@@ -83,7 +83,7 @@ namespace SubSync
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            NotifyIcon.Icon = Properties.Resources.SubSync_Logo_Dark;
+            NotifyIcon.Icon = Properties.Resources.SubSync_Logo;
             NotifyIcon.Text = AppCompleteDescription;
 
             LbWelcomeTitle.Text = string.Format("Welcome to {0}!", AppShortDescription);
@@ -93,7 +93,7 @@ namespace SubSync
             else
                 Text = AppCompleteDescription;
 
-            Icon = Properties.Resources.SubSync_Logo_Dark;
+            Icon = Properties.Resources.SubSync_Logo;
 
             Settings = new UserSettings();
 
