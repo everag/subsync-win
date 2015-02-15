@@ -22,7 +22,55 @@ namespace SubSync
 {
     public partial class SetupForm : Form
     {
-        private string AppNameVersion { get { return string.Format("{0} {1}", Properties.Resources.AppName, Properties.Resources.AppVersion); } }
+        private string AppCompleteDescription
+        {
+            get 
+            {
+                if (Properties.Resources.AppCurrentStage == "Stable")
+                    return string.Format("{0} {1}", 
+                        Properties.Resources.AppName, 
+                        Properties.Resources.AppVersion);
+ 
+                else if (Properties.Resources.AppCurrentStage == "Beta")
+                    return string.Format("{0} {1} {2}", 
+                        Properties.Resources.AppName, 
+                        Properties.Resources.AppCurrentStage, 
+                        Properties.Resources.AppVersion);
+ 
+                else if (Properties.Resources.AppCurrentStage == "Alpha")
+                    return string.Format("{0} {1} {2}.{3}", 
+                        Properties.Resources.AppName, 
+                        Properties.Resources.AppCurrentStage, 
+                        Properties.Resources.AppVersion,
+                        Properties.Resources.AppBuildDate);
+
+                else
+                    return Properties.Resources.AppName; 
+            } 
+        }
+
+        private string AppShortDescription
+        {
+            get
+            {
+                if (Properties.Resources.AppCurrentStage == "Stable")
+                    return string.Format("{0}",
+                        Properties.Resources.AppName);
+
+                else if (Properties.Resources.AppCurrentStage == "Beta")
+                    return string.Format("{0} {1}",
+                        Properties.Resources.AppName,
+                        Properties.Resources.AppCurrentStage);
+
+                else if (Properties.Resources.AppCurrentStage == "Alpha")
+                    return string.Format("{0} {1}",
+                        Properties.Resources.AppName,
+                        Properties.Resources.AppCurrentStage);
+
+                else
+                    return Properties.Resources.AppName;
+            }
+        }
 
         private UserSettings Settings;
 
@@ -35,10 +83,17 @@ namespace SubSync
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            NotifyIcon.Icon = Properties.Resources.SubSync_Logo;
-            NotifyIcon.Text = AppNameVersion;
+            NotifyIcon.Icon = Properties.Resources.SubSync_Logo_Dark;
+            NotifyIcon.Text = AppCompleteDescription;
 
-            Icon = Properties.Resources.SubSync_Logo;
+            LbWelcomeTitle.Text = string.Format("Welcome to {0}!", AppShortDescription);
+
+            if (SubSync.Lib.Configuration.RunningEnvironment == "Debug")
+                Text = string.Format("{0} [{1}]", AppCompleteDescription, SubSync.Lib.Configuration.RunningEnvironment);
+            else
+                Text = AppCompleteDescription;
+
+            Icon = Properties.Resources.SubSync_Logo_Dark;
 
             Settings = new UserSettings();
 
@@ -57,8 +112,6 @@ namespace SubSync
             LoadSupportedLanguages();
 
             FillSettingsInfo();
-
-            CheckNotStableRelease();
 
             CheckStartButton();
 
@@ -527,7 +580,7 @@ namespace SubSync
 
         private void ShowTrayNotification(string message, NotificationPeriod period)
         {
-            NotifyIcon.ShowBalloonTip((int)period, AppNameVersion, message, ToolTipIcon.Info);
+            NotifyIcon.ShowBalloonTip((int)period, AppShortDescription, message, ToolTipIcon.Info);
         }
 
         private void ShowWindow()
@@ -539,25 +592,6 @@ namespace SubSync
             else if (WindowState == FormWindowState.Minimized)
             {
                 WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void CheckNotStableRelease()
-        {
-            if (SubSync.Lib.Configuration.RunningEnvironment == "Debug")
-                return;
-
-            if (Properties.Resources.AppCurrentStage == "Alpha" || Properties.Resources.AppCurrentStage == "Beta")
-            {
-                MessageBox.Show
-                (
-                    string.Format
-                    (
-                        "SubSync is currently in {0} stage development. Basic functionality is provided, but expect some bugs!\n\nPlease inform the developer (ton.agner@gmail.com) if anything weird happens!",
-                        Properties.Resources.AppCurrentStage
-                    ),
-                    AppNameVersion
-                );
             }
         }
     }
