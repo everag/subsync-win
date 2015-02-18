@@ -61,7 +61,7 @@ namespace SubSync.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 150215.
+        ///   Looks up a localized string similar to 150217.
         /// </summary>
         internal static string AppBuildDate {
             get {
@@ -103,6 +103,16 @@ namespace SubSync.Properties {
             get {
                 object obj = ResourceManager.GetObject("SubSync_Logo", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubSync_Logo_Horizontal {
+            get {
+                object obj = ResourceManager.GetObject("SubSync_Logo_Horizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

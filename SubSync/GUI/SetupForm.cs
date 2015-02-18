@@ -1,4 +1,5 @@
 ﻿using SubSync.Events;
+using SubSync.GUI;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
 using SubSync.Utils;
@@ -18,7 +19,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SubSync
+namespace SubSync.GUI
 {
     public partial class SetupForm : Form
     {
@@ -525,7 +526,7 @@ namespace SubSync
         
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ShowWindow();
+            ToggleMainWindow();
         }
 
         #endregion
@@ -538,7 +539,7 @@ namespace SubSync
 
             if (e.ClickedItem == NotifyIconContextMenuItemOpenGUI)
             {
-                ShowWindow();
+                WindowManager.OpenWindow(typeof(SetupForm));
             }
 
             // Start/Stop SubSync
@@ -553,6 +554,21 @@ namespace SubSync
             if (e.ClickedItem == NotifyIconContextMenuItemCheckNow)
             {
                 SyncManager.CheckForSubtitlesNow();
+            }
+
+            // Check for updates
+
+            if (e.ClickedItem == NotifyIconContextMenuItemCheckUpdates)
+            {
+                ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
+                Process.Start(sInfo);
+            }
+
+            // About SubSync
+
+            if (e.ClickedItem == NotifyIconContextMenuItemAbout)
+            {
+                WindowManager.OpenWindow(typeof(AboutForm));
             }
 
             // Exit
@@ -583,16 +599,12 @@ namespace SubSync
             NotifyIcon.ShowBalloonTip((int)period, AppShortDescription, message, ToolTipIcon.Info);
         }
 
-        private void ShowWindow()
+        private void ToggleMainWindow()
         {
             if (!Visible)
-            {
-                Show();
-            }
-            else if (WindowState == FormWindowState.Minimized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
+                WindowManager.OpenWindow(typeof(SetupForm));
+            else
+                Hide();
         }
     }
 }

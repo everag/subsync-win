@@ -1,4 +1,4 @@
-﻿namespace SubSync
+﻿namespace SubSync.GUI
 {
     partial class SetupForm
     {
@@ -56,8 +56,11 @@
             this.NotifyIconContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemCheckNow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.NotifyIconContextMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
+            this.NotifyIconContextMenuItemCheckUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.GpbSelectDirectories.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.NotifyIconContextMenu.SuspendLayout();
@@ -276,9 +279,12 @@
             this.NotifyIconContextMenuSeparator2,
             this.NotifyIconContextMenuItemCheckNow,
             this.NotifyIconContextMenuSeparator3,
+            this.NotifyIconContextMenuItemCheckUpdates,
+            this.NotifyIconContextMenuItemAbout,
+            this.NotifyIconContextMenuSeparator4,
             this.NotifyIconContextMenuItemExit});
             this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
-            this.NotifyIconContextMenu.Size = new System.Drawing.Size(242, 132);
+            this.NotifyIconContextMenu.Size = new System.Drawing.Size(242, 204);
             this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
             // 
             // NotifyIconContextMenuItemOpenGUI
@@ -325,6 +331,17 @@
             this.NotifyIconContextMenuSeparator3.Name = "NotifyIconContextMenuSeparator3";
             this.NotifyIconContextMenuSeparator3.Size = new System.Drawing.Size(238, 6);
             // 
+            // NotifyIconContextMenuItemAbout
+            // 
+            this.NotifyIconContextMenuItemAbout.Name = "NotifyIconContextMenuItemAbout";
+            this.NotifyIconContextMenuItemAbout.Size = new System.Drawing.Size(241, 22);
+            this.NotifyIconContextMenuItemAbout.Text = "About SubSync";
+            // 
+            // NotifyIconContextMenuSeparator4
+            // 
+            this.NotifyIconContextMenuSeparator4.Name = "NotifyIconContextMenuSeparator4";
+            this.NotifyIconContextMenuSeparator4.Size = new System.Drawing.Size(238, 6);
+            // 
             // NotifyIconContextMenuItemExit
             // 
             this.NotifyIconContextMenuItemExit.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -337,6 +354,12 @@
             this.BkgWorkerStartStopSync.WorkerReportsProgress = true;
             this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
             this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
+            // 
+            // NotifyIconContextMenuItemCheckUpdates
+            // 
+            this.NotifyIconContextMenuItemCheckUpdates.Name = "NotifyIconContextMenuItemCheckUpdates";
+            this.NotifyIconContextMenuItemCheckUpdates.Size = new System.Drawing.Size(241, 22);
+            this.NotifyIconContextMenuItemCheckUpdates.Text = "Check for updates";
             // 
             // SetupForm
             // 
@@ -396,6 +419,9 @@
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemStartStop;
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemRunAtLogin;
         private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemAbout;
+        private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemCheckUpdates;
 
 
 
