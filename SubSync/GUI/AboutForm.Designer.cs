@@ -41,7 +41,7 @@
             // 
             // ImgLogo
             // 
-            this.ImgLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ImgLogo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ImgLogo.Image = global::SubSync.Properties.Resources.SubSync_Logo_Horizontal;
             this.ImgLogo.InitialImage = null;
             this.ImgLogo.Location = new System.Drawing.Point(12, 12);
@@ -49,7 +49,6 @@
             this.ImgLogo.Size = new System.Drawing.Size(350, 100);
             this.ImgLogo.TabIndex = 0;
             this.ImgLogo.TabStop = false;
-            this.ImgLogo.Click += new System.EventHandler(this.ImgLogo_Click);
             // 
             // LbVersion
             // 
@@ -68,7 +67,6 @@
             this.LbBuild.Name = "LbBuild";
             this.LbBuild.Size = new System.Drawing.Size(170, 24);
             this.LbBuild.TabIndex = 2;
-            this.LbBuild.Text = "Build ???";
             this.LbBuild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LnkVisitHomePage

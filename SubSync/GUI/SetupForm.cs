@@ -2,6 +2,7 @@
 using SubSync.GUI;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
+using SubSync.Tasks;
 using SubSync.Utils;
 using System;
 using System.Collections.Generic;
@@ -27,26 +28,17 @@ namespace SubSync.GUI
         {
             get 
             {
-                if (Properties.Resources.AppCurrentStage == "Stable")
-                    return string.Format("{0} {1}", 
-                        Properties.Resources.AppName, 
-                        Properties.Resources.AppVersion);
- 
-                else if (Properties.Resources.AppCurrentStage == "Beta")
-                    return string.Format("{0} {1} {2}", 
-                        Properties.Resources.AppName, 
-                        Properties.Resources.AppCurrentStage, 
-                        Properties.Resources.AppVersion);
- 
-                else if (Properties.Resources.AppCurrentStage == "Alpha")
-                    return string.Format("{0} {1} {2}.{3}", 
-                        Properties.Resources.AppName, 
-                        Properties.Resources.AppCurrentStage, 
-                        Properties.Resources.AppVersion,
-                        Properties.Resources.AppBuildDate);
+                if (CurrentVersion.ReleaseInfo.Stage == DevelopmentStages.Stable)
+                    return CurrentVersion.ReleaseInfo.ToString(false, false, false, true);
+
+                else if (CurrentVersion.ReleaseInfo.Stage == DevelopmentStages.Beta)
+                    return CurrentVersion.ReleaseInfo.ToString(false, true, false, true);
+
+                else if (CurrentVersion.ReleaseInfo.Stage == DevelopmentStages.Alpha)
+                    return CurrentVersion.ReleaseInfo.ToString(true, true, false, true);
 
                 else
-                    return Properties.Resources.AppName; 
+                    return CurrentVersion.ReleaseInfo.ApplicationName; 
             } 
         }
 
@@ -54,22 +46,11 @@ namespace SubSync.GUI
         {
             get
             {
-                if (Properties.Resources.AppCurrentStage == "Stable")
-                    return string.Format("{0}",
-                        Properties.Resources.AppName);
-
-                else if (Properties.Resources.AppCurrentStage == "Beta")
-                    return string.Format("{0} {1}",
-                        Properties.Resources.AppName,
-                        Properties.Resources.AppCurrentStage);
-
-                else if (Properties.Resources.AppCurrentStage == "Alpha")
-                    return string.Format("{0} {1}",
-                        Properties.Resources.AppName,
-                        Properties.Resources.AppCurrentStage);
+                if (CurrentVersion.ReleaseInfo.Stage == DevelopmentStages.Stable)
+                    return CurrentVersion.ReleaseInfo.ApplicationName;
 
                 else
-                    return Properties.Resources.AppName;
+                    return CurrentVersion.ReleaseInfo.ApplicationName + " " + CurrentVersion.ReleaseInfo.Stage;
             }
         }
 
@@ -529,6 +510,17 @@ namespace SubSync.GUI
             ToggleMainWindow();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                ToggleMainWindow();
+                return true;
+            }
+            
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         #endregion
 
         #region Tray Icon Context Menu
@@ -560,8 +552,29 @@ namespace SubSync.GUI
 
             if (e.ClickedItem == NotifyIconContextMenuItemCheckUpdates)
             {
-                ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
-                Process.Start(sInfo);
+                Task.Run(() =>
+                {
+                    var latestVersionAvailable = new CheckForUpdatesJob().GetLatestVersionAvailable();
+
+                    if (latestVersionAvailable == null)
+                        return;
+
+                    if (latestVersionAvailable.IsNewerThan(CurrentVersion.ReleaseInfo))
+                    {
+                        var res = MessageBox.Show(
+                            string.Format("{0} available for download!\n\nPress OK to visit the website and download the new version", latestVersionAvailable.ToString(true, true, false, true)),
+                            "New version available!",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Exclamation
+                        );
+
+                        if (res == DialogResult.OK)
+                        {
+                            ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
+                            Process.Start(sInfo);
+                        }
+                    }
+                });
             }
 
             // About SubSync

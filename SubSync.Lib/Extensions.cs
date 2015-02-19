@@ -15,5 +15,10 @@ namespace SubSync.Lib
         {
             return String.Format("{0} ({1})", cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName), cultureInfo.IetfLanguageTag.ToUpper());
         }
+
+        public static string ToTitleCase(this string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
     }
 }

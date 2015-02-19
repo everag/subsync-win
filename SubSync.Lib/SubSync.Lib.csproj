@@ -46,9 +46,11 @@
   <ItemGroup>
     <Compile Include="ApiRequestException.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ISubtitleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReleaseInfo.cs" />
     <Compile Include="SubtitleFormat.cs" />
     <Compile Include="SubtitleInfo.cs" />
     <Compile Include="SubtitleStream.cs" />
