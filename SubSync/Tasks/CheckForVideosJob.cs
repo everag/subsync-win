@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SubSync.Tasks
 {
-    class CheckForVideosJob : IJob
+    [Quartz.DisallowConcurrentExecutionAttribute()]
+    public class CheckForVideosJob : IJob
     {
         public static readonly string KEY_DIR_PATH = "directoryPath";
 
@@ -21,9 +22,6 @@ namespace SubSync.Tasks
 
             var directoryPath = dataMap.GetString(KEY_DIR_PATH);
             var directory = new DirectoryInfo(directoryPath);
-
-            // TODO: Move to a Log message
-            // Console.WriteLine(string.Format("[{0}] Execution: {1}", me, directory.FullName));
 
             foreach (var filePath in Directory.GetFiles(directoryPath, "*.*", SearchOption.AllDirectories))
             {

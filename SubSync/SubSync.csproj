@@ -103,6 +103,7 @@
     <Compile Include="StartupArgs.cs" />
     <Compile Include="Tasks\CheckForVideosJob.cs" />
     <Compile Include="Tasks\CheckForUpdatesJob.cs" />
+    <Compile Include="Tasks\TaskManager.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="Utils\CurrentVersion.cs" />
     <Compile Include="Utils\MediaLibraries.cs" />

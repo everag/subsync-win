@@ -13,13 +13,15 @@ namespace SubSync.Lib
         {
             get
             {
-                int value;
+                return GetIntValue("Tasks.CheckForVideosJob.Delay", 5);
+            }
+        }
 
-                if (Int32.TryParse(ConfigurationManager.AppSettings["Tasks.CheckForVideosJob.Delay"], out value))
-                    return value;
-                else
-                    // TODO: Add Log message
-                    return 1;
+        public static int ScheduledUpdatesCheckingDelay
+        {
+            get
+            {
+                return GetIntValue("Tasks.CheckForUpdatesJob.Delay", 6);
             }
         }
 
@@ -37,6 +39,16 @@ namespace SubSync.Lib
             {
                 return ConfigurationManager.AppSettings["SubDb.Api.Url"];
             }
+        }
+
+        private static int GetIntValue(string key, int defaultValue = 1)
+        {
+            int value;
+
+            if (Int32.TryParse(ConfigurationManager.AppSettings[key], out value))
+                return value;
+            else
+                return defaultValue;
         }
     }
 }

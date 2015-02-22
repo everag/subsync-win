@@ -1,15 +1,19 @@
 ﻿using Quartz;
 using SubSync.Lib;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SubSync.Tasks
 {
+    [Quartz.DisallowConcurrentExecutionAttribute()]
     public class CheckForUpdatesJob : IJob
     {
         public static readonly string LATEST_VERSION_URL = "https://subsync.codeplex.com/releases";
@@ -19,7 +23,26 @@ namespace SubSync.Tasks
 
         public void Execute(IJobExecutionContext context)
         {
+            var latestVersionAvailable = GetLatestVersionAvailable();
 
+            if (latestVersionAvailable == null)
+                return;
+
+            if (latestVersionAvailable.IsNewerThan(CurrentVersion.ReleaseInfo))
+            {
+                var res = MessageBox.Show(
+                    string.Format("{0} available for download!\n\nPress OK to visit the website and download the new version", latestVersionAvailable.ToString(true, true, false, true)),
+                    "New version available!",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Exclamation
+                );
+
+                if (res == DialogResult.OK)
+                {
+                    ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
+                    Process.Start(sInfo);
+                }
+            }
         }
 
         public ReleaseInfo GetLatestVersionAvailable()

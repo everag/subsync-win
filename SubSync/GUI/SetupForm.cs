@@ -97,6 +97,8 @@ namespace SubSync.GUI
 
             CheckStartButton();
 
+            TaskManager.StartTask<CheckForUpdatesJob>();
+
             if (StartupArgs.InitializeInStartState && IsConfigurationOk())
             {
                 StartStopSync();
@@ -554,26 +556,7 @@ namespace SubSync.GUI
             {
                 Task.Run(() =>
                 {
-                    var latestVersionAvailable = new CheckForUpdatesJob().GetLatestVersionAvailable();
-
-                    if (latestVersionAvailable == null)
-                        return;
-
-                    if (latestVersionAvailable.IsNewerThan(CurrentVersion.ReleaseInfo))
-                    {
-                        var res = MessageBox.Show(
-                            string.Format("{0} available for download!\n\nPress OK to visit the website and download the new version", latestVersionAvailable.ToString(true, true, false, true)),
-                            "New version available!",
-                            MessageBoxButtons.OKCancel,
-                            MessageBoxIcon.Exclamation
-                        );
-
-                        if (res == DialogResult.OK)
-                        {
-                            ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
-                            Process.Start(sInfo);
-                        }
-                    }
+                    TaskManager.AntecipateTask<CheckForUpdatesJob>(false);
                 });
             }
 
@@ -589,7 +572,7 @@ namespace SubSync.GUI
             if (e.ClickedItem == NotifyIconContextMenuItemExit)
             {
                 Application.Exit();
-                // Included due to application threads still running after the Application Exit
+                // Included due to application threads still running after Application Exit
                 // TODO: Validate if this the right way to do this
                 Process.GetCurrentProcess().Kill();
             }

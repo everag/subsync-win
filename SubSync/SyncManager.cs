@@ -24,10 +24,6 @@ namespace SubSync
         {
             VideoFound += OnVideoFound;
             VideoFound += (sender, e) => VideoFilesFound.Add((e as VideoFoundEventArgs).VideoFile.FullName);
-
-            schedulerFactory = new StdSchedulerFactory();
-            scheduler = schedulerFactory.GetScheduler();
-            scheduler.Start();
         }
 
         private static readonly SyncManager _instance = new SyncManager();
@@ -68,9 +64,6 @@ namespace SubSync
         
         public ISet<string> VideoFilesFound { get; private set; }
         public ISet<string> CurrentJobs { get; private set; }
-
-        private ISchedulerFactory schedulerFactory;
-        private IScheduler scheduler;
 
         private object thisLock = new Object();
 
@@ -245,45 +238,17 @@ namespace SubSync
 
         private void InitializeDirectoriesVerificationScheduler()
         {
-            DirectoryScheduledCheckTrigger = new Dictionary<DirectoryInfo, ITrigger>();
-
-            foreach (var dir in MediaDirectories)
-            {
-                var trigger = TriggerBuilder.Create()
-                    .WithIdentity(string.Format("Trigger.CheckDir [{0}]", dir.FullName), "Tasks")
-                    .StartNow()
-                    .WithSimpleSchedule(t => t
-                        .WithIntervalInMinutes(Configuration.ScheduledFoldersCheckingDelay)
-                        .RepeatForever())
-                    .Build();
-
-                DirectoryScheduledCheckTrigger[dir] = trigger;
-
-                var job = JobBuilder.Create<CheckForVideosJob>()
-                    .WithIdentity(string.Format("Job.CheckDir [{0}]", dir.FullName), "Tasks")
-                    .UsingJobData(CheckForVideosJob.KEY_DIR_PATH, dir.FullName)
-                    .Build();
-
-                scheduler.ScheduleJob(job, trigger);
-            }
+            TaskManager.StartTask<CheckForVideosJob>();
         }
 
         private void ShutdownDirectoriesVerificationScheduler()
         {
-            scheduler.Clear();
+            TaskManager.StopTask<CheckForVideosJob>();
         }
 
         public void CheckForSubtitlesNow()
         {
-            foreach (var dir in DirectoryScheduledCheckTrigger.Keys.ToArray())
-            {
-                var trigger = DirectoryScheduledCheckTrigger[dir];
-
-                var updatedTrigger = trigger.GetTriggerBuilder().Build();
-                scheduler.RescheduleJob(trigger.Key, updatedTrigger);
-
-                DirectoryScheduledCheckTrigger[dir] = updatedTrigger;
-            }
+            TaskManager.AntecipateTask<CheckForVideosJob>(true);
         }
 
         public void CheckFile(FileInfo file)
