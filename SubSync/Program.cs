@@ -27,6 +27,7 @@ namespace SubSync
         private static void StartApplication()
         {
             // Prevent multiple executions of application
+            // See: http://stackoverflow.com/questions/19147/what-is-the-correct-way-to-create-a-single-instance-application
 
             if (mutex.WaitOne(TimeSpan.Zero, true))
             {
