@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.LbWelcomeMessage = new System.Windows.Forms.Label();
             this.LbWelcomeTitle = new System.Windows.Forms.Label();
             this.GpbSelectDirectories = new System.Windows.Forms.GroupBox();
@@ -42,12 +43,11 @@
             this.LstLanguages = new System.Windows.Forms.ListBox();
             this.BtnAddLanguage = new System.Windows.Forms.Button();
             this.BtnRemoveLanguage = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GpbSelectLanguages = new System.Windows.Forms.GroupBox();
             this.BtnLanguageDown = new System.Windows.Forms.Button();
             this.BtnLanguageUp = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BtnStartStop = new System.Windows.Forms.Button();
-            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotifyIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NotifyIconContextMenuItemOpenGUI = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuItemStartStop = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,221 +56,162 @@
             this.NotifyIconContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemCheckNow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.NotifyIconContextMenuItemCheckUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.BkgWorkerStartStopSync = new System.ComponentModel.BackgroundWorker();
-            this.NotifyIconContextMenuItemCheckUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.GpbSelectDirectories.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GpbSelectLanguages.SuspendLayout();
             this.NotifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // LbWelcomeMessage
             // 
+            resources.ApplyResources(this.LbWelcomeMessage, "LbWelcomeMessage");
             this.LbWelcomeMessage.AutoEllipsis = true;
-            this.LbWelcomeMessage.AutoSize = true;
-            this.LbWelcomeMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbWelcomeMessage.Location = new System.Drawing.Point(42, 72);
             this.LbWelcomeMessage.Name = "LbWelcomeMessage";
-            this.LbWelcomeMessage.Size = new System.Drawing.Size(359, 17);
-            this.LbWelcomeMessage.TabIndex = 7;
-            this.LbWelcomeMessage.Text = "This simple setup will make SubSync up and running in a bit!";
+            this.ToolTip.SetToolTip(this.LbWelcomeMessage, resources.GetString("LbWelcomeMessage.ToolTip"));
             // 
             // LbWelcomeTitle
             // 
-            this.LbWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbWelcomeTitle.Location = new System.Drawing.Point(29, 24);
+            resources.ApplyResources(this.LbWelcomeTitle, "LbWelcomeTitle");
             this.LbWelcomeTitle.Name = "LbWelcomeTitle";
-            this.LbWelcomeTitle.Size = new System.Drawing.Size(385, 30);
-            this.LbWelcomeTitle.TabIndex = 6;
-            this.LbWelcomeTitle.Text = "Welcome to SubSync!";
-            this.LbWelcomeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ToolTip.SetToolTip(this.LbWelcomeTitle, resources.GetString("LbWelcomeTitle.ToolTip"));
             // 
             // GpbSelectDirectories
             // 
+            resources.ApplyResources(this.GpbSelectDirectories, "GpbSelectDirectories");
             this.GpbSelectDirectories.Controls.Add(this.LstDirectories);
             this.GpbSelectDirectories.Controls.Add(this.BtnRemoveDirectory);
             this.GpbSelectDirectories.Controls.Add(this.BtnAddDirectory);
-            this.GpbSelectDirectories.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GpbSelectDirectories.Location = new System.Drawing.Point(29, 116);
             this.GpbSelectDirectories.Name = "GpbSelectDirectories";
-            this.GpbSelectDirectories.Size = new System.Drawing.Size(385, 118);
-            this.GpbSelectDirectories.TabIndex = 8;
             this.GpbSelectDirectories.TabStop = false;
-            this.GpbSelectDirectories.Text = "Step 1 - Choose your media folders";
+            this.ToolTip.SetToolTip(this.GpbSelectDirectories, resources.GetString("GpbSelectDirectories.ToolTip"));
             // 
             // LstDirectories
             // 
+            resources.ApplyResources(this.LstDirectories, "LstDirectories");
             this.LstDirectories.AllowDrop = true;
             this.LstDirectories.FormattingEnabled = true;
-            this.LstDirectories.HorizontalScrollbar = true;
-            this.LstDirectories.ItemHeight = 15;
-            this.LstDirectories.Location = new System.Drawing.Point(16, 26);
             this.LstDirectories.Name = "LstDirectories";
             this.LstDirectories.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.LstDirectories.Size = new System.Drawing.Size(276, 79);
             this.LstDirectories.Sorted = true;
-            this.LstDirectories.TabIndex = 3;
+            this.ToolTip.SetToolTip(this.LstDirectories, resources.GetString("LstDirectories.ToolTip"));
             this.LstDirectories.SelectedIndexChanged += new System.EventHandler(this.LstDirectories_SelectedIndexChanged);
             this.LstDirectories.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LstDirectories_KeyDown);
             // 
             // BtnRemoveDirectory
             // 
-            this.BtnRemoveDirectory.Enabled = false;
-            this.BtnRemoveDirectory.Location = new System.Drawing.Point(298, 70);
+            resources.ApplyResources(this.BtnRemoveDirectory, "BtnRemoveDirectory");
             this.BtnRemoveDirectory.Name = "BtnRemoveDirectory";
-            this.BtnRemoveDirectory.Size = new System.Drawing.Size(75, 35);
-            this.BtnRemoveDirectory.TabIndex = 2;
-            this.BtnRemoveDirectory.Text = "Remove";
-            this.ToolTip.SetToolTip(this.BtnRemoveDirectory, "Remove the selected media folders");
+            this.ToolTip.SetToolTip(this.BtnRemoveDirectory, resources.GetString("BtnRemoveDirectory.ToolTip"));
             this.BtnRemoveDirectory.UseVisualStyleBackColor = true;
             this.BtnRemoveDirectory.Click += new System.EventHandler(this.BtnRemoveDirectory_Click);
             // 
             // BtnAddDirectory
             // 
-            this.BtnAddDirectory.Location = new System.Drawing.Point(298, 26);
+            resources.ApplyResources(this.BtnAddDirectory, "BtnAddDirectory");
             this.BtnAddDirectory.Name = "BtnAddDirectory";
-            this.BtnAddDirectory.Size = new System.Drawing.Size(75, 35);
-            this.BtnAddDirectory.TabIndex = 1;
-            this.BtnAddDirectory.Text = "Add";
-            this.ToolTip.SetToolTip(this.BtnAddDirectory, "Add a new media folder");
+            this.ToolTip.SetToolTip(this.BtnAddDirectory, resources.GetString("BtnAddDirectory.ToolTip"));
             this.BtnAddDirectory.UseVisualStyleBackColor = true;
             this.BtnAddDirectory.Click += new System.EventHandler(this.BtnAddDirectory_Click);
             // 
             // FolderBrowserDialog
             // 
-            this.FolderBrowserDialog.Description = "Select your media folder";
+            resources.ApplyResources(this.FolderBrowserDialog, "FolderBrowserDialog");
             // 
             // LbLanguages
             // 
-            this.LbLanguages.AutoSize = true;
-            this.LbLanguages.Location = new System.Drawing.Point(20, 29);
+            resources.ApplyResources(this.LbLanguages, "LbLanguages");
             this.LbLanguages.Name = "LbLanguages";
-            this.LbLanguages.Size = new System.Drawing.Size(119, 15);
-            this.LbLanguages.TabIndex = 1;
-            this.LbLanguages.Text = "Supported languages";
+            this.ToolTip.SetToolTip(this.LbLanguages, resources.GetString("LbLanguages.ToolTip"));
             // 
             // LstLanguagePreferences
             // 
+            resources.ApplyResources(this.LstLanguagePreferences, "LstLanguagePreferences");
             this.LstLanguagePreferences.FormattingEnabled = true;
-            this.LstLanguagePreferences.HorizontalScrollbar = true;
-            this.LstLanguagePreferences.ItemHeight = 15;
-            this.LstLanguagePreferences.Location = new System.Drawing.Point(199, 48);
             this.LstLanguagePreferences.Name = "LstLanguagePreferences";
-            this.LstLanguagePreferences.Size = new System.Drawing.Size(136, 94);
-            this.LstLanguagePreferences.TabIndex = 2;
+            this.ToolTip.SetToolTip(this.LstLanguagePreferences, resources.GetString("LstLanguagePreferences.ToolTip"));
             this.LstLanguagePreferences.SelectedIndexChanged += new System.EventHandler(this.LstLanguagePreferences_SelectedIndexChanged);
             this.LstLanguagePreferences.DoubleClick += new System.EventHandler(this.LstLanguagePreferences_DoubleClick);
             // 
             // LbLanguagePreferences
             // 
-            this.LbLanguagePreferences.AutoSize = true;
-            this.LbLanguagePreferences.Location = new System.Drawing.Point(199, 29);
+            resources.ApplyResources(this.LbLanguagePreferences, "LbLanguagePreferences");
             this.LbLanguagePreferences.Name = "LbLanguagePreferences";
-            this.LbLanguagePreferences.Size = new System.Drawing.Size(136, 15);
-            this.LbLanguagePreferences.TabIndex = 3;
-            this.LbLanguagePreferences.Text = "Your order of preference";
+            this.ToolTip.SetToolTip(this.LbLanguagePreferences, resources.GetString("LbLanguagePreferences.ToolTip"));
             // 
             // LstLanguages
             // 
+            resources.ApplyResources(this.LstLanguages, "LstLanguages");
             this.LstLanguages.FormattingEnabled = true;
-            this.LstLanguages.HorizontalScrollbar = true;
-            this.LstLanguages.ItemHeight = 15;
-            this.LstLanguages.Location = new System.Drawing.Point(19, 48);
             this.LstLanguages.Name = "LstLanguages";
             this.LstLanguages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.LstLanguages.Size = new System.Drawing.Size(136, 94);
             this.LstLanguages.Sorted = true;
-            this.LstLanguages.TabIndex = 4;
+            this.ToolTip.SetToolTip(this.LstLanguages, resources.GetString("LstLanguages.ToolTip"));
             this.LstLanguages.SelectedIndexChanged += new System.EventHandler(this.LstLanguages_SelectedIndexChanged);
             this.LstLanguages.DoubleClick += new System.EventHandler(this.LstLanguages_DoubleClick);
             // 
             // BtnAddLanguage
             // 
-            this.BtnAddLanguage.Enabled = false;
-            this.BtnAddLanguage.Location = new System.Drawing.Point(162, 63);
+            resources.ApplyResources(this.BtnAddLanguage, "BtnAddLanguage");
             this.BtnAddLanguage.Name = "BtnAddLanguage";
-            this.BtnAddLanguage.Size = new System.Drawing.Size(31, 29);
-            this.BtnAddLanguage.TabIndex = 5;
-            this.BtnAddLanguage.Text = ">>";
+            this.ToolTip.SetToolTip(this.BtnAddLanguage, resources.GetString("BtnAddLanguage.ToolTip"));
             this.BtnAddLanguage.UseVisualStyleBackColor = true;
             this.BtnAddLanguage.Click += new System.EventHandler(this.BtnLanguageAdd_Click);
             // 
             // BtnRemoveLanguage
             // 
-            this.BtnRemoveLanguage.Enabled = false;
-            this.BtnRemoveLanguage.Location = new System.Drawing.Point(162, 98);
+            resources.ApplyResources(this.BtnRemoveLanguage, "BtnRemoveLanguage");
             this.BtnRemoveLanguage.Name = "BtnRemoveLanguage";
-            this.BtnRemoveLanguage.Size = new System.Drawing.Size(31, 29);
-            this.BtnRemoveLanguage.TabIndex = 6;
-            this.BtnRemoveLanguage.Text = "<<";
+            this.ToolTip.SetToolTip(this.BtnRemoveLanguage, resources.GetString("BtnRemoveLanguage.ToolTip"));
             this.BtnRemoveLanguage.UseVisualStyleBackColor = true;
             this.BtnRemoveLanguage.Click += new System.EventHandler(this.BtnLanguageRemove_Click);
             // 
-            // groupBox1
+            // GpbSelectLanguages
             // 
-            this.groupBox1.Controls.Add(this.BtnLanguageDown);
-            this.groupBox1.Controls.Add(this.BtnLanguageUp);
-            this.groupBox1.Controls.Add(this.BtnRemoveLanguage);
-            this.groupBox1.Controls.Add(this.BtnAddLanguage);
-            this.groupBox1.Controls.Add(this.LstLanguages);
-            this.groupBox1.Controls.Add(this.LbLanguagePreferences);
-            this.groupBox1.Controls.Add(this.LstLanguagePreferences);
-            this.groupBox1.Controls.Add(this.LbLanguages);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(29, 257);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(385, 158);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Step 2 - Choose the languages you are interested into";
+            resources.ApplyResources(this.GpbSelectLanguages, "GpbSelectLanguages");
+            this.GpbSelectLanguages.Controls.Add(this.BtnLanguageDown);
+            this.GpbSelectLanguages.Controls.Add(this.BtnLanguageUp);
+            this.GpbSelectLanguages.Controls.Add(this.BtnRemoveLanguage);
+            this.GpbSelectLanguages.Controls.Add(this.BtnAddLanguage);
+            this.GpbSelectLanguages.Controls.Add(this.LstLanguages);
+            this.GpbSelectLanguages.Controls.Add(this.LbLanguagePreferences);
+            this.GpbSelectLanguages.Controls.Add(this.LstLanguagePreferences);
+            this.GpbSelectLanguages.Controls.Add(this.LbLanguages);
+            this.GpbSelectLanguages.Name = "GpbSelectLanguages";
+            this.GpbSelectLanguages.TabStop = false;
+            this.ToolTip.SetToolTip(this.GpbSelectLanguages, resources.GetString("GpbSelectLanguages.ToolTip"));
             // 
             // BtnLanguageDown
             // 
-            this.BtnLanguageDown.Enabled = false;
-            this.BtnLanguageDown.Location = new System.Drawing.Point(342, 98);
+            resources.ApplyResources(this.BtnLanguageDown, "BtnLanguageDown");
             this.BtnLanguageDown.Name = "BtnLanguageDown";
-            this.BtnLanguageDown.Size = new System.Drawing.Size(31, 29);
-            this.BtnLanguageDown.TabIndex = 8;
-            this.BtnLanguageDown.Text = "-";
-            this.ToolTip.SetToolTip(this.BtnLanguageDown, "Move the selected language down on your preference list");
+            this.ToolTip.SetToolTip(this.BtnLanguageDown, resources.GetString("BtnLanguageDown.ToolTip"));
             this.BtnLanguageDown.UseVisualStyleBackColor = true;
             this.BtnLanguageDown.Click += new System.EventHandler(this.BtnLanguageDown_Click);
             // 
             // BtnLanguageUp
             // 
-            this.BtnLanguageUp.Enabled = false;
-            this.BtnLanguageUp.Location = new System.Drawing.Point(342, 63);
+            resources.ApplyResources(this.BtnLanguageUp, "BtnLanguageUp");
             this.BtnLanguageUp.Name = "BtnLanguageUp";
-            this.BtnLanguageUp.Size = new System.Drawing.Size(31, 29);
-            this.BtnLanguageUp.TabIndex = 7;
-            this.BtnLanguageUp.Text = "+";
-            this.ToolTip.SetToolTip(this.BtnLanguageUp, "Move the selected language up on your preference list");
+            this.ToolTip.SetToolTip(this.BtnLanguageUp, resources.GetString("BtnLanguageUp.ToolTip"));
             this.BtnLanguageUp.UseVisualStyleBackColor = true;
             this.BtnLanguageUp.Click += new System.EventHandler(this.BtnLanguageUp_Click);
             // 
             // BtnStartStop
             // 
-            this.BtnStartStop.Enabled = false;
-            this.BtnStartStop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnStartStop.Location = new System.Drawing.Point(152, 440);
+            resources.ApplyResources(this.BtnStartStop, "BtnStartStop");
             this.BtnStartStop.Name = "BtnStartStop";
-            this.BtnStartStop.Size = new System.Drawing.Size(132, 46);
-            this.BtnStartStop.TabIndex = 10;
-            this.BtnStartStop.Text = "Start SubSync";
+            this.ToolTip.SetToolTip(this.BtnStartStop, resources.GetString("BtnStartStop.ToolTip"));
             this.BtnStartStop.UseVisualStyleBackColor = true;
             this.BtnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
             // 
-            // NotifyIcon
-            // 
-            this.NotifyIcon.ContextMenuStrip = this.NotifyIconContextMenu;
-            this.NotifyIcon.Text = "SubSync";
-            this.NotifyIcon.Visible = true;
-            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
-            // 
             // NotifyIconContextMenu
             // 
+            resources.ApplyResources(this.NotifyIconContextMenu, "NotifyIconContextMenu");
             this.NotifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NotifyIconContextMenuItemOpenGUI,
             this.NotifyIconContextMenuItemStartStop,
@@ -284,70 +225,71 @@
             this.NotifyIconContextMenuSeparator4,
             this.NotifyIconContextMenuItemExit});
             this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
-            this.NotifyIconContextMenu.Size = new System.Drawing.Size(242, 204);
+            this.ToolTip.SetToolTip(this.NotifyIconContextMenu, resources.GetString("NotifyIconContextMenu.ToolTip"));
             this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
             // 
             // NotifyIconContextMenuItemOpenGUI
             // 
-            this.NotifyIconContextMenuItemOpenGUI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.NotifyIconContextMenuItemOpenGUI, "NotifyIconContextMenuItemOpenGUI");
             this.NotifyIconContextMenuItemOpenGUI.Name = "NotifyIconContextMenuItemOpenGUI";
-            this.NotifyIconContextMenuItemOpenGUI.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemOpenGUI.Text = "&Open SubSync";
             // 
             // NotifyIconContextMenuItemStartStop
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuItemStartStop, "NotifyIconContextMenuItemStartStop");
             this.NotifyIconContextMenuItemStartStop.Name = "NotifyIconContextMenuItemStartStop";
-            this.NotifyIconContextMenuItemStartStop.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemStartStop.Text = "&Start SubSync...";
             // 
             // NotifyIconContextMenuSeparator1
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator1, "NotifyIconContextMenuSeparator1");
             this.NotifyIconContextMenuSeparator1.Name = "NotifyIconContextMenuSeparator1";
-            this.NotifyIconContextMenuSeparator1.Size = new System.Drawing.Size(238, 6);
             // 
             // NotifyIconContextMenuItemRunAtLogin
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuItemRunAtLogin, "NotifyIconContextMenuItemRunAtLogin");
             this.NotifyIconContextMenuItemRunAtLogin.CheckOnClick = true;
             this.NotifyIconContextMenuItemRunAtLogin.Name = "NotifyIconContextMenuItemRunAtLogin";
-            this.NotifyIconContextMenuItemRunAtLogin.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemRunAtLogin.Text = "Run SubSync at Windows &Login";
             this.NotifyIconContextMenuItemRunAtLogin.CheckedChanged += new System.EventHandler(this.NotifyIconContextMenuItemRunAtLogin_CheckedChanged);
             // 
             // NotifyIconContextMenuSeparator2
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator2, "NotifyIconContextMenuSeparator2");
             this.NotifyIconContextMenuSeparator2.Name = "NotifyIconContextMenuSeparator2";
-            this.NotifyIconContextMenuSeparator2.Size = new System.Drawing.Size(238, 6);
             // 
             // NotifyIconContextMenuItemCheckNow
             // 
-            this.NotifyIconContextMenuItemCheckNow.Enabled = false;
+            resources.ApplyResources(this.NotifyIconContextMenuItemCheckNow, "NotifyIconContextMenuItemCheckNow");
             this.NotifyIconContextMenuItemCheckNow.Name = "NotifyIconContextMenuItemCheckNow";
-            this.NotifyIconContextMenuItemCheckNow.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemCheckNow.Text = "&Check for subtitles now";
-            this.NotifyIconContextMenuItemCheckNow.ToolTipText = "Check for missing subtitles for your videos now!";
             // 
             // NotifyIconContextMenuSeparator3
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator3, "NotifyIconContextMenuSeparator3");
             this.NotifyIconContextMenuSeparator3.Name = "NotifyIconContextMenuSeparator3";
-            this.NotifyIconContextMenuSeparator3.Size = new System.Drawing.Size(238, 6);
+            // 
+            // NotifyIconContextMenuItemCheckUpdates
+            // 
+            resources.ApplyResources(this.NotifyIconContextMenuItemCheckUpdates, "NotifyIconContextMenuItemCheckUpdates");
+            this.NotifyIconContextMenuItemCheckUpdates.Name = "NotifyIconContextMenuItemCheckUpdates";
             // 
             // NotifyIconContextMenuItemAbout
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuItemAbout, "NotifyIconContextMenuItemAbout");
             this.NotifyIconContextMenuItemAbout.Name = "NotifyIconContextMenuItemAbout";
-            this.NotifyIconContextMenuItemAbout.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemAbout.Text = "About SubSync";
             // 
             // NotifyIconContextMenuSeparator4
             // 
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator4, "NotifyIconContextMenuSeparator4");
             this.NotifyIconContextMenuSeparator4.Name = "NotifyIconContextMenuSeparator4";
-            this.NotifyIconContextMenuSeparator4.Size = new System.Drawing.Size(238, 6);
             // 
             // NotifyIconContextMenuItemExit
             // 
-            this.NotifyIconContextMenuItemExit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            resources.ApplyResources(this.NotifyIconContextMenuItemExit, "NotifyIconContextMenuItemExit");
             this.NotifyIconContextMenuItemExit.Name = "NotifyIconContextMenuItemExit";
-            this.NotifyIconContextMenuItemExit.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemExit.Text = "&Exit";
+            // 
+            // NotifyIcon
+            // 
+            resources.ApplyResources(this.NotifyIcon, "NotifyIcon");
+            this.NotifyIcon.ContextMenuStrip = this.NotifyIconContextMenu;
+            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
             // BkgWorkerStartStopSync
             // 
@@ -355,19 +297,12 @@
             this.BkgWorkerStartStopSync.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BkgWorkerStartStopSync_DoWork);
             this.BkgWorkerStartStopSync.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BkgWorkerStartStopSync_ProgressChanged);
             // 
-            // NotifyIconContextMenuItemCheckUpdates
-            // 
-            this.NotifyIconContextMenuItemCheckUpdates.Name = "NotifyIconContextMenuItemCheckUpdates";
-            this.NotifyIconContextMenuItemCheckUpdates.Size = new System.Drawing.Size(241, 22);
-            this.NotifyIconContextMenuItemCheckUpdates.Text = "Check for updates";
-            // 
             // SetupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 513);
             this.Controls.Add(this.BtnStartStop);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GpbSelectLanguages);
             this.Controls.Add(this.GpbSelectDirectories);
             this.Controls.Add(this.LbWelcomeMessage);
             this.Controls.Add(this.LbWelcomeTitle);
@@ -375,16 +310,14 @@
             this.MaximizeBox = false;
             this.Name = "SetupForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SubSync";
+            this.ToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);
             this.Load += new System.EventHandler(this.SetupForm_Load);
             this.GpbSelectDirectories.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GpbSelectLanguages.ResumeLayout(false);
+            this.GpbSelectLanguages.PerformLayout();
             this.NotifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -403,7 +336,7 @@
         private System.Windows.Forms.ListBox LstLanguages;
         private System.Windows.Forms.Button BtnAddLanguage;
         private System.Windows.Forms.Button BtnRemoveLanguage;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GpbSelectLanguages;
         private System.Windows.Forms.Button BtnLanguageDown;
         private System.Windows.Forms.Button BtnLanguageUp;
         private System.Windows.Forms.ToolTip ToolTip;

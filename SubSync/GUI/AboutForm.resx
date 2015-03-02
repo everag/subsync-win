@@ -117,4 +117,265 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ImgLogo.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ImgLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="ImgLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 100</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ImgLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ImgLogo.Name" xml:space="preserve">
+    <value>ImgLogo</value>
+  </data>
+  <data name="&gt;&gt;ImgLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ImgLogo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ImgLogo.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LbVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LbVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 122</value>
+  </data>
+  <data name="LbVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="LbVersion.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LbVersion.Text" xml:space="preserve">
+    <value>SubSync</value>
+  </data>
+  <data name="LbVersion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;LbVersion.Name" xml:space="preserve">
+    <value>LbVersion</value>
+  </data>
+  <data name="&gt;&gt;LbVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbVersion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LbVersion.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LbBuild.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LbBuild.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 122</value>
+  </data>
+  <data name="LbBuild.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="LbBuild.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LbBuild.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;LbBuild.Name" xml:space="preserve">
+    <value>LbBuild</value>
+  </data>
+  <data name="&gt;&gt;LbBuild.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbBuild.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LbBuild.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LnkVisitHomePage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LnkVisitHomePage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LnkVisitHomePage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 261</value>
+  </data>
+  <data name="LnkVisitHomePage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 13</value>
+  </data>
+  <data name="LnkVisitHomePage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LnkVisitHomePage.Text" xml:space="preserve">
+    <value>Visit our Home Page</value>
+  </data>
+  <data name="&gt;&gt;LnkVisitHomePage.Name" xml:space="preserve">
+    <value>LnkVisitHomePage</value>
+  </data>
+  <data name="&gt;&gt;LnkVisitHomePage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LnkVisitHomePage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LnkVisitHomePage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LnkGoToFacebook.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LnkGoToFacebook.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LnkGoToFacebook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 261</value>
+  </data>
+  <data name="LnkGoToFacebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 13</value>
+  </data>
+  <data name="LnkGoToFacebook.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LnkGoToFacebook.Text" xml:space="preserve">
+    <value>Like us on Facebook!</value>
+  </data>
+  <data name="&gt;&gt;LnkGoToFacebook.Name" xml:space="preserve">
+    <value>LnkGoToFacebook</value>
+  </data>
+  <data name="&gt;&gt;LnkGoToFacebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LnkGoToFacebook.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LnkGoToFacebook.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LnkDevelopedBy.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LnkDevelopedBy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LnkDevelopedBy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 162</value>
+  </data>
+  <data name="LnkDevelopedBy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="LnkDevelopedBy.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LnkDevelopedBy.Text" xml:space="preserve">
+    <value>Developed By</value>
+  </data>
+  <data name="&gt;&gt;LnkDevelopedBy.Name" xml:space="preserve">
+    <value>LnkDevelopedBy</value>
+  </data>
+  <data name="&gt;&gt;LnkDevelopedBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LnkDevelopedBy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LnkDevelopedBy.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LnkLogoBy.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LnkLogoBy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LnkLogoBy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 188</value>
+  </data>
+  <data name="LnkLogoBy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="LnkLogoBy.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LnkLogoBy.Text" xml:space="preserve">
+    <value>Logo By</value>
+  </data>
+  <data name="&gt;&gt;LnkLogoBy.Name" xml:space="preserve">
+    <value>LnkLogoBy</value>
+  </data>
+  <data name="&gt;&gt;LnkLogoBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LnkLogoBy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LnkLogoBy.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LnkContactUs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LnkContactUs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LnkContactUs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 225</value>
+  </data>
+  <data name="LnkContactUs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="LnkContactUs.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="LnkContactUs.Text" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="&gt;&gt;LnkContactUs.Name" xml:space="preserve">
+    <value>LnkContactUs</value>
+  </data>
+  <data name="&gt;&gt;LnkContactUs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LnkContactUs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LnkContactUs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>377, 295</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>393, 334</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>393, 334</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AboutForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

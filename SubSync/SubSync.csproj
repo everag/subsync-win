@@ -91,6 +91,12 @@
     <Compile Include="GUI\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Localization\L10n.cs" />
+    <Compile Include="GUI\Localization\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +115,19 @@
     <Compile Include="Utils\MediaLibraries.cs" />
     <Compile Include="SyncManager.cs" />
     <Compile Include="Utils\WindowsUtils.cs" />
+    <EmbeddedResource Include="GUI\AboutForm.pt-BR.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Localization\Messages.pt-BR.resx" />
+    <EmbeddedResource Include="GUI\Localization\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SetupForm.pt-BR.resx">
+      <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>

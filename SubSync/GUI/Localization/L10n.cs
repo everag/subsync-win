@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Resources;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SubSync.GUI.Localization
+{
+    public static class L10n
+    {
+        private static IDictionary<Type, ResourceManager> FormMessages;
+        private static ResourceManager AppMessages;
+
+        static L10n()
+        {
+            FormMessages = new Dictionary<Type, ResourceManager>();
+            AppMessages = Messages.ResourceManager;
+        }
+
+        private static ResourceManager GetResourceManager(Form form)
+        {
+            if (!FormMessages.ContainsKey(form.GetType()))
+            {
+                var res = new ResourceManager(form.GetType().FullName, form.GetType().Assembly);
+                FormMessages[form.GetType()] = res;
+            }
+
+            return FormMessages[form.GetType()];
+        }
+
+        public static string Get(string key, Form form, params string[] values)
+        {
+            return GetLocalizedMessage(GetResourceManager(form), key, values);
+        }
+
+        public static string Get(string key, params string[] values)
+        {
+            return GetLocalizedMessage(AppMessages, key, values);
+        }
+
+        private static string GetLocalizedMessage(ResourceManager res, string key, params string[] values)
+        {
+            var localizedMessage = res.GetString(key);
+
+            if (values.Any())
+                return string.Format(localizedMessage, values);
+            else
+                return localizedMessage;
+        }
+    }
+}

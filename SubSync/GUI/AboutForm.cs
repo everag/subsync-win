@@ -1,4 +1,5 @@
-﻿using SubSync.Utils;
+﻿using SubSync.GUI.Localization;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace SubSync.GUI
                     Environment.Is64BitProcess ? "64" : "32"
                 );
 
-                var bodyFmt = "\r\n\r\n(Please keep the following information)\r\n\r\nApp Version: {0}\r\nOS Version: {1} {2}\r\n.NET runtime: {3}";
+                var bodyFmt = L10n.Get("ContactUsEmailBody").Replace("\\r", "\r").Replace("\\n", "\n");
 
                 var body = string.Format(
                     bodyFmt,
@@ -41,10 +42,10 @@ namespace SubSync.GUI
                     Environment.Version.ToString()
                 );
 
-                var mailtoFmt = "mailto://{0}?subject=Contact&body={1}";
+                var mailtoFmt = "mailto://{0}?subject={1}&body={2}";
                 var email = "ton.agner+subsync@gmail.com";
 
-                return new Uri(string.Format(mailtoFmt, email, HttpUtility.UrlPathEncode(body)));
+                return new Uri(string.Format(mailtoFmt, email, L10n.Get("Contact"), HttpUtility.UrlPathEncode(body)));
             }
         }
 
@@ -55,6 +56,8 @@ namespace SubSync.GUI
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
+            this.Text = L10n.Get("$this.Text", this, CurrentVersion.ReleaseInfo.ApplicationName);
+
             Icon = Properties.Resources.SubSync_Logo;
 
             LbVersion.Text = CurrentVersion.ReleaseInfo.ToString(false, true, true, true);
@@ -62,17 +65,35 @@ namespace SubSync.GUI
             if (CurrentVersion.ReleaseInfo.Build != null)
                 LbBuild.Text = string.Format("Build {0}", CurrentVersion.ReleaseInfo.Build);
 
-            LnkDevelopedBy.Text = "Developed with lots of love by Everton Agner Ramos";
+            var dev = "Everton Agner Ramos";
+
+            LnkDevelopedBy.Text = L10n.Get("DevelopedBy", dev);
             LnkDevelopedBy.Links.Clear();
-            LnkDevelopedBy.Links.Add(31, 21);
 
-            LnkLogoBy.Text = "Logo design by Diogo Cezar";
+            var devBegin = LnkDevelopedBy.Text.IndexOf(dev);
+            var devEnd = LnkDevelopedBy.Text.Count() - devBegin;
+
+            LnkDevelopedBy.Links.Add(devBegin, devEnd);
+
+            var design = "Diogo Cezar";
+
+            LnkLogoBy.Text = L10n.Get("DesignBy", design);
             LnkLogoBy.Links.Clear();
-            LnkLogoBy.Links.Add(15, 11);
 
-            LnkContactUs.Text = "Got any bug to report or some gold bars to donate? Contact us!";
+            var designBegin = LnkLogoBy.Text.IndexOf(design);
+            var designEnd = LnkLogoBy.Text.Count() - designBegin;
+
+            LnkLogoBy.Links.Add(designBegin, designEnd);
+
+            var contactUs = L10n.Get("ContactUs");
+
+            LnkContactUs.Text = L10n.Get("ReportBugs", contactUs);
             LnkContactUs.Links.Clear();
-            LnkContactUs.Links.Add(51, 10);
+
+            var contactUsBegin = LnkContactUs.Text.IndexOf(contactUs);
+            var contactUsEnd = LnkContactUs.Text.Count() - contactUsBegin;
+
+            LnkContactUs.Links.Add(contactUsBegin, contactUsEnd);
         }
 
         private void OpenUri(Uri uri)

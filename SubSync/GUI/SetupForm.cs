@@ -1,5 +1,6 @@
 ﻿using SubSync.Events;
 using SubSync.GUI;
+using SubSync.GUI.Localization;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
 using SubSync.Tasks;
@@ -54,6 +55,14 @@ namespace SubSync.GUI
             }
         }
 
+        private string AppName
+        {
+            get
+            {
+                return CurrentVersion.ReleaseInfo.ApplicationName;
+            }
+        }
+
         private UserSettings Settings;
 
         public SetupForm()
@@ -68,7 +77,15 @@ namespace SubSync.GUI
             NotifyIcon.Icon = Properties.Resources.SubSync_Logo;
             NotifyIcon.Text = AppCompleteDescription;
 
-            LbWelcomeTitle.Text = string.Format("Welcome to {0}!", AppShortDescription);
+            LbWelcomeTitle.Text = L10n.Get("LbWelcomeTitle.Text", this, AppShortDescription);
+            LbWelcomeMessage.Text = L10n.Get("LbWelcomeMessage.Text", this, AppName);
+            
+            BtnStartStop.Text = L10n.Get("AppStart", AppName);
+
+            NotifyIconContextMenuItemStartStop.Text = L10n.Get("MenuAppStart", AppName);
+            NotifyIconContextMenuItemAbout.Text = L10n.Get("NotifyIconContextMenuItemAbout.Text", this, AppName);
+            NotifyIconContextMenuItemOpenGUI.Text = L10n.Get("NotifyIconContextMenuItemOpenGUI.Text", this, AppName);
+            NotifyIconContextMenuItemRunAtLogin.Text = L10n.Get("NotifyIconContextMenuItemRunAtLogin.Text", this, AppName);
 
             if (SubSync.Lib.Configuration.RunningEnvironment == "Debug")
                 Text = string.Format("{0} [{1}]", AppCompleteDescription, SubSync.Lib.Configuration.RunningEnvironment);
@@ -137,14 +154,14 @@ namespace SubSync.GUI
 
         private void SetupSyncManager()
         {
-            SyncManager.Started += (sender, e) => ShowTrayNotification("SubSync is running!", NotificationPeriod.NORMAL);
-            SyncManager.Stopped += (sender, e) => ShowTrayNotification("SubSync stopped!", NotificationPeriod.NORMAL);
+            SyncManager.Started += (sender, e) => ShowTrayNotification(L10n.Get("AppRunning", AppName), NotificationPeriod.NORMAL);
+            SyncManager.Stopped += (sender, e) => ShowTrayNotification(L10n.Get("AppStopped", AppName), NotificationPeriod.NORMAL);
             
             SyncManager.SubtitleDownloaded += (sender, e) => 
             {
                 var subtitleInfo = (e as SubtitleDownloadedEventArgs).SubtitleFile;
 
-                ShowTrayNotification(String.Format("Subtitle downloaded for {0}", subtitleInfo.VideoFile.Name), NotificationPeriod.NORMAL);
+                ShowTrayNotification(L10n.Get("SubtitleDownloaded", subtitleInfo.VideoFile.Name), NotificationPeriod.NORMAL);
             };
         }
         
@@ -200,7 +217,7 @@ namespace SubSync.GUI
 
             if (Settings.MediaFolders.Any(mf => mf.IsSame(folderToAdd)))
             {
-                MessageBox.Show("This folder was already selected");
+                MessageBox.Show(L10n.Get("DirectoryAlreadySelected"));
                 return;
             }
 
@@ -454,10 +471,10 @@ namespace SubSync.GUI
                     ToggleControlsEnabled(false);
                     
                     BtnStartStop.Enabled = false;
-                    BtnStartStop.Text = "Starting...";
+                    BtnStartStop.Text = L10n.Get("AppStarting");
 
                     NotifyIconContextMenuItemStartStop.Enabled = false;
-                    NotifyIconContextMenuItemStartStop.Text = "Starting...";
+                    NotifyIconContextMenuItemStartStop.Text = L10n.Get("AppStarting");
                     
                     break;
 
@@ -465,19 +482,19 @@ namespace SubSync.GUI
                     ToggleControlsEnabled(false);
                     
                     BtnStartStop.Enabled = false;
-                    BtnStartStop.Text = "Stopping...";
+                    BtnStartStop.Text = L10n.Get("AppStopping");
                     
                     NotifyIconContextMenuItemStartStop.Enabled = false;
-                    NotifyIconContextMenuItemStartStop.Text = "Stopping...";
+                    NotifyIconContextMenuItemStartStop.Text = L10n.Get("AppStopping");
                     
                     break;
 
                 case SyncStartStopProgress.STARTED:
                     BtnStartStop.Enabled = true;
-                    BtnStartStop.Text = "Stop SubSync";
+                    BtnStartStop.Text = L10n.Get("AppStop", AppName);
                     
                     NotifyIconContextMenuItemStartStop.Enabled = true;
-                    NotifyIconContextMenuItemStartStop.Text = "Stop SubSync";
+                    NotifyIconContextMenuItemStartStop.Text = L10n.Get("MenuAppStop", AppName);
                     
                     break;
 
@@ -485,10 +502,10 @@ namespace SubSync.GUI
                     ToggleControlsEnabled(true);
 
                     BtnStartStop.Enabled = true;
-                    BtnStartStop.Text = "Start SubSync";
+                    BtnStartStop.Text = L10n.Get("AppStart", AppName);
                     
                     NotifyIconContextMenuItemStartStop.Enabled = true;
-                    NotifyIconContextMenuItemStartStop.Text = "Start SubSync";
+                    NotifyIconContextMenuItemStartStop.Text = L10n.Get("MenuAppStart", AppName);
 
                     break;
             }
