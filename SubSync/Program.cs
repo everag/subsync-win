@@ -1,7 +1,9 @@
 ﻿using SubSync.GUI;
+using SubSync.GUI.Localization;
 using SubSync.Lib;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +53,44 @@ namespace SubSync
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SetupUiLanguage();
+
             Application.Run(new SetupForm());
+        }
+
+        private static void SetupUiLanguage()
+        {
+            var settings = new UserSettings();
+
+            if (settings.GuiLanguage == null || !L10n.AvailableLanguages.Contains(settings.GuiLanguage))
+            {
+                settings.GuiLanguage = GuessAppropriateUiLanguage();
+                settings.Save();
+            }
+
+            Thread.CurrentThread.CurrentUICulture = settings.GuiLanguage;
+        }
+
+        private static CultureInfo GuessAppropriateUiLanguage()
+        {
+            CultureInfo guessedLanguage = null;
+
+            if (L10n.AvailableLanguages.Contains(CultureInfo.CurrentUICulture))
+                guessedLanguage = CultureInfo.CurrentUICulture;
+            else
+            {
+                foreach (var lang in L10n.AvailableLanguages)
+                {
+                    if (lang.Parent.Equals(CultureInfo.CurrentUICulture) || lang.Equals(CultureInfo.CurrentUICulture.Parent))
+                    {
+                        guessedLanguage = lang;
+                        break;
+                    }
+                }
+            }
+
+            return guessedLanguage ?? L10n.DefaultLanguage;
         }
     }
 }

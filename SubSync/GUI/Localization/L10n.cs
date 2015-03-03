@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Text;
@@ -13,11 +14,14 @@ namespace SubSync.GUI.Localization
     {
         private static IDictionary<Type, ResourceManager> FormMessages;
         private static ResourceManager AppMessages;
+        public static ISet<CultureInfo> AvailableLanguages;
+        public static CultureInfo DefaultLanguage = new CultureInfo("en");
 
         static L10n()
         {
             FormMessages = new Dictionary<Type, ResourceManager>();
             AppMessages = Messages.ResourceManager;
+            AvailableLanguages = new HashSet<CultureInfo>() { new CultureInfo("pt-BR"), new CultureInfo("en") };
         }
 
         private static ResourceManager GetResourceManager(Form form)

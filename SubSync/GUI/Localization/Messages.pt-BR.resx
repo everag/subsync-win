@@ -153,6 +153,9 @@
   <data name="DirectoryAlreadySelected" xml:space="preserve">
     <value>Essa pasta já foi selecionada</value>
   </data>
+  <data name="LanguageChangeRestart" xml:space="preserve">
+    <value>Por favor reinicie o programa para aplicar as alterações de idioma</value>
+  </data>
   <data name="MenuAppStart" xml:space="preserve">
     <value>&amp;Iniciar {0}...</value>
   </data>

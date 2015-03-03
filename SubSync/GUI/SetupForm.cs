@@ -63,7 +63,7 @@ namespace SubSync.GUI
             }
         }
 
-        private UserSettings Settings;
+        private UserSettings Settings = new UserSettings();
 
         public SetupForm()
         {
@@ -93,8 +93,6 @@ namespace SubSync.GUI
                 Text = AppCompleteDescription;
 
             Icon = Properties.Resources.SubSync_Logo;
-
-            Settings = new UserSettings();
 
             if (Settings.FirstRun)
             {
@@ -558,6 +556,13 @@ namespace SubSync.GUI
             if (e.ClickedItem == NotifyIconContextMenuItemStartStop)
             {
                 StartStopSync();
+            }
+
+            // Check for subtitles now
+
+            if (e.ClickedItem == NotifyIconContextMenuItemLanguageSettings)
+            {
+                WindowManager.OpenWindow(typeof(LanguageSelectionForm));
             }
 
             // Check for subtitles now

@@ -153,6 +153,9 @@
   <data name="DirectoryAlreadySelected" xml:space="preserve">
     <value>This folder was already selected</value>
   </data>
+  <data name="LanguageChangeRestart" xml:space="preserve">
+    <value>Please restart the program to apply the language changes</value>
+  </data>
   <data name="MenuAppStart" xml:space="preserve">
     <value>&amp;Start {0}...</value>
   </data>

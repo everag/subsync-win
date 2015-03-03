@@ -53,6 +53,7 @@
             this.NotifyIconContextMenuItemStartStop = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemRunAtLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyIconContextMenuItemLanguageSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NotifyIconContextMenuItemCheckNow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIconContextMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -69,36 +70,32 @@
             // 
             // LbWelcomeMessage
             // 
-            resources.ApplyResources(this.LbWelcomeMessage, "LbWelcomeMessage");
             this.LbWelcomeMessage.AutoEllipsis = true;
+            resources.ApplyResources(this.LbWelcomeMessage, "LbWelcomeMessage");
             this.LbWelcomeMessage.Name = "LbWelcomeMessage";
-            this.ToolTip.SetToolTip(this.LbWelcomeMessage, resources.GetString("LbWelcomeMessage.ToolTip"));
             // 
             // LbWelcomeTitle
             // 
             resources.ApplyResources(this.LbWelcomeTitle, "LbWelcomeTitle");
             this.LbWelcomeTitle.Name = "LbWelcomeTitle";
-            this.ToolTip.SetToolTip(this.LbWelcomeTitle, resources.GetString("LbWelcomeTitle.ToolTip"));
             // 
             // GpbSelectDirectories
             // 
-            resources.ApplyResources(this.GpbSelectDirectories, "GpbSelectDirectories");
             this.GpbSelectDirectories.Controls.Add(this.LstDirectories);
             this.GpbSelectDirectories.Controls.Add(this.BtnRemoveDirectory);
             this.GpbSelectDirectories.Controls.Add(this.BtnAddDirectory);
+            resources.ApplyResources(this.GpbSelectDirectories, "GpbSelectDirectories");
             this.GpbSelectDirectories.Name = "GpbSelectDirectories";
             this.GpbSelectDirectories.TabStop = false;
-            this.ToolTip.SetToolTip(this.GpbSelectDirectories, resources.GetString("GpbSelectDirectories.ToolTip"));
             // 
             // LstDirectories
             // 
-            resources.ApplyResources(this.LstDirectories, "LstDirectories");
             this.LstDirectories.AllowDrop = true;
             this.LstDirectories.FormattingEnabled = true;
+            resources.ApplyResources(this.LstDirectories, "LstDirectories");
             this.LstDirectories.Name = "LstDirectories";
             this.LstDirectories.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.LstDirectories.Sorted = true;
-            this.ToolTip.SetToolTip(this.LstDirectories, resources.GetString("LstDirectories.ToolTip"));
             this.LstDirectories.SelectedIndexChanged += new System.EventHandler(this.LstDirectories_SelectedIndexChanged);
             this.LstDirectories.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LstDirectories_KeyDown);
             // 
@@ -126,14 +123,12 @@
             // 
             resources.ApplyResources(this.LbLanguages, "LbLanguages");
             this.LbLanguages.Name = "LbLanguages";
-            this.ToolTip.SetToolTip(this.LbLanguages, resources.GetString("LbLanguages.ToolTip"));
             // 
             // LstLanguagePreferences
             // 
-            resources.ApplyResources(this.LstLanguagePreferences, "LstLanguagePreferences");
             this.LstLanguagePreferences.FormattingEnabled = true;
+            resources.ApplyResources(this.LstLanguagePreferences, "LstLanguagePreferences");
             this.LstLanguagePreferences.Name = "LstLanguagePreferences";
-            this.ToolTip.SetToolTip(this.LstLanguagePreferences, resources.GetString("LstLanguagePreferences.ToolTip"));
             this.LstLanguagePreferences.SelectedIndexChanged += new System.EventHandler(this.LstLanguagePreferences_SelectedIndexChanged);
             this.LstLanguagePreferences.DoubleClick += new System.EventHandler(this.LstLanguagePreferences_DoubleClick);
             // 
@@ -141,16 +136,14 @@
             // 
             resources.ApplyResources(this.LbLanguagePreferences, "LbLanguagePreferences");
             this.LbLanguagePreferences.Name = "LbLanguagePreferences";
-            this.ToolTip.SetToolTip(this.LbLanguagePreferences, resources.GetString("LbLanguagePreferences.ToolTip"));
             // 
             // LstLanguages
             // 
-            resources.ApplyResources(this.LstLanguages, "LstLanguages");
             this.LstLanguages.FormattingEnabled = true;
+            resources.ApplyResources(this.LstLanguages, "LstLanguages");
             this.LstLanguages.Name = "LstLanguages";
             this.LstLanguages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.LstLanguages.Sorted = true;
-            this.ToolTip.SetToolTip(this.LstLanguages, resources.GetString("LstLanguages.ToolTip"));
             this.LstLanguages.SelectedIndexChanged += new System.EventHandler(this.LstLanguages_SelectedIndexChanged);
             this.LstLanguages.DoubleClick += new System.EventHandler(this.LstLanguages_DoubleClick);
             // 
@@ -166,13 +159,11 @@
             // 
             resources.ApplyResources(this.BtnRemoveLanguage, "BtnRemoveLanguage");
             this.BtnRemoveLanguage.Name = "BtnRemoveLanguage";
-            this.ToolTip.SetToolTip(this.BtnRemoveLanguage, resources.GetString("BtnRemoveLanguage.ToolTip"));
             this.BtnRemoveLanguage.UseVisualStyleBackColor = true;
             this.BtnRemoveLanguage.Click += new System.EventHandler(this.BtnLanguageRemove_Click);
             // 
             // GpbSelectLanguages
             // 
-            resources.ApplyResources(this.GpbSelectLanguages, "GpbSelectLanguages");
             this.GpbSelectLanguages.Controls.Add(this.BtnLanguageDown);
             this.GpbSelectLanguages.Controls.Add(this.BtnLanguageUp);
             this.GpbSelectLanguages.Controls.Add(this.BtnRemoveLanguage);
@@ -181,9 +172,9 @@
             this.GpbSelectLanguages.Controls.Add(this.LbLanguagePreferences);
             this.GpbSelectLanguages.Controls.Add(this.LstLanguagePreferences);
             this.GpbSelectLanguages.Controls.Add(this.LbLanguages);
+            resources.ApplyResources(this.GpbSelectLanguages, "GpbSelectLanguages");
             this.GpbSelectLanguages.Name = "GpbSelectLanguages";
             this.GpbSelectLanguages.TabStop = false;
-            this.ToolTip.SetToolTip(this.GpbSelectLanguages, resources.GetString("GpbSelectLanguages.ToolTip"));
             // 
             // BtnLanguageDown
             // 
@@ -205,18 +196,17 @@
             // 
             resources.ApplyResources(this.BtnStartStop, "BtnStartStop");
             this.BtnStartStop.Name = "BtnStartStop";
-            this.ToolTip.SetToolTip(this.BtnStartStop, resources.GetString("BtnStartStop.ToolTip"));
             this.BtnStartStop.UseVisualStyleBackColor = true;
             this.BtnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
             // 
             // NotifyIconContextMenu
             // 
-            resources.ApplyResources(this.NotifyIconContextMenu, "NotifyIconContextMenu");
             this.NotifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NotifyIconContextMenuItemOpenGUI,
             this.NotifyIconContextMenuItemStartStop,
             this.NotifyIconContextMenuSeparator1,
             this.NotifyIconContextMenuItemRunAtLogin,
+            this.NotifyIconContextMenuItemLanguageSettings,
             this.NotifyIconContextMenuSeparator2,
             this.NotifyIconContextMenuItemCheckNow,
             this.NotifyIconContextMenuSeparator3,
@@ -225,7 +215,7 @@
             this.NotifyIconContextMenuSeparator4,
             this.NotifyIconContextMenuItemExit});
             this.NotifyIconContextMenu.Name = "TrayIconContextMenu";
-            this.ToolTip.SetToolTip(this.NotifyIconContextMenu, resources.GetString("NotifyIconContextMenu.ToolTip"));
+            resources.ApplyResources(this.NotifyIconContextMenu, "NotifyIconContextMenu");
             this.NotifyIconContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.NotifyIconContextMenu_ItemClicked);
             // 
             // NotifyIconContextMenuItemOpenGUI
@@ -235,25 +225,30 @@
             // 
             // NotifyIconContextMenuItemStartStop
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuItemStartStop, "NotifyIconContextMenuItemStartStop");
             this.NotifyIconContextMenuItemStartStop.Name = "NotifyIconContextMenuItemStartStop";
+            resources.ApplyResources(this.NotifyIconContextMenuItemStartStop, "NotifyIconContextMenuItemStartStop");
             // 
             // NotifyIconContextMenuSeparator1
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuSeparator1, "NotifyIconContextMenuSeparator1");
             this.NotifyIconContextMenuSeparator1.Name = "NotifyIconContextMenuSeparator1";
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator1, "NotifyIconContextMenuSeparator1");
             // 
             // NotifyIconContextMenuItemRunAtLogin
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuItemRunAtLogin, "NotifyIconContextMenuItemRunAtLogin");
             this.NotifyIconContextMenuItemRunAtLogin.CheckOnClick = true;
             this.NotifyIconContextMenuItemRunAtLogin.Name = "NotifyIconContextMenuItemRunAtLogin";
+            resources.ApplyResources(this.NotifyIconContextMenuItemRunAtLogin, "NotifyIconContextMenuItemRunAtLogin");
             this.NotifyIconContextMenuItemRunAtLogin.CheckedChanged += new System.EventHandler(this.NotifyIconContextMenuItemRunAtLogin_CheckedChanged);
+            // 
+            // NotifyIconContextMenuItemLanguageSettings
+            // 
+            this.NotifyIconContextMenuItemLanguageSettings.Name = "NotifyIconContextMenuItemLanguageSettings";
+            resources.ApplyResources(this.NotifyIconContextMenuItemLanguageSettings, "NotifyIconContextMenuItemLanguageSettings");
             // 
             // NotifyIconContextMenuSeparator2
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuSeparator2, "NotifyIconContextMenuSeparator2");
             this.NotifyIconContextMenuSeparator2.Name = "NotifyIconContextMenuSeparator2";
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator2, "NotifyIconContextMenuSeparator2");
             // 
             // NotifyIconContextMenuItemCheckNow
             // 
@@ -262,23 +257,23 @@
             // 
             // NotifyIconContextMenuSeparator3
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuSeparator3, "NotifyIconContextMenuSeparator3");
             this.NotifyIconContextMenuSeparator3.Name = "NotifyIconContextMenuSeparator3";
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator3, "NotifyIconContextMenuSeparator3");
             // 
             // NotifyIconContextMenuItemCheckUpdates
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuItemCheckUpdates, "NotifyIconContextMenuItemCheckUpdates");
             this.NotifyIconContextMenuItemCheckUpdates.Name = "NotifyIconContextMenuItemCheckUpdates";
+            resources.ApplyResources(this.NotifyIconContextMenuItemCheckUpdates, "NotifyIconContextMenuItemCheckUpdates");
             // 
             // NotifyIconContextMenuItemAbout
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuItemAbout, "NotifyIconContextMenuItemAbout");
             this.NotifyIconContextMenuItemAbout.Name = "NotifyIconContextMenuItemAbout";
+            resources.ApplyResources(this.NotifyIconContextMenuItemAbout, "NotifyIconContextMenuItemAbout");
             // 
             // NotifyIconContextMenuSeparator4
             // 
-            resources.ApplyResources(this.NotifyIconContextMenuSeparator4, "NotifyIconContextMenuSeparator4");
             this.NotifyIconContextMenuSeparator4.Name = "NotifyIconContextMenuSeparator4";
+            resources.ApplyResources(this.NotifyIconContextMenuSeparator4, "NotifyIconContextMenuSeparator4");
             // 
             // NotifyIconContextMenuItemExit
             // 
@@ -287,8 +282,8 @@
             // 
             // NotifyIcon
             // 
-            resources.ApplyResources(this.NotifyIcon, "NotifyIcon");
             this.NotifyIcon.ContextMenuStrip = this.NotifyIconContextMenu;
+            resources.ApplyResources(this.NotifyIcon, "NotifyIcon");
             this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
             // BkgWorkerStartStopSync
@@ -310,7 +305,6 @@
             this.MaximizeBox = false;
             this.Name = "SetupForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.ToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupForm_FormClosing);
             this.Load += new System.EventHandler(this.SetupForm_Load);
             this.GpbSelectDirectories.ResumeLayout(false);
@@ -355,6 +349,7 @@
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemAbout;
         private System.Windows.Forms.ToolStripSeparator NotifyIconContextMenuSeparator4;
         private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemCheckUpdates;
+        private System.Windows.Forms.ToolStripMenuItem NotifyIconContextMenuItemLanguageSettings;
 
 
 

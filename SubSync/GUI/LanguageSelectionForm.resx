@@ -117,126 +117,142 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CboLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 46</value>
+  </data>
+  <data name="&gt;&gt;BtCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LbWelcomeMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;CboLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LbSelectLanguage.Name" xml:space="preserve">
+    <value>LbSelectLanguage</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BtOk.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>LanguageSelectionForm</value>
+  </data>
+  <data name="LbSelectLanguage.Text" xml:space="preserve">
+    <value>Choose the application's interface language:</value>
+  </data>
+  <data name="BtOk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="&gt;&gt;CboLanguage.Name" xml:space="preserve">
+    <value>CboLanguage</value>
+  </data>
+  <data name="BtOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 92</value>
+  </data>
+  <data name="&gt;&gt;BtCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LbSelectLanguage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="BtCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>299, 135</value>
+  </data>
+  <data name="&gt;&gt;CboLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbSelectLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CboLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="BtOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 31</value>
+  </data>
+  <data name="&gt;&gt;LbSelectLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="CboLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LbSelectLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="LbSelectLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="LbSelectLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 23</value>
+  </data>
+  <data name="BtOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;BtCancel.Name" xml:space="preserve">
+    <value>BtCancel</value>
+  </data>
+  <data name="LbSelectLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LbSelectLanguage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BtCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="&gt;&gt;BtOk.Name" xml:space="preserve">
+    <value>BtOk</value>
+  </data>
+  <data name="&gt;&gt;BtOk.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;CboLanguage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BtCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 92</value>
+  </data>
+  <data name="BtCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="LbWelcomeMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 76</value>
+  <data name="CboLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="LbWelcomeMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 17</value>
+  <data name="&gt;&gt;BtOk.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="LbWelcomeMessage.Text" xml:space="preserve">
-    <value>Esses passos simples vão fazer o {0} rodar em um instante!</value>
+  <data name="&gt;&gt;BtOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LbWelcomeTitle.Text" xml:space="preserve">
-    <value>Bem vindo ao {0}!</value>
+  <data name="&gt;&gt;BtCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GpbSelectDirectories.Text" xml:space="preserve">
-    <value>Passo 1 - Selecione suas pastas de mídia</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Language Settings</value>
   </data>
-  <data name="BtnRemoveDirectory.Text" xml:space="preserve">
-    <value>Remover</value>
+  <data name="BtCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 31</value>
   </data>
-  <data name="BtnRemoveDirectory.ToolTip" xml:space="preserve">
-    <value>Remova as pastas selecionadas</value>
-  </data>
-  <data name="BtnAddDirectory.Text" xml:space="preserve">
-    <value>Adicionar</value>
-  </data>
-  <data name="BtnAddDirectory.ToolTip" xml:space="preserve">
-    <value>Adicione uma pasta de mídia</value>
-  </data>
-  <data name="FolderBrowserDialog.Description" xml:space="preserve">
-    <value>Selecione uma pasta de mídia</value>
-  </data>
-  <data name="LbLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 15</value>
-  </data>
-  <data name="LbLanguages.Text" xml:space="preserve">
-    <value>Idiomas suportados</value>
-  </data>
-  <data name="LbLanguagePreferences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 15</value>
-  </data>
-  <data name="LbLanguagePreferences.Text" xml:space="preserve">
-    <value>Sua ordem de preferência</value>
-  </data>
-  <data name="BtnAddLanguage.ToolTip" xml:space="preserve">
-    <value>Inclua os idiomas selecionados na sua lista de preferências</value>
-  </data>
-  <data name="GpbSelectLanguages.Text" xml:space="preserve">
-    <value>Passo 2 - Selecione os idiomas em que você tem interesse</value>
-  </data>
-  <data name="BtnLanguageDown.ToolTip" xml:space="preserve">
-    <value>Mova o idioma selecionado para baixo na sua lista de preferências</value>
-  </data>
-  <data name="BtnLanguageUp.ToolTip" xml:space="preserve">
-    <value>Mova o idioma selecionado para cima na sua lista de preferências</value>
-  </data>
-  <data name="BtnStartStop.Text" xml:space="preserve">
-    <value>Iniciar {0}</value>
-  </data>
-  <data name="NotifyIconContextMenuItemOpenGUI.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemOpenGUI.Text" xml:space="preserve">
-    <value>&amp;Abrir {0}</value>
-  </data>
-  <data name="NotifyIconContextMenuItemStartStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemStartStop.Text" xml:space="preserve">
-    <value>&amp;Iniciar {0}...</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
-  </data>
-  <data name="NotifyIconContextMenuItemRunAtLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemRunAtLogin.Text" xml:space="preserve">
-    <value>Abrir o {0} no &amp;Login do Windows</value>
-  </data>
-  <data name="NotifyIconContextMenuItemLanguageSettings.Text" xml:space="preserve">
-    <value>Alterar idioma do programa</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.Text" xml:space="preserve">
-    <value>Procurar &amp;novas legendas agora</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckUpdates.Text" xml:space="preserve">
-    <value>&amp;Checar por atualizações do programa</value>
-  </data>
-  <data name="NotifyIconContextMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemAbout.Text" xml:space="preserve">
-    <value>&amp;Sobre o {0}</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
-  </data>
-  <data name="NotifyIconContextMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemExit.Text" xml:space="preserve">
-    <value>Sair</value>
-  </data>
-  <data name="NotifyIconContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 204</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>pt-BR</value>
+  </metadata>
 </root>

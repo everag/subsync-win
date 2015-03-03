@@ -169,6 +169,15 @@ namespace SubSync.GUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please restart the program to apply the language changes.
+        /// </summary>
+        internal static string LanguageChangeRestart {
+            get {
+                return ResourceManager.GetString("LanguageChangeRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Start {0}....
         /// </summary>
         internal static string MenuAppStart {

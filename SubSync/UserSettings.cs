@@ -29,6 +29,20 @@ namespace SubSync
 
         [UserScopedSetting()]
         [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public CultureInfo GuiLanguage
+        {
+            get
+            {
+                return ((CultureInfo) this["GuiLanguage"]);
+            }
+            set
+            {
+                this["GuiLanguage"] = (CultureInfo) value;
+            }
+        }
+
+        [UserScopedSetting()]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
         public ISet<DirectoryInfo> MediaFolders
         {
             get

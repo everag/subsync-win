@@ -118,343 +118,270 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BtnAddLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 63</value>
+  <data name="LbWelcomeMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
   </data>
-  <data name="&gt;&gt;BtnLanguageUp.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="LbWelcomeMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 72</value>
   </data>
-  <data name="GpbSelectLanguages.Text" xml:space="preserve">
-    <value>Step 2 - Choose the languages you are interested into</value>
+  <data name="LbWelcomeMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 18</value>
   </data>
-  <data name="BtnLanguageDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 98</value>
-  </data>
-  <data name="&gt;&gt;LbWelcomeMessage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BtnRemoveDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 35</value>
-  </data>
-  <data name="LbLanguages.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BtnStartStop.ToolTip" xml:space="preserve">
-    <value />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LbWelcomeMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="LbWelcomeMessage.Text" xml:space="preserve">
     <value>These simple steps will make {0} up and running in a bit!</value>
   </data>
-  <data name="LbWelcomeTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 30</value>
-  </data>
-  <data name="&gt;&gt;ToolTip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenu.Name" xml:space="preserve">
-    <value>NotifyIconContextMenu</value>
-  </data>
-  <data name="BtnRemoveDirectory.Text" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="&gt;&gt;LbLanguages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LbLanguages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 29</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckUpdates.Text" xml:space="preserve">
-    <value>Check for &amp;updates</value>
-  </data>
-  <data name="&gt;&gt;LbLanguages.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Name" xml:space="preserve">
-    <value>BtnLanguageUp</value>
-  </data>
-  <data name="BtnLanguageDown.ToolTip" xml:space="preserve">
-    <value>Move the selected language down on your preference list</value>
-  </data>
-  <data name="&gt;&gt;LstLanguagePreferences.Name" xml:space="preserve">
-    <value>LstLanguagePreferences</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator3.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuSeparator3</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemRunAtLogin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon.Name" xml:space="preserve">
-    <value>NotifyIcon</value>
-  </data>
-  <data name="NotifyIconContextMenuItemOpenGUI.Text" xml:space="preserve">
-    <value>&amp;Open {0}</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>439, 513</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemOpenGUI.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LbWelcomeTitle.Text" xml:space="preserve">
-    <value>Welcome to {0}!</value>
-  </data>
-  <data name="LbLanguages.Text" xml:space="preserve">
-    <value>Supported languages</value>
-  </data>
-  <data name="LbLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 15</value>
-  </data>
-  <data name="BtnLanguageDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="LbWelcomeMessage.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LbWelcomeMessage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>SubSync</value>
-  </data>
-  <data name="BtnAddDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 26</value>
-  </data>
-  <data name="&gt;&gt;FolderBrowserDialog.Name" xml:space="preserve">
-    <value>FolderBrowserDialog</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LbLanguagePreferences.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;LbLanguagePreferences.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BtnRemoveLanguage.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LbLanguagePreferences.Text" xml:space="preserve">
-    <value>Your order of preference</value>
-  </data>
-  <data name="BtnRemoveDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 70</value>
-  </data>
-  <data name="BtnRemoveLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Name" xml:space="preserve">
-    <value>BtnAddDirectory</value>
-  </data>
-  <data name="GpbSelectDirectories.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 118</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LbLanguages.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemExit.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemExit</value>
-  </data>
-  <data name="NotifyIconContextMenuItemAbout.Text" xml:space="preserve">
-    <value>&amp;About {0}</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="GpbSelectLanguages.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="BtnStartStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>152, 440</value>
-  </data>
-  <data name="&gt;&gt;BtnStartStop.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LstLanguagePreferences.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NotifyIconContextMenuItemStartStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="LbWelcomeTitle.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;BtnAddLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GpbSelectDirectories.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="BtnRemoveDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="LbLanguages.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;LbWelcomeTitle.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="NotifyIcon.Text" xml:space="preserve">
-    <value>SubSync</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BtnLanguageUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 63</value>
-  </data>
-  <data name="LstLanguagePreferences.ItemHeight" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
-  </data>
-  <data name="&gt;&gt;BkgWorkerStartStopSync.Name" xml:space="preserve">
-    <value>BkgWorkerStartStopSync</value>
-  </data>
-  <data name="BtnLanguageUp.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LbLanguagePreferences.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnAddLanguage.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="GpbSelectDirectories.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NotifyIconContextMenu.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemCheckNow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BtnStartStop.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;BtnStartStop.Name" xml:space="preserve">
-    <value>BtnStartStop</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GpbSelectLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 158</value>
-  </data>
-  <data name="BtnLanguageUp.ToolTip" xml:space="preserve">
-    <value>Move the selected language up on your preference list</value>
+  <data name="LbWelcomeMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;LbWelcomeMessage.Name" xml:space="preserve">
     <value>LbWelcomeMessage</value>
   </data>
-  <data name="GpbSelectLanguages.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;LbWelcomeMessage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FolderBrowserDialog.Description" xml:space="preserve">
-    <value>Select your media folder</value>
-  </data>
-  <data name="BtnRemoveDirectory.ToolTip" xml:space="preserve">
-    <value>Remove the selected media folders</value>
-  </data>
-  <data name="&gt;&gt;ToolTip.Name" xml:space="preserve">
-    <value>ToolTip</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>SetupForm</value>
-  </data>
-  <data name="LstLanguages.ItemHeight" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectLanguages.Name" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;BtnAddLanguage.Name" xml:space="preserve">
-    <value>BtnAddLanguage</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
-  </data>
-  <data name="LstDirectories.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LstLanguages.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="BtnLanguageUp.Text" xml:space="preserve">
-    <value>+</value>
-  </data>
-  <data name="BtnAddDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;LbLanguagePreferences.Name" xml:space="preserve">
-    <value>LbLanguagePreferences</value>
-  </data>
-  <data name="LstDirectories.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator1.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuSeparator1</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectLanguages.Parent" xml:space="preserve">
+  <data name="&gt;&gt;LbWelcomeMessage.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemOpenGUI.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemOpenGUI</value>
-  </data>
-  <data name="BtnAddLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="NotifyIconContextMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="NotifyIconContextMenuItemOpenGUI.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
   </data>
   <data name="&gt;&gt;LbWelcomeMessage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="NotifyIconContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 182</value>
+  <data name="LbWelcomeTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt</value>
   </data>
-  <data name="GpbSelectLanguages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 257</value>
+  <data name="LbWelcomeTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 24</value>
+  </data>
+  <data name="LbWelcomeTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 30</value>
+  </data>
+  <data name="LbWelcomeTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LbWelcomeTitle.Text" xml:space="preserve">
+    <value>Welcome to {0}!</value>
+  </data>
+  <data name="LbWelcomeTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;LbWelcomeTitle.Name" xml:space="preserve">
+    <value>LbWelcomeTitle</value>
+  </data>
+  <data name="&gt;&gt;LbWelcomeTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbWelcomeTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LbWelcomeTitle.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Name" xml:space="preserve">
+    <value>LstDirectories</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Name" xml:space="preserve">
+    <value>BtnRemoveDirectory</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
   </data>
   <data name="&gt;&gt;BtnRemoveDirectory.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="GpbSelectLanguages.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;BtnAddDirectory.Name" xml:space="preserve">
+    <value>BtnAddDirectory</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="GpbSelectDirectories.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="BtnStartStop.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="GpbSelectDirectories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 116</value>
+  </data>
+  <data name="GpbSelectDirectories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 118</value>
+  </data>
+  <data name="GpbSelectDirectories.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="GpbSelectDirectories.Text" xml:space="preserve">
+    <value>Step 1 - Choose your media folders</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Name" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LstDirectories.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LstDirectories.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="LstDirectories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 26</value>
+  </data>
+  <data name="LstDirectories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 79</value>
+  </data>
+  <data name="LstDirectories.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Name" xml:space="preserve">
+    <value>LstDirectories</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;LstDirectories.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>190, 20</value>
+  </metadata>
+  <data name="BtnRemoveDirectory.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnRemoveDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 70</value>
+  </data>
+  <data name="BtnRemoveDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 35</value>
+  </data>
+  <data name="BtnRemoveDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnRemoveDirectory.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="BtnRemoveDirectory.ToolTip" xml:space="preserve">
+    <value>Remove the selected media folders</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Name" xml:space="preserve">
+    <value>BtnRemoveDirectory</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveDirectory.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnAddDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 26</value>
+  </data>
+  <data name="BtnAddDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 35</value>
+  </data>
+  <data name="BtnAddDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BtnAddDirectory.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="BtnAddDirectory.ToolTip" xml:space="preserve">
+    <value>Add a new media folder</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.Name" xml:space="preserve">
+    <value>BtnAddDirectory</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.Parent" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;BtnAddDirectory.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="FolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>25, 20</value>
+  </metadata>
+  <data name="FolderBrowserDialog.Description" xml:space="preserve">
+    <value>Select your media folder</value>
+  </data>
+  <data name="LbLanguages.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LbLanguages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 29</value>
+  </data>
+  <data name="LbLanguages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 15</value>
+  </data>
+  <data name="LbLanguages.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LbLanguages.Text" xml:space="preserve">
+    <value>Supported languages</value>
+  </data>
+  <data name="&gt;&gt;LbLanguages.Name" xml:space="preserve">
+    <value>LbLanguages</value>
+  </data>
+  <data name="&gt;&gt;LbLanguages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbLanguages.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;LbLanguages.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LstLanguagePreferences.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LstLanguagePreferences.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="LstLanguagePreferences.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 48</value>
+  </data>
+  <data name="LstLanguagePreferences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 94</value>
+  </data>
+  <data name="LstLanguagePreferences.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;LstLanguagePreferences.Name" xml:space="preserve">
+    <value>LstLanguagePreferences</value>
+  </data>
+  <data name="&gt;&gt;LstLanguagePreferences.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LstLanguagePreferences.Parent" xml:space="preserve">
     <value>GpbSelectLanguages</value>
@@ -462,224 +389,432 @@
   <data name="&gt;&gt;LstLanguagePreferences.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="NotifyIconContextMenuItemStartStop.Text" xml:space="preserve">
-    <value>&amp;Start {0}...</value>
-  </data>
-  <data name="BtnRemoveDirectory.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemCheckNow.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemCheckNow</value>
-  </data>
-  <data name="LbWelcomeMessage.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LbWelcomeMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 72</value>
-  </data>
-  <data name="BtnRemoveLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 98</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="LstLanguagePreferences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 94</value>
-  </data>
-  <data name="&gt;&gt;LbWelcomeTitle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemRunAtLogin.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemRunAtLogin</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemStartStop.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemStartStop</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="GpbSelectDirectories.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 116</value>
-  </data>
-  <data name="BtnAddDirectory.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="BtnAddLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
-  </data>
-  <data name="BtnLanguageDown.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BtnStartStop.Text" xml:space="preserve">
-    <value>Start {0}</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Name" xml:space="preserve">
-    <value>BtnRemoveDirectory</value>
-  </data>
-  <data name="LbWelcomeMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 18</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="NotifyIconContextMenuItemRunAtLogin.Text" xml:space="preserve">
-    <value>Run {0} at Windows &amp;Login</value>
-  </data>
-  <data name="BtnLanguageDown.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LbLanguagePreferences.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;LbLanguagePreferences.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="BtnLanguageUp.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="NotifyIconContextMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="BtnAddDirectory.ToolTip" xml:space="preserve">
-    <value>Add a new media folder</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="LstLanguagePreferences.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 48</value>
-  </data>
-  <data name="BtnRemoveLanguage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BtnStartStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 46</value>
-  </data>
-  <data name="&gt;&gt;LstLanguages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LbLanguages.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="LstLanguagePreferences.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="BtnAddDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 35</value>
-  </data>
-  <data name="&gt;&gt;LbLanguages.Name" xml:space="preserve">
-    <value>LbLanguages</value>
-  </data>
-  <data name="LbLanguagePreferences.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;BtnRemoveLanguage.Name" xml:space="preserve">
-    <value>BtnRemoveLanguage</value>
-  </data>
-  <data name="&gt;&gt;BtnAddLanguage.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.Name" xml:space="preserve">
-    <value>LstDirectories</value>
-  </data>
-  <data name="BtnRemoveLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator4.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuSeparator4</value>
-  </data>
-  <data name="LstLanguages.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="LstLanguages.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;LbWelcomeMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LstLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 94</value>
-  </data>
-  <data name="BtnLanguageUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="BtnAddLanguage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="LstDirectories.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 26</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectLanguages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemStartStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LbWelcomeTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 24</value>
+  <data name="LbLanguagePreferences.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="LbLanguagePreferences.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 29</value>
   </data>
-  <data name="BtnStartStop.Enabled" type="System.Boolean, mscorlib">
+  <data name="LbLanguagePreferences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 15</value>
+  </data>
+  <data name="LbLanguagePreferences.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LbLanguagePreferences.Text" xml:space="preserve">
+    <value>Your order of preference</value>
+  </data>
+  <data name="&gt;&gt;LbLanguagePreferences.Name" xml:space="preserve">
+    <value>LbLanguagePreferences</value>
+  </data>
+  <data name="&gt;&gt;LbLanguagePreferences.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LbLanguagePreferences.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;LbLanguagePreferences.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LstLanguages.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LstLanguages.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="LstLanguages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 48</value>
+  </data>
+  <data name="LstLanguages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 94</value>
+  </data>
+  <data name="LstLanguages.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;LstLanguages.Name" xml:space="preserve">
+    <value>LstLanguages</value>
+  </data>
+  <data name="&gt;&gt;LstLanguages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LstLanguages.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;LstLanguages.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="BtnAddLanguage.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="BtnAddLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 63</value>
+  </data>
+  <data name="BtnAddLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnAddLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="BtnAddLanguage.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="BtnAddLanguage.ToolTip" xml:space="preserve">
+    <value>Inclua os idiomas selecionados na sua lista de preferência</value>
+  </data>
+  <data name="&gt;&gt;BtnAddLanguage.Name" xml:space="preserve">
+    <value>BtnAddLanguage</value>
+  </data>
+  <data name="&gt;&gt;BtnAddLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnAddLanguage.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnAddLanguage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="BtnRemoveLanguage.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnRemoveLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 98</value>
+  </data>
+  <data name="BtnRemoveLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnRemoveLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BtnRemoveLanguage.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveLanguage.Name" xml:space="preserve">
+    <value>BtnRemoveLanguage</value>
   </data>
   <data name="&gt;&gt;BtnRemoveLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NotifyIconContextMenuItemCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+  <data name="&gt;&gt;BtnRemoveLanguage.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnRemoveLanguage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Name" xml:space="preserve">
+    <value>BtnLanguageDown</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Name" xml:space="preserve">
+    <value>BtnLanguageUp</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GpbSelectLanguages.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="GpbSelectLanguages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 257</value>
+  </data>
+  <data name="GpbSelectLanguages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 158</value>
+  </data>
+  <data name="GpbSelectLanguages.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="GpbSelectLanguages.Text" xml:space="preserve">
+    <value>Step 2 - Choose the languages you are interested into</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectLanguages.Name" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectLanguages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectLanguages.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;GpbSelectLanguages.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="GpbSelectDirectories.Text" xml:space="preserve">
-    <value>Step 1 - Choose your media folders</value>
+  <data name="BtnLanguageDown.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="LbLanguagePreferences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 15</value>
+  <data name="BtnLanguageDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 98</value>
   </data>
-  <data name="&gt;&gt;BtnRemoveLanguage.Parent" xml:space="preserve">
+  <data name="BtnLanguageDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnLanguageDown.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="BtnLanguageDown.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="BtnLanguageDown.ToolTip" xml:space="preserve">
+    <value>Move the selected language down on your preference list</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Name" xml:space="preserve">
+    <value>BtnLanguageDown</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.Parent" xml:space="preserve">
     <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageDown.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BtnLanguageUp.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnLanguageUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 63</value>
+  </data>
+  <data name="BtnLanguageUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnLanguageUp.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="BtnLanguageUp.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="BtnLanguageUp.ToolTip" xml:space="preserve">
+    <value>Move the selected language up on your preference list</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Name" xml:space="preserve">
+    <value>BtnLanguageUp</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.Parent" xml:space="preserve">
+    <value>GpbSelectLanguages</value>
+  </data>
+  <data name="&gt;&gt;BtnLanguageUp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>190, 20</value>
+  </metadata>
+  <data name="BtnStartStop.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnStartStop.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="BtnStartStop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 440</value>
+  </data>
+  <data name="BtnStartStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 46</value>
+  </data>
+  <data name="BtnStartStop.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="BtnStartStop.Text" xml:space="preserve">
+    <value>Start {0}</value>
+  </data>
+  <data name="&gt;&gt;BtnStartStop.Name" xml:space="preserve">
+    <value>BtnStartStop</value>
+  </data>
+  <data name="&gt;&gt;BtnStartStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnStartStop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnStartStop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="NotifyIconContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>578, 20</value>
+  </metadata>
+  <data name="NotifyIconContextMenuItemOpenGUI.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="NotifyIconContextMenuItemOpenGUI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemOpenGUI.Text" xml:space="preserve">
+    <value>&amp;Open {0}</value>
+  </data>
+  <data name="NotifyIconContextMenuItemStartStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemStartStop.Text" xml:space="preserve">
+    <value>&amp;Start {0}...</value>
+  </data>
+  <data name="NotifyIconContextMenuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 6</value>
+  </data>
+  <data name="NotifyIconContextMenuItemRunAtLogin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemRunAtLogin.Text" xml:space="preserve">
+    <value>Run {0} at Windows &amp;Login</value>
+  </data>
+  <data name="NotifyIconContextMenuItemLanguageSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemLanguageSettings.Text" xml:space="preserve">
+    <value>Change program language</value>
+  </data>
+  <data name="NotifyIconContextMenuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 6</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckNow.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckNow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckNow.Text" xml:space="preserve">
+    <value>&amp;Check for subtitles now</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckNow.ToolTipText" xml:space="preserve">
+    <value>Check for missing subtitles for your videos now!</value>
+  </data>
+  <data name="NotifyIconContextMenuSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 6</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemCheckUpdates.Text" xml:space="preserve">
+    <value>Check for &amp;updates</value>
+  </data>
+  <data name="NotifyIconContextMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="NotifyIconContextMenuItemAbout.Text" xml:space="preserve">
+    <value>&amp;About {0}</value>
+  </data>
+  <data name="NotifyIconContextMenuSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 6</value>
+  </data>
+  <data name="NotifyIconContextMenuItemExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="NotifyIconContextMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
   </data>
   <data name="NotifyIconContextMenuItemExit.Text" xml:space="preserve">
     <value>&amp;Exit</value>
   </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="NotifyIconContextMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 226</value>
   </data>
-  <data name="&gt;&gt;LstLanguagePreferences.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;NotifyIconContextMenu.Name" xml:space="preserve">
+    <value>NotifyIconContextMenu</value>
   </data>
-  <data name="&gt;&gt;LbWelcomeTitle.Name" xml:space="preserve">
-    <value>LbWelcomeTitle</value>
+  <data name="&gt;&gt;NotifyIconContextMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;BkgWorkerStartStopSync.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>282, 20</value>
+  </metadata>
+  <data name="NotifyIcon.Text" xml:space="preserve">
+    <value>SubSync</value>
+  </data>
+  <data name="NotifyIcon.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <metadata name="BkgWorkerStartStopSync.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>390, 20</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>439, 513</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SubSync</value>
+  </data>
+  <data name="&gt;&gt;FolderBrowserDialog.Name" xml:space="preserve">
+    <value>FolderBrowserDialog</value>
+  </data>
+  <data name="&gt;&gt;FolderBrowserDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolTip.Name" xml:space="preserve">
+    <value>ToolTip</value>
+  </data>
+  <data name="&gt;&gt;ToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemOpenGUI.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemOpenGUI</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemOpenGUI.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemStartStop.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemStartStop</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemStartStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator1.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuSeparator1</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemRunAtLogin.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemRunAtLogin</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemRunAtLogin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemLanguageSettings.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemLanguageSettings</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemLanguageSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator2.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuSeparator2</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemCheckNow.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemCheckNow</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuItemCheckNow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator3.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuSeparator3</value>
+  </data>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NotifyIconContextMenuItemCheckUpdates.Name" xml:space="preserve">
     <value>NotifyIconContextMenuItemCheckUpdates</value>
@@ -687,142 +822,40 @@
   <data name="&gt;&gt;NotifyIconContextMenuItemCheckUpdates.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator2.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuSeparator2</value>
+  <data name="&gt;&gt;NotifyIconContextMenuItemAbout.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemAbout</value>
   </data>
-  <data name="&gt;&gt;NotifyIconContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;NotifyIconContextMenuItemAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LstLanguages.Name" xml:space="preserve">
-    <value>LstLanguages</value>
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator4.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuSeparator4</value>
   </data>
-  <data name="&gt;&gt;BtnLanguageDown.Name" xml:space="preserve">
-    <value>BtnLanguageDown</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LstDirectories.ItemHeight" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="LbWelcomeTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveLanguage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="LstLanguagePreferences.HorizontalScrollbar" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BtnLanguageDown.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;FolderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.Text" xml:space="preserve">
-    <value>&amp;Check for subtitles now</value>
-  </data>
-  <data name="LbWelcomeTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="NotifyIcon.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BtnRemoveLanguage.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuSeparator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;NotifyIconContextMenuSeparator4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;BtnLanguageDown.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;BtnStartStop.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="NotifyIconContextMenuItemCheckNow.ToolTipText" xml:space="preserve">
-    <value>Check for missing subtitles for your videos now!</value>
+  <data name="&gt;&gt;NotifyIconContextMenuItemExit.Name" xml:space="preserve">
+    <value>NotifyIconContextMenuItemExit</value>
   </data>
   <data name="&gt;&gt;NotifyIconContextMenuItemExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="BtnAddLanguage.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
+  <data name="&gt;&gt;NotifyIcon.Name" xml:space="preserve">
+    <value>NotifyIcon</value>
   </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Name" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
+  <data name="&gt;&gt;NotifyIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LbWelcomeMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;BkgWorkerStartStopSync.Name" xml:space="preserve">
+    <value>BkgWorkerStartStopSync</value>
   </data>
-  <data name="&gt;&gt;LstLanguages.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
+  <data name="&gt;&gt;BkgWorkerStartStopSync.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LstDirectories.HorizontalScrollbar" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SetupForm</value>
   </data>
-  <data name="NotifyIconContextMenuItemOpenGUI.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GpbSelectDirectories.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="BtnAddLanguage.ToolTip" xml:space="preserve">
-    <value>Inclua os idiomas selecionados na sua lista de preferência</value>
-  </data>
-  <data name="&gt;&gt;NotifyIconContextMenuItemAbout.Name" xml:space="preserve">
-    <value>NotifyIconContextMenuItemAbout</value>
-  </data>
-  <data name="LbWelcomeTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt</value>
-  </data>
-  <data name="&gt;&gt;LbWelcomeTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LstDirectories.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 79</value>
-  </data>
-  <data name="&gt;&gt;BtnStartStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NotifyIconContextMenuItemRunAtLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="NotifyIconContextMenuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
-  </data>
-  <data name="NotifyIconContextMenuItemExit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="LstLanguages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 48</value>
-  </data>
-  <data name="LstLanguages.HorizontalScrollbar" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 20</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>pt-BR</value>
-  </metadata>
-  <metadata name="NotifyIconContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>578, 20</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>25, 20</value>
-  </metadata>
-  <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>282, 20</value>
-  </metadata>
-  <metadata name="BkgWorkerStartStopSync.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>390, 20</value>
-  </metadata>
 </root>
