@@ -196,6 +196,24 @@ namespace SubSync.GUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New version available!.
+        /// </summary>
+        internal static string NewVersionAvailable {
+            get {
+                return ResourceManager.GetString("NewVersionAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} available for download!\n\nPress OK to visit the website and download the new version.
+        /// </summary>
+        internal static string NewVersionAvailableDescription {
+            get {
+                return ResourceManager.GetString("NewVersionAvailableDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Got any bug to report or some gold bars to donate? {0}!.
         /// </summary>
         internal static string ReportBugs {

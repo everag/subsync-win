@@ -1,4 +1,5 @@
 ﻿using Quartz;
+using SubSync.GUI.Localization;
 using SubSync.Lib;
 using SubSync.Utils;
 using System;
@@ -31,8 +32,8 @@ namespace SubSync.Tasks
             if (latestVersionAvailable.IsNewerThan(CurrentVersion.ReleaseInfo))
             {
                 var res = MessageBox.Show(
-                    string.Format("{0} available for download!\n\nPress OK to visit the website and download the new version", latestVersionAvailable.ToString(true, true, false, true)),
-                    "New version available!",
+                    L10n.Get("NewVersionAvailableDescription", latestVersionAvailable.ToString(true, true, false, true)),
+                    L10n.Get("NewVersionAvailable"),
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Exclamation
                 );

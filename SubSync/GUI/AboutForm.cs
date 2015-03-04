@@ -32,7 +32,7 @@ namespace SubSync.GUI
                     Environment.Is64BitProcess ? "64" : "32"
                 );
 
-                var bodyFmt = L10n.Get("ContactUsEmailBody").Replace("\\r", "\r").Replace("\\n", "\n");
+                var bodyFmt = L10n.Get("ContactUsEmailBody");
 
                 var body = string.Format(
                     bodyFmt,

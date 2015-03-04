@@ -49,10 +49,13 @@ namespace SubSync.GUI.Localization
         {
             var localizedMessage = res.GetString(key);
 
+            if (localizedMessage == null)
+                throw new ArgumentException(string.Format("Message key {0} not found!", key));
+
             if (values.Any())
-                return string.Format(localizedMessage, values);
+                return string.Format(localizedMessage, values).Replace("\\r", "\r").Replace("\\n", "\n");
             else
-                return localizedMessage;
+                return localizedMessage.Replace("\\r", "\r").Replace("\\n", "\n");
         }
     }
 }

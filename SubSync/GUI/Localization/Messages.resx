@@ -162,6 +162,12 @@
   <data name="MenuAppStop" xml:space="preserve">
     <value>&amp;Stop {0}...</value>
   </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>New version available!</value>
+  </data>
+  <data name="NewVersionAvailableDescription" xml:space="preserve">
+    <value>{0} available for download!\n\nPress OK to visit the website and download the new version</value>
+  </data>
   <data name="ReportBugs" xml:space="preserve">
     <value>Got any bug to report or some gold bars to donate? {0}!</value>
   </data>
