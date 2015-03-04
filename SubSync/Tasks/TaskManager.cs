@@ -23,7 +23,7 @@ namespace SubSync.Tasks
             Scheduler = SchedulerFactory.GetScheduler();
             Scheduler.StartDelayed(new TimeSpan(0, 0, 5));
             Scheduler.Start();
-
+            
             ScheduledJobs = new Dictionary<Type, ISet<IJobDetail>>();
         }
 
@@ -50,7 +50,7 @@ namespace SubSync.Tasks
                         .WithIdentity(string.Format("Job.CheckDir[{0}]", dir.FullName), "SyncTasks")
                         .UsingJobData(CheckForVideosJob.KEY_DIR_PATH, dir.FullName)
                         .Build();
-
+                    
                     if (!ScheduledJobs.ContainsKey(jobType))
                         ScheduledJobs[jobType] = new HashSet<IJobDetail>();
 

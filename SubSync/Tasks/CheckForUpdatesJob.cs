@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,11 @@ namespace SubSync.Tasks
         public static readonly Regex EXTRACT_TITLE = new Regex(@"<head>.*<title>(.*)</title>", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace);
         public static readonly Regex EXTRACT_VERSION = new Regex(@".*Download(?:\&#58;)?\s(SubSync(?: Alpha| Beta)? [0-9.]+)");
 
+        public CheckForUpdatesJob()
+        {
+            Thread.CurrentThread.CurrentUICulture = new UserSettings().GuiLanguage;
+        }
+
         public void Execute(IJobExecutionContext context)
         {
             var latestVersionAvailable = GetLatestVersionAvailable();
@@ -34,11 +40,11 @@ namespace SubSync.Tasks
                 var res = MessageBox.Show(
                     L10n.Get("NewVersionAvailableDescription", latestVersionAvailable.ToString(true, true, false, true)),
                     L10n.Get("NewVersionAvailable"),
-                    MessageBoxButtons.OKCancel,
+                    MessageBoxButtons.YesNo,
                     MessageBoxIcon.Exclamation
                 );
 
-                if (res == DialogResult.OK)
+                if (res == DialogResult.Yes)
                 {
                     ProcessStartInfo sInfo = new ProcessStartInfo("https://subsync.codeplex.com/releases");
                     Process.Start(sInfo);

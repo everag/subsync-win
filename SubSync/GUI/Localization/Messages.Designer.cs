@@ -205,7 +205,7 @@ namespace SubSync.GUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} available for download!\n\nPress OK to visit the website and download the new version.
+        ///   Looks up a localized string similar to {0} available for download!\n\nWould you like to visit the website now and download the new version?.
         /// </summary>
         internal static string NewVersionAvailableDescription {
             get {

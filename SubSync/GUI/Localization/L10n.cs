@@ -14,6 +14,8 @@ namespace SubSync.GUI.Localization
     {
         private static IDictionary<Type, ResourceManager> FormMessages;
         private static ResourceManager AppMessages;
+        private static UserSettings Settings = new UserSettings();
+
         public static ISet<CultureInfo> AvailableLanguages;
         public static CultureInfo DefaultLanguage = new CultureInfo("en");
 
@@ -47,7 +49,7 @@ namespace SubSync.GUI.Localization
 
         private static string GetLocalizedMessage(ResourceManager res, string key, params string[] values)
         {
-            var localizedMessage = res.GetString(key);
+            var localizedMessage = res.GetString(key, Settings.GuiLanguage);
 
             if (localizedMessage == null)
                 throw new ArgumentException(string.Format("Message key {0} not found!", key));

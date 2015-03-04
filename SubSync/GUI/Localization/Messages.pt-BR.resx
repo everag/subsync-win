@@ -166,7 +166,7 @@
     <value>Nova versão disponível!</value>
   </data>
   <data name="NewVersionAvailableDescription" xml:space="preserve">
-    <value>{0} disponível para download!\n\nClique em OK para visitar a página e baixar a nova versão.</value>
+    <value>{0} disponível para download!\n\nGostaria de ir até a página agora e baixar a nova versão?</value>
   </data>
   <data name="ReportBugs" xml:space="preserve">
     <value>Algum bug pra reportar ou barras de ouro pra doar? {0}!</value>

@@ -61,7 +61,7 @@ namespace SubSync.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 150223.
+        ///   Looks up a localized string similar to 150304.
         /// </summary>
         internal static string AppBuildDate {
             get {
@@ -88,7 +88,7 @@ namespace SubSync.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.6.
+        ///   Looks up a localized string similar to 0.8.
         /// </summary>
         internal static string AppVersion {
             get {
