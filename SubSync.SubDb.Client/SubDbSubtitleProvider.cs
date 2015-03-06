@@ -17,10 +17,9 @@ namespace SubSync.SubDb.Client
         private static readonly string IDENTIFIER = "SubDB";
         private static readonly Regex REGEX_GET_EXTENSION = new Regex(@".*filename=[a-zA-Z0-9]+\.([a-z]+)$");
 
-        public SubDbSubtitleProvider(string clientAppName, string clientAppVersion)
+        public SubDbSubtitleProvider(ReleaseInfo clientVersion)
         {
-            ClientAppName = clientAppName;
-            ClientAppVersion = clientAppVersion;
+            ClientVersion = clientVersion;
         }
 
         public ISet<CultureInfo> GetSupportedLanguages()
@@ -158,15 +157,13 @@ namespace SubSync.SubDb.Client
             }
         }
 
-        public string ClientAppName { get; set; }
-
-        public string ClientAppVersion { get; set; }
+        public ReleaseInfo ClientVersion { get; set; }
 
         private string UserAgent
         {
             get
             {
-                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", ClientAppName, ClientAppVersion, "https://subsync.codeplex.com");
+                return String.Format("{0}/{1} ({2}/{3}; {4})", "SubDB", "1.0", ClientVersion.ApplicationName, ClientVersion.Version, "https://subsync.codeplex.com");
             }
         }
 

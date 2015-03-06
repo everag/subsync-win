@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("SubSync")]
 [assembly: AssemblyDescription("SubSync is your media subtitles hunter")]
-[assembly: AssemblyCompany("SubSync Team")]
+[assembly: AssemblyCompany("SubSync")]
 [assembly: AssemblyProduct("SubSync")]
 [assembly: AssemblyCopyright("Copyleft 2015")]
 
@@ -29,5 +29,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.7.0.0")]
-[assembly: AssemblyInformationalVersion("SubSync Beta 0.7")]
+[assembly: AssemblyVersion("0.8.0.*")]
+[assembly: AssemblyFileVersion("0.8.0.*")]
+[assembly: AssemblyInformationalVersion("SubSync Beta 0.8.150305")]

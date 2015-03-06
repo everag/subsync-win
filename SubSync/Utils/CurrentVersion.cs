@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,12 +18,7 @@ namespace SubSync.Utils
             {
                 if (_releaseInfo == null)
                 {
-                    _releaseInfo = new ReleaseInfo(
-                        Properties.Resources.AppName,
-                        Properties.Resources.AppVersion,
-                        Properties.Resources.AppCurrentStage,
-                        Properties.Resources.AppBuildDate
-                    );
+                    _releaseInfo = new ReleaseInfo(Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion);
                 }
 
                 return _releaseInfo;

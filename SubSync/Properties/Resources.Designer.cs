@@ -61,42 +61,6 @@ namespace SubSync.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 150304.
-        /// </summary>
-        internal static string AppBuildDate {
-            get {
-                return ResourceManager.GetString("AppBuildDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Beta.
-        /// </summary>
-        internal static string AppCurrentStage {
-            get {
-                return ResourceManager.GetString("AppCurrentStage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SubSync.
-        /// </summary>
-        internal static string AppName {
-            get {
-                return ResourceManager.GetString("AppName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 0.8.
-        /// </summary>
-        internal static string AppVersion {
-            get {
-                return ResourceManager.GetString("AppVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon SubSync_Logo {

@@ -133,9 +133,9 @@ namespace SubSync.Utils
             RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true);
 
             if (include)
-                key.SetValue(Properties.Resources.AppName, string.Format("\"{0}\" /startsync", Application.ExecutablePath.ToString()));
+                key.SetValue(CurrentVersion.ReleaseInfo.ApplicationName, string.Format("\"{0}\" /startsync", Application.ExecutablePath.ToString()));
             else
-                key.DeleteValue(Properties.Resources.AppName, false);
+                key.DeleteValue(CurrentVersion.ReleaseInfo.ApplicationName, false);
         }
 
         public static string GetOSFriendlyName()

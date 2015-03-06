@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppBuildDate" xml:space="preserve">
-    <value>150304</value>
-  </data>
-  <data name="AppCurrentStage" xml:space="preserve">
-    <value>Beta</value>
-  </data>
-  <data name="AppName" xml:space="preserve">
-    <value>SubSync</value>
-  </data>
-  <data name="AppVersion" xml:space="preserve">
-    <value>0.8</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SubSync_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SubSync_Logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
