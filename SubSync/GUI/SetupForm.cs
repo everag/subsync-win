@@ -122,10 +122,20 @@ namespace SubSync.GUI
 
         private void FillSettingsInfo()
         {
+            // Media Folders
+
+            if (Settings.MediaFolders.Any(dir => !Directory.Exists(dir.FullName)))
+            {
+                Settings.MediaFolders = new HashSet<DirectoryInfo>(Settings.MediaFolders.Where(dir => Directory.Exists(dir.FullName)));
+                Settings.Save();
+            }
+
             foreach (var videoDirectory in Settings.MediaFolders)
             {
                 LstDirectories.Items.Add(videoDirectory.FullName);
             }
+
+            // Prefered Languages
 
             var languagesToRemoveFromSettings = new HashSet<CultureInfo>();
 
