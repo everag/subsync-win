@@ -415,13 +415,12 @@ namespace SubSync.GUI
             LstLanguagePreferences.Enabled = enable;
             LstDirectories.Enabled = enable;
 
-            BtnAddDirectory.Enabled = enable;
-            BtnRemoveDirectory.Enabled = enable;
+            LstLanguages.ClearSelected();
+            LstLanguagePreferences.ClearSelected();
+            LstDirectories.ClearSelected();
 
-            BtnAddLanguage.Enabled = enable;
-            BtnRemoveLanguage.Enabled = enable;
-            BtnLanguageUp.Enabled = enable;
-            BtnLanguageDown.Enabled = enable;
+            BtnAddDirectory.Enabled = enable;
+            // A lógica de habilitação/desabilitação dos outros botões é feita em runtime na seleção de itens das listas
 
             NotifyIconContextMenuItemCheckNow.Enabled = !enable;
         }
