@@ -179,69 +179,6 @@
   <data name="&gt;&gt;LbWelcomeTitle.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;LstDirectories.Name" xml:space="preserve">
-    <value>LstDirectories</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="&gt;&gt;LstDirectories.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Name" xml:space="preserve">
-    <value>BtnRemoveDirectory</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="&gt;&gt;BtnRemoveDirectory.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Name" xml:space="preserve">
-    <value>BtnAddDirectory</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.Parent" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="&gt;&gt;BtnAddDirectory.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="GpbSelectDirectories.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="GpbSelectDirectories.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 116</value>
-  </data>
-  <data name="GpbSelectDirectories.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 118</value>
-  </data>
-  <data name="GpbSelectDirectories.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="GpbSelectDirectories.Text" xml:space="preserve">
-    <value>Step 1 - Choose your media folders</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Name" xml:space="preserve">
-    <value>GpbSelectDirectories</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GpbSelectDirectories.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="LstDirectories.HorizontalScrollbar" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -269,9 +206,6 @@
   <data name="&gt;&gt;LstDirectories.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 20</value>
-  </metadata>
   <data name="BtnRemoveDirectory.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -287,6 +221,9 @@
   <data name="BtnRemoveDirectory.Text" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>190, 20</value>
+  </metadata>
   <data name="BtnRemoveDirectory.ToolTip" xml:space="preserve">
     <value>Remove the selected media folders</value>
   </data>
@@ -328,6 +265,33 @@
   </data>
   <data name="&gt;&gt;BtnAddDirectory.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="GpbSelectDirectories.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="GpbSelectDirectories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 116</value>
+  </data>
+  <data name="GpbSelectDirectories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 118</value>
+  </data>
+  <data name="GpbSelectDirectories.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="GpbSelectDirectories.Text" xml:space="preserve">
+    <value>Step 1 - Choose your media folders</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Name" xml:space="preserve">
+    <value>GpbSelectDirectories</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GpbSelectDirectories.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="FolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>25, 20</value>
@@ -446,6 +410,9 @@
   <data name="BtnAddLanguage.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="BtnAddLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
   <data name="BtnAddLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 63</value>
   </data>
@@ -456,7 +423,7 @@
     <value>5</value>
   </data>
   <data name="BtnAddLanguage.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
+    <value>→</value>
   </data>
   <data name="BtnAddLanguage.ToolTip" xml:space="preserve">
     <value>Inclua os idiomas selecionados na sua lista de preferência</value>
@@ -476,6 +443,9 @@
   <data name="BtnRemoveLanguage.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="BtnRemoveLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
   <data name="BtnRemoveLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 98</value>
   </data>
@@ -486,7 +456,7 @@
     <value>6</value>
   </data>
   <data name="BtnRemoveLanguage.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
+    <value>←</value>
   </data>
   <data name="&gt;&gt;BtnRemoveLanguage.Name" xml:space="preserve">
     <value>BtnRemoveLanguage</value>
@@ -500,6 +470,27 @@
   <data name="&gt;&gt;BtnRemoveLanguage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="BtnLanguageDown.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnLanguageDown.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnLanguageDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 98</value>
+  </data>
+  <data name="BtnLanguageDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnLanguageDown.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="BtnLanguageDown.Text" xml:space="preserve">
+    <value>↓</value>
+  </data>
+  <data name="BtnLanguageDown.ToolTip" xml:space="preserve">
+    <value>Move the selected language down on your preference list</value>
+  </data>
   <data name="&gt;&gt;BtnLanguageDown.Name" xml:space="preserve">
     <value>BtnLanguageDown</value>
   </data>
@@ -511,6 +502,27 @@
   </data>
   <data name="&gt;&gt;BtnLanguageDown.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="BtnLanguageUp.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="BtnLanguageUp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnLanguageUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 63</value>
+  </data>
+  <data name="BtnLanguageUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 29</value>
+  </data>
+  <data name="BtnLanguageUp.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="BtnLanguageUp.Text" xml:space="preserve">
+    <value>↑</value>
+  </data>
+  <data name="BtnLanguageUp.ToolTip" xml:space="preserve">
+    <value>Move the selected language up on your preference list</value>
   </data>
   <data name="&gt;&gt;BtnLanguageUp.Name" xml:space="preserve">
     <value>BtnLanguageUp</value>
@@ -551,69 +563,6 @@
   <data name="&gt;&gt;GpbSelectLanguages.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="BtnLanguageDown.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BtnLanguageDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 98</value>
-  </data>
-  <data name="BtnLanguageDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="BtnLanguageDown.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="BtnLanguageDown.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="BtnLanguageDown.ToolTip" xml:space="preserve">
-    <value>Move the selected language down on your preference list</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.Name" xml:space="preserve">
-    <value>BtnLanguageDown</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageDown.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="BtnLanguageUp.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BtnLanguageUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 63</value>
-  </data>
-  <data name="BtnLanguageUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 29</value>
-  </data>
-  <data name="BtnLanguageUp.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="BtnLanguageUp.Text" xml:space="preserve">
-    <value>+</value>
-  </data>
-  <data name="BtnLanguageUp.ToolTip" xml:space="preserve">
-    <value>Move the selected language up on your preference list</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Name" xml:space="preserve">
-    <value>BtnLanguageUp</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.Parent" xml:space="preserve">
-    <value>GpbSelectLanguages</value>
-  </data>
-  <data name="&gt;&gt;BtnLanguageUp.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="ToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 20</value>
-  </metadata>
   <data name="BtnStartStop.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -720,7 +669,7 @@
     <value>&amp;Exit</value>
   </data>
   <data name="NotifyIconContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 226</value>
+    <value>217, 204</value>
   </data>
   <data name="&gt;&gt;NotifyIconContextMenu.Name" xml:space="preserve">
     <value>NotifyIconContextMenu</value>

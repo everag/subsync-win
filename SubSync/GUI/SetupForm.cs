@@ -118,6 +118,11 @@ namespace SubSync.GUI
             {
                 StartStopSync();
             }
+
+            if (StartupArgs.InitializeInTray)
+            {
+                Hide();
+            }
         }
 
         private void FillSettingsInfo()
