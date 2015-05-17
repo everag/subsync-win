@@ -25,6 +25,14 @@ namespace SubSync.Lib
             }
         }
 
+        public static int ScheduledInternetAvailabilityCheckingDelay
+        {
+            get
+            {
+                return GetIntValue("Tasks.CheckInternetAvailability.Delay", 10);
+            }
+        }
+
         public static string RunningEnvironment
         {
             get 

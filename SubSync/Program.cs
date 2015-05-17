@@ -1,6 +1,7 @@
 ﻿using SubSync.GUI;
 using SubSync.GUI.Localization;
 using SubSync.Lib;
+using SubSync.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,12 +19,19 @@ namespace SubSync
         [STAThread]
         static void Main(string[] args)
         {
-            StartupArgs.SetArgs(args);
+            if (NetworkUtils.IsInternetAvailable())
+            {
+                StartupArgs.SetArgs(args);
 
-            if (Configuration.RunningEnvironment == "Debug")
-                StartApplicationInDebug();
+                if (Configuration.RunningEnvironment == "Debug")
+                    StartApplicationInDebug();
+                else
+                    StartApplication();
+            }
             else
-                StartApplication();
+            {
+                MessageBox.Show(L10n.Get("InternetOfflineStartup"), CurrentVersion.ReleaseInfo.ApplicationName);
+            }
         }
 
         private static void StartApplication()
@@ -38,7 +46,7 @@ namespace SubSync
             }
             else
             {
-                MessageBox.Show("SubSync is already running!", "SubSync");
+                MessageBox.Show(L10n.Get("AppAlreadyRunning"), CurrentVersion.ReleaseInfo.ApplicationName);
             }
         }
 

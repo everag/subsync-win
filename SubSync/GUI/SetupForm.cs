@@ -113,6 +113,7 @@ namespace SubSync.GUI
             CheckStartButton();
 
             TaskManager.StartTask<CheckForUpdatesJob>();
+            TaskManager.StartTask<CheckInternetAvailabilityJob>();
 
             if (StartupArgs.InitializeInStartState && IsConfigurationOk())
             {
@@ -175,6 +176,17 @@ namespace SubSync.GUI
                 var subtitleInfo = (e as SubtitleDownloadedEventArgs).SubtitleFile;
 
                 ShowTrayNotification(L10n.Get("SubtitleDownloaded", subtitleInfo.VideoFile.Name), NotificationPeriod.NORMAL);
+            };
+
+            SyncManager.InternetConnectivityLost += (sender, e) =>
+            {
+                if (SyncManager.Status != SyncStatus.RUNNING)
+                    return;
+
+                Thread t = new Thread(new ThreadStart(() => BkgWorkerStartStopSync.RunWorkerAsync(SyncAction.STOP)));
+                t.Start();
+
+                MessageBox.Show(L10n.Get("InternetOfflineRegularCheck"), CurrentVersion.ReleaseInfo.ApplicationName);
             };
         }
         
@@ -435,15 +447,22 @@ namespace SubSync.GUI
             StartStopSync();
         }
 
-        private void StartStopSync()
+        public void StartStopSync()
         {
-            LstDirectories.ClearSelected();
-            LstLanguagePreferences.ClearSelected();
-            LstLanguages.ClearSelected();
-
             if (SyncManager.Status == SyncStatus.NOT_RUNNING)
             {
-                BkgWorkerStartStopSync.RunWorkerAsync(SyncAction.START);
+                if (NetworkUtils.IsInternetAvailable())
+                {
+                    LstDirectories.ClearSelected();
+                    LstLanguagePreferences.ClearSelected();
+                    LstLanguages.ClearSelected();
+
+                    BkgWorkerStartStopSync.RunWorkerAsync(SyncAction.START);
+                }
+                else
+                {
+                    MessageBox.Show(L10n.Get("InternetOfflineStartSync"), CurrentVersion.ReleaseInfo.ApplicationName);
+                }
             }
             else if (SyncManager.Status == SyncStatus.RUNNING)
             {
@@ -477,6 +496,14 @@ namespace SubSync.GUI
         {
             var progress = (SyncStartStopProgress)e.UserState;
 
+            UpdateButtonCallback updBtnCb = (button, text, enabled) =>
+            {
+                button.Text = text;
+                button.Enabled = enabled;
+            };
+
+            ToggleControlsEnabledCallback toggleEnabledCb = (enabled) => ToggleControlsEnabled(enabled);
+
             switch (progress)
             {
                 case SyncStartStopProgress.STARTING:
@@ -491,10 +518,8 @@ namespace SubSync.GUI
                     break;
 
                 case SyncStartStopProgress.STOPPING:
-                    ToggleControlsEnabled(false);
-                    
-                    BtnStartStop.Enabled = false;
-                    BtnStartStop.Text = L10n.Get("AppStopping");
+                    this.Invoke(toggleEnabledCb, new object[] { false });
+                    this.Invoke(updBtnCb, new object[] { BtnStartStop, L10n.Get("AppStopping"), false });
                     
                     NotifyIconContextMenuItemStartStop.Enabled = false;
                     NotifyIconContextMenuItemStartStop.Text = L10n.Get("AppStopping");
@@ -507,14 +532,14 @@ namespace SubSync.GUI
                     
                     NotifyIconContextMenuItemStartStop.Enabled = true;
                     NotifyIconContextMenuItemStartStop.Text = L10n.Get("MenuAppStop", AppName);
-                    
+
+                    Hide();
+
                     break;
 
                 case SyncStartStopProgress.STOPPED:
-                    ToggleControlsEnabled(true);
-
-                    BtnStartStop.Enabled = true;
-                    BtnStartStop.Text = L10n.Get("AppStart", AppName);
+                    this.Invoke(toggleEnabledCb, new object[] { true });
+                    this.Invoke(updBtnCb, new object[] { BtnStartStop, L10n.Get("AppStart", AppName), true });
                     
                     NotifyIconContextMenuItemStartStop.Enabled = true;
                     NotifyIconContextMenuItemStartStop.Text = L10n.Get("MenuAppStart", AppName);
@@ -522,6 +547,9 @@ namespace SubSync.GUI
                     break;
             }
         }
+
+        delegate void UpdateButtonCallback(Button button, string text, bool enabled);
+        delegate void ToggleControlsEnabledCallback(bool enabled);
 
         #endregion
 

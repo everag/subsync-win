@@ -18,7 +18,7 @@ namespace SubSync.GUI
 
             lock (oLock)
             {
-                var openedForm = (Application.OpenForms[type.Name] as Form);
+                var openedForm = GetOpenedForm(type);
 
                 if (openedForm != null)
                 {
@@ -40,6 +40,11 @@ namespace SubSync.GUI
                     newForm.Show();
                 }
             }
+        }
+
+        public static Form GetOpenedForm(Type type)
+        {
+            return Application.OpenForms[type.Name] as Form;
         }
     }
 }

@@ -80,6 +80,27 @@ namespace SubSync.Tasks
 
                 Scheduler.ScheduleJob(job, trigger);
             }
+            else if (jobType == typeof(CheckInternetAvailabilityJob))
+            {
+                var trigger = TriggerBuilder.Create()
+                    .WithIdentity("Trigger.CheckInternetAvailability", "SystemTasks")
+                    .StartNow()
+                    .WithSimpleSchedule(t => t
+                        .WithIntervalInSeconds(Configuration.ScheduledInternetAvailabilityCheckingDelay)
+                        .RepeatForever())
+                    .Build();
+
+                var job = JobBuilder.Create<CheckInternetAvailabilityJob>()
+                    .WithIdentity("Job.CheckInternetAvailability", "SystemTasks")
+                    .Build();
+
+                if (!ScheduledJobs.ContainsKey(jobType))
+                    ScheduledJobs[jobType] = new HashSet<IJobDetail>();
+
+                ScheduledJobs[jobType].Add(job);
+
+                Scheduler.ScheduleJob(job, trigger);
+            }
         }
 
         public static void AntecipateTask<Task>(bool adjustSchedule) where Task : IJob

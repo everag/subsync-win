@@ -16,11 +16,13 @@ namespace SubSync
                 {
                     case "/startsync":
                         InitializeInStartState = true;
+                        InitializeInTray = true;
                         break;
                 }
             }
         }
 
         public static bool InitializeInStartState = false;
+        public static bool InitializeInTray = false;
     }
 }

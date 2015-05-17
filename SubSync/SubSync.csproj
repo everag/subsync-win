@@ -136,6 +136,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartupArgs.cs" />
+    <Compile Include="Tasks\CheckInternetAvailabilityJob.cs" />
     <Compile Include="Tasks\CheckForVideosJob.cs" />
     <Compile Include="Tasks\CheckForUpdatesJob.cs" />
     <Compile Include="Tasks\TaskManager.cs" />

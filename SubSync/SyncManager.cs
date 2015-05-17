@@ -1,6 +1,7 @@
 ﻿using Quartz;
 using Quartz.Impl;
 using SubSync.Events;
+using SubSync.GUI;
 using SubSync.Lib;
 using SubSync.SubDb.Client;
 using SubSync.Tasks;
@@ -67,7 +68,7 @@ namespace SubSync
 
         private object thisLock = new Object();
 
-        public event EventHandler Started, Stopped, VideoFound, SubtitleDownloaded;
+        public event EventHandler Started, Stopped, VideoFound, SubtitleDownloaded, InternetConnectivityLost;
 
         public SyncStatus Start(IList<CultureInfo> preferredLanguages, ISet<DirectoryInfo> mediaDirectories)
         {
@@ -261,6 +262,11 @@ namespace SubSync
         private SubtitleStream DownloadSubtitle(FileStream videoStream)
         {
             return SubDbProvider.GetFirstSubtitleFound(videoStream, PreferredLanguages);
+        }
+
+        public void AdviseInternetConnectivityLost()
+        {
+            InternetConnectivityLost(this, new EventArgs());
         }
     }
 }

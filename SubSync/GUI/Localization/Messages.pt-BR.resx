@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppAlreadyRunning" xml:space="preserve">
+    <value>Outra instância do programa já está rodando!</value>
+  </data>
   <data name="AppRunning" xml:space="preserve">
     <value>{0} foi iniciado!</value>
   </data>
@@ -152,6 +155,15 @@
   </data>
   <data name="DirectoryAlreadySelected" xml:space="preserve">
     <value>Essa pasta já foi selecionada</value>
+  </data>
+  <data name="InternetOfflineRegularCheck" xml:space="preserve">
+    <value>A conexão de Internet foi perdida! A busca automática de legendas foi parada</value>
+  </data>
+  <data name="InternetOfflineStartSync" xml:space="preserve">
+    <value>Sem conexão de Internet! Cheque sua conectividade de rede e tente novamente</value>
+  </data>
+  <data name="InternetOfflineStartup" xml:space="preserve">
+    <value>Sem conexão de Internet! Cheque sua conectividade de rede e abra o programa novamente</value>
   </data>
   <data name="LanguageChangeRestart" xml:space="preserve">
     <value>Por favor reinicie o programa para aplicar as alterações de idioma</value>

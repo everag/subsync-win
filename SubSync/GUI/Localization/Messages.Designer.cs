@@ -61,6 +61,15 @@ namespace SubSync.GUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other program instance is already running!.
+        /// </summary>
+        internal static string AppAlreadyRunning {
+            get {
+                return ResourceManager.GetString("AppAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} is running!.
         /// </summary>
         internal static string AppRunning {
@@ -165,6 +174,33 @@ namespace SubSync.GUI.Localization {
         internal static string DirectoryAlreadySelected {
             get {
                 return ResourceManager.GetString("DirectoryAlreadySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Internet connection was lost! Automatic subtitles lookup has been paused.
+        /// </summary>
+        internal static string InternetOfflineRegularCheck {
+            get {
+                return ResourceManager.GetString("InternetOfflineRegularCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Internet access! Check your network conectivity and try again.
+        /// </summary>
+        internal static string InternetOfflineStartSync {
+            get {
+                return ResourceManager.GetString("InternetOfflineStartSync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Internet access! Check your network conectivity and open the program again.
+        /// </summary>
+        internal static string InternetOfflineStartup {
+            get {
+                return ResourceManager.GetString("InternetOfflineStartup", resourceCulture);
             }
         }
         
