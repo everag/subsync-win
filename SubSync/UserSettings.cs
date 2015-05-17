@@ -83,6 +83,20 @@ namespace SubSync
             }
         }
 
+        [UserScopedSetting()]
+        [DefaultSettingValue("true")]
+        public bool UpgradeSettings
+        {
+            get
+            {
+                return ((bool) this["UpgradeSettings"]);
+            }
+            set
+            {
+                this["UpgradeSettings"] = (bool) value;
+            }
+        }
+
         #endregion
     }
 }

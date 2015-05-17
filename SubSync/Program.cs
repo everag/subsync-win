@@ -19,6 +19,8 @@ namespace SubSync
         [STAThread]
         static void Main(string[] args)
         {
+            CheckUpgradeSettings();
+
             if (NetworkUtils.IsInternetAvailable())
             {
                 StartupArgs.SetArgs(args);
@@ -99,6 +101,19 @@ namespace SubSync
             }
 
             return guessedLanguage ?? L10n.DefaultLanguage;
+        }
+
+        private static void CheckUpgradeSettings()
+        {
+            var settings = new UserSettings();
+
+            // Copy user settings from previous application version, if necessary
+            if (settings.UpgradeSettings)
+            {
+                settings.Upgrade();
+                settings.UpgradeSettings = false;
+                settings.Save();
+            }
         }
     }
 }
