@@ -16,7 +16,7 @@ namespace SubSync.GUI
 {
     public partial class AboutForm : Form
     {
-        private static readonly Uri HomePageUri = new Uri("https://subsync.codeplex.com");
+        private static readonly Uri HomePageUri = new Uri("https://github.com/everton-agner/subsync-win");
         private static readonly Uri FacebookPageUri = new Uri("https://fb.com/subsyncapp");
         private static readonly Uri DeveloperContactUri = new Uri("mailto://ton.agner+subsync@gmail.com");
         private static readonly Uri LogoDesignContactUri = new Uri("http://www.diogocezar.com");
